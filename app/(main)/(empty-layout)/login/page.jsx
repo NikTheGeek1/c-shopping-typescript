@@ -8,8 +8,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { userLogin } from '@/store'
 
-import { useLanguageContext } from '@/context/LanguageContext'
-
 export default function LoginPage() {
   //? Assets
   const dispatch = useDispatch()
