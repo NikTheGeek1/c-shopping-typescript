@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 import { Icons, NavbarSkeleton, ResponsiveImage } from '@/components'
 
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useGetCategoriesQuery } from '@/store/services'
 import { Category } from '@/types'
 
@@ -34,6 +35,9 @@ export default function Navbar() {
     if (categories) setActiveMinCat(categories?.filter(category => category.level === 1)[0])
   }, [categories])
 
+  // ? Dictionary
+  const translation = useLanguageContext()
+
   //? Render
   return (
     <div className="hidden lg:block group">
@@ -43,7 +47,7 @@ export default function Navbar() {
         onMouseLeave={() => setHover(false)}
       >
         <Icons.Bars className="icon" />
-        Product Categories
+        {translation?.dict?.header?.navbar.categories}
       </button>
       <div
         className={`fixed left-0 z-20 w-full h-screen top-28 bg-gray-400/50 ${

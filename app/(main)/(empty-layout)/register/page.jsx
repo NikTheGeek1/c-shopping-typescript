@@ -1,9 +1,12 @@
 'use client'
 
+import { HandleResponse, LoginBtn, Logo, RedirectToLogin, TextField } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
+import { useCreateUserMutation } from '@/store/services'
+import { yupResolver } from '@hookform/resolvers/yup'
+import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
-import Link from 'next/link'
-
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -26,6 +29,9 @@ export default function RegisterPage() {
   const { replace } = useRouter()
   const searchParams = useSearchParams()
   const redirectTo = searchParams.get('redirectTo')
+
+  // ? Dictionary
+  const { dict } = useLanguageContext()
 
   //? Create User
   const [createUser, { data, isSuccess, isError, isLoading, error }] = useCreateUserMutation()
@@ -55,9 +61,6 @@ export default function RegisterPage() {
       })
     }
   }
-
-  // ? Dictionary
-  const { dict } = useLanguageContext()
 
   const onError = () => {
     if (error.status === 422) {

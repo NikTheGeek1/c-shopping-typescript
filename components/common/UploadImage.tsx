@@ -1,10 +1,11 @@
 'use client'
 
-import OSS from 'ali-oss'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useLazyGetUploadTokenQuery } from '@/store/services'
-import { nanoid } from '@reduxjs/toolkit'
-import { useState } from 'react'
 import { getFilenameExt } from '@/utils'
+import { nanoid } from '@reduxjs/toolkit'
+import OSS from 'ali-oss'
+import { useState } from 'react'
 
 interface UploadImageProps {
   folder?: string
@@ -17,6 +18,9 @@ const UploadImage = ({folder, handleAddUploadedImageUrl}: UploadImageProps) => {
   const [error, setError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   const [getUploadToken] = useLazyGetUploadTokenQuery()
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,19 +31,19 @@ const UploadImage = ({folder, handleAddUploadedImageUrl}: UploadImageProps) => {
     setLoading(true)
 
     if (!file) {
-      setError('Please select a file')
+      setError(dict.admin?.upload.select)
       setLoading(false)
       return
     }
 
     if (!file.type.startsWith('image/')) {
-      setError('The selected file must be an image')
+      setError(dict.admin?.upload.validation)
       setLoading(false)
       return
     }
 
     if (file.size > 5 * 1024 * 1024) {
-      setError('The image size should not exceed 5 MB')
+      setError(dict.admin?.upload.limit)
       setLoading(false)
       return
     }
@@ -63,11 +67,11 @@ const UploadImage = ({folder, handleAddUploadedImageUrl}: UploadImageProps) => {
       .put(`${filePath}${fileName}`, file)
       .then(result => {
         handleAddUploadedImageUrl(result.url)
-        setMessage('Upload successful')
+        setMessage(dict.admin?.upload.success)
       })
       .catch(err => {
         console.log(`Common upload failed`, err)
-        setError(err.message || '未上载图像')
+        setError(err.message || dict.admin?.upload.noImage)
       })
       .finally(() => {
         setLoading(false)
@@ -78,12 +82,13 @@ const UploadImage = ({folder, handleAddUploadedImageUrl}: UploadImageProps) => {
     <>
       <div className="flex-1 space-y-3 my-4">
         <label htmlFor="file" className="text-field__label">
-          图像插件
+          {dict.admin?.upload.plugin}
         </label>
         <div className="flex items-center gap-x-3">
           <input
             type="file"
             id="file"
+            name="file-upload"
             onChange={handleFileChange}
             className="border border-gray-300 px-3 py-2 w-full"
           />
@@ -93,7 +98,7 @@ const UploadImage = ({folder, handleAddUploadedImageUrl}: UploadImageProps) => {
             onClick={handleUpload}
             className="text-green-600 bg-green-50 w-36 hover:text-green-700 hover:bg-green-100 py-2 rounded"
           >
-            {loading ? '正在上传...' : '上传'}
+            {loading ? dict.admin?.upload.uploading : dict.admin?.upload.upload}
           </button>
         </div>
       </div>

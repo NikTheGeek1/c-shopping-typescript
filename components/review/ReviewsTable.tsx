@@ -2,11 +2,15 @@ import Link from 'next/link'
 
 import { EditIconBtn, ResponsiveImage } from '@/components'
 import { Review } from '@/store/services'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 interface ReviewsTableProps {
   reviews: Review[]
 }
 const ReviewsTable = ({ reviews }: ReviewsTableProps) => {
+
+  // ? Dictionary
+  const { dict } = useLanguageContext()
 
   //? Render(s)
   return (
@@ -16,12 +20,9 @@ const ReviewsTable = ({ reviews }: ReviewsTableProps) => {
           <tr className="text-emerald-500">
             <th></th>
             <th className="border-gray-100 border-x-2">ID</th>
-            <th>Status</th>
-            <th className="border-gray-100 border-x-2">User</th>
-            <th>Actions</th>
-            <th>Status</th>
-            <th className="border-gray-100 border-x-2">User</th>
-            <th>Actions</th>
+            <th>{dict.admin?.review.status}</th>
+            <th className="border-gray-100 border-x-2">{dict.admin?.review.user}</th>
+            <th>{dict.admin?.review.actions}</th>
           </tr>
         </thead>
         <tbody className="text-gray-600">
@@ -52,7 +53,11 @@ const ReviewsTable = ({ reviews }: ReviewsTableProps) => {
                       }
                     `}
                   >
-                    {review.status === 1 ? 'Pending Confirmation' : review.status === 2 ? 'Confirmed' : 'None'}
+                    {review.status === 1
+                      ? dict.admin?.review.pending
+                      : review.status === 2
+                        ? dict.admin?.review.confirmed
+                        : 'none'}
                   </span>
                 </td>
                 <td className="p-2">{review.user.name}</td>

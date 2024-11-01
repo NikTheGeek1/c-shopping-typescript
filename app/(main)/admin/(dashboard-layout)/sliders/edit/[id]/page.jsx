@@ -1,8 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-
+import { useLanguageContext } from '@/context/LanguageContext'
+import { useTitle, useUrlQuery } from '@/hooks'
+import {
+  useDeleteSliderMutation,
+  useGetSingleSliderQuery,
+  useUpdateSliderMutation,
+} from '@/store/services'
 import {
   BigLoading,
   ConfirmDeleteModal,
@@ -10,18 +14,10 @@ import {
   HandleResponse,
   PageContainer,
   SliderForm,
-} from '@/components'
-
-import { useDisclosure } from '@/hooks'
-
-import { SubmitHandler } from 'react-hook-form'
-
-import {
-  useDeleteSliderMutation,
-  useGetSingleSliderQuery,
-  useUpdateSliderMutation,
-} from '@/store/services'
-import { useTitle, useUrlQuery } from '@/hooks'
+} from 'components'
+import { useDisclosure } from 'hooks'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 const EditSliderPage = ({ params: { id: sliderId } }) => {
   //? Assets
@@ -114,12 +110,17 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
 
   const onErrorDelete = () => confirmDeleteModalHandlers.close()
 
-  useTitle('Edit Slider' + ' ' + sliderName)
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+  const title = dict.admin
+    ? `${dict.admin.slider.edit}${dict.lang === '中文' ? '' : ' '}${dict.admin.slider.name}`
+    : 'Edit Slider'
+  useTitle(title + ' ' + sliderName)
 
   return (
     <>
       <ConfirmDeleteModal
-        title="Slider"
+        title={dict.admin.slider.name}
         isLoading={isLoadingDelete}
         isShow={isShowConfirmDeleteModal}
         onClose={confirmDeleteModalHandlers.close}
@@ -139,7 +140,7 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
       )}
 
       <ConfirmUpdateModal
-        title="Slider"
+        title={dict.admin.slider.name}
         isLoading={isLoadingUpdate}
         isShow={isShowConfirmUpdateModal}
         onClose={confirmUpdateModalHandlers.close}
@@ -159,7 +160,7 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
       )}
 
       <main>
-        <PageContainer title={'Edit Slider' + ' ' + sliderName}>
+        <PageContainer title={title + ' ' + sliderName}>
           {isLoadingGetSelectedSlider ? (
             <div className="px-3 py-20">
               <BigLoading />

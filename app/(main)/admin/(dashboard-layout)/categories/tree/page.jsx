@@ -1,12 +1,20 @@
 'use client'
 
-import { BigLoading, PageContainer } from '@/components'
-
-import { useGetCategoriesQuery } from '@/store/services'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
+import { useGetCategoriesQuery } from '@/store/services'
+import { BigLoading, PageContainer } from 'components'
 
 export default function CategoriesTreePage() {
-  useTitle('分类图表')
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+  useTitle(
+    dict.admin
+      ? `${dict.admin.category.category}${dict.lang === '中文' ? '' : ' '}${
+          dict.admin.category.chart
+        }`
+      : 'Category Chart'
+  )
   //? Get Categories Data
   const { categoriesList, isLoading } = useGetCategoriesQuery(undefined, {
     selectFromResult: ({ data, isLoading }) => ({
@@ -24,21 +32,24 @@ export default function CategoriesTreePage() {
           <BigLoading />
         </div>
       ) : (
-        <PageContainer title="分类图表">
+        <PageContainer
+          title={`${dict.admin?.category.edit}${dict.lang === '中文' ? '' : ' '}${dict.admin
+            ?.category.category}`}
+        >
           <section className="p-3">
             <div className="space-y-8 text-white">
               <div className="flex text-gray-600 gap-x-3">
                 <p className="flex items-center text-sm gap-x-1">
                   <span className="inline-block w-6 h-6 bg-red-500 rounded-md" />
-                  一级
+                  {dict.admin?.category.firstLevel}
                 </p>
                 <p className="flex items-center text-sm gap-x-1">
                   <span className="inline-block w-6 h-6 bg-green-500 rounded-md" />
-                  二级
+                  {dict.admin?.category.secondLevel}
                 </p>
                 <p className="flex items-center text-sm gap-x-1">
                   <span className="inline-block w-6 h-6 bg-blue-500 rounded-md" />
-                  三级
+                  {dict.admin?.category.thirdLevel}
                 </p>
               </div>
               <ul className="space-y-8">

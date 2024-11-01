@@ -1,4 +1,7 @@
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { useLanguageContext } from '@/context/LanguageContext'
+
+// @ts-ignore
 import { yupResolver } from '@hookform/resolvers/yup'
 import { nameSchema } from '@/utils'
 
@@ -33,6 +36,9 @@ const UserNameModal = ({ isShow, onClose, editedData }: UserNameModalProps) => {
       body: { name },
     })
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <>
@@ -53,23 +59,25 @@ const UserNameModal = ({ isShow, onClose, editedData }: UserNameModalProps) => {
           onClose={onClose}
           className="flex flex-col h-full px-5 py-3 bg-white md:rounded-lg gap-y-5 "
         >
-          <Modal.Header onClose={onClose}>Submit and Edit Identity Information</Modal.Header>
+          <Modal.Header onClose={onClose}>{dict.profile?.account?.edit}</Modal.Header>
           <Modal.Body>
-            <p className="text-sm">Please enter identity information, including first and last name</p>
+            <p className="text-sm">{dict.profile?.account?.identity}</p>
 
             <form
               className="flex flex-col justify-between flex-1 gap-y-5 "
               onSubmit={handleSubmit(submitHander)}
             >
               <TextField
-                label="First and Last Name"
+                label={dict.profile?.account?.name}
                 control={control}
                 errors={formErrors.name}
                 name="name"
               />
 
               <div className="py-3 border-t-2 border-gray-200 lg:pb-0 ">
-                <SubmitModalBtn isLoading={isLoading}>Confirm</SubmitModalBtn>
+                <SubmitModalBtn isLoading={isLoading}>
+                  {dict.profile?.account?.confirm}
+                </SubmitModalBtn>
               </div>
             </form>
           </Modal.Body>

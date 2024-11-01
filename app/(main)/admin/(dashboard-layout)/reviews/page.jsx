@@ -1,21 +1,24 @@
 'use client'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+import { useTitle, useUrlQuery } from '@/hooks'
 import { useGetReviewsListQuery } from '@/store/services'
-
 import {
-  Pagination,
-  ShowWrapper,
   EmptyCommentsList,
   PageContainer,
+  Pagination,
   ReviewsTable,
+  ShowWrapper,
   TableSkeleton,
-} from '@/components'
-
-import { useChangeRoute } from '@/hooks'
-import { useTitle, useUrlQuery } from '@/hooks'
+} from 'components'
+import { useChangeRoute } from 'hooks'
 
 const ReviewsPage = () => {
-  useTitle('Review Management')
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
+  useTitle(dict.admin ? dict.admin.review.title : 'Review Management')
+
   //? Assets
   const query = useUrlQuery()
   const page = query.page ? +query.page : 1
@@ -30,7 +33,7 @@ const ReviewsPage = () => {
   //? Render
   return (
     <main id="_adminReviews">
-      <PageContainer title="Review Management">
+      <PageContainer title={dict.admin?.review.title}>
         <ShowWrapper
           error={error}
           isError={isError}

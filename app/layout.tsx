@@ -1,5 +1,5 @@
-import '/styles/main.css'
 import '/styles/browser-styles.css'
+import '/styles/main.css'
 import '/styles/swiper.css'
 
 import { enSiteTitle, siteDescription, siteTitle } from '@/utils'

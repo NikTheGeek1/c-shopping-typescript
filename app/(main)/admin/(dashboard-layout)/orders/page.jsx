@@ -1,22 +1,22 @@
 'use client'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+import { useTitle, useUrlQuery } from '@/hooks'
 import { useGetOrdersListQuery } from '@/store/services'
-
 import {
+  EmptyOrdersList,
+  OrdersTable,
+  PageContainer,
   Pagination,
   ShowWrapper,
-  EmptyOrdersList,
-  PageContainer,
-  OrdersTable,
   TableSkeleton,
-} from '@/components'
-
-import { useChangeRoute } from '@/hooks'
-
-import { useTitle, useUrlQuery } from '@/hooks'
+} from 'components'
+import { useChangeRoute } from 'hooks'
 
 const OrdersHome = () => {
-  useTitle('Order Management')
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+  useTitle(dict.admin?.orders.title || 'Order Management')
   //? Assets
   const query = useUrlQuery()
   const page = query.page ? +query.page : 1
@@ -32,7 +32,7 @@ const OrdersHome = () => {
   //? Render(s)
   return (
     <main id="_adminOrders">
-      <PageContainer title="Order Management">
+      <PageContainer title={dict.admin?.orders.title}>
         <section className="p-3 md:px-3 xl:px-8 2xl:px-10" id="orders">
           <ShowWrapper
             error={error}

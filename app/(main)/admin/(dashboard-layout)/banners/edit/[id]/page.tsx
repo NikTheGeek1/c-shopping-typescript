@@ -1,8 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-
 import {
   BannerForm,
   BigLoading,
@@ -24,6 +21,8 @@ import { SubmitHandler } from 'react-hook-form'
 import { useTitle, useUrlQuery } from '@/hooks'
 
 import { useLanguageContext } from '@/context/LanguageContext'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 interface EditBannerPageProps {
   params: {
@@ -128,8 +127,7 @@ const EditBannerPage = ({ params: { id: bannerId } }: EditBannerPageProps) => {
   const { dict } = useLanguageContext()
 
   useTitle((dict.admin?.banner.title || 'Edit Banner') + ' ' + bannerName)
-
-
+  
   return (
     <>
       <ConfirmDeleteModal

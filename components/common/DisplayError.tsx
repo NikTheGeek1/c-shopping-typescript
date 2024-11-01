@@ -2,7 +2,7 @@ import { Transition } from '@headlessui/react'
 import { Icons } from '@/components'
 
 interface DisplayErrorProps {
-  errors: any
+  errors?: any
 }
 
 export default function DisplayError({ errors }: DisplayErrorProps) {

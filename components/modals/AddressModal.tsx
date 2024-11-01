@@ -1,10 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useEditUserMutation } from '@/store/services'
-
-import { SubmitHandler, useForm } from 'react-hook-form'
+// @ts-ignore
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { addressSchema } from '@/utils'
@@ -23,6 +21,8 @@ import {
   HandleResponse,
 } from '@/components'
 import { UserAddress } from '@/types'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 
 interface AddressModalProps {
@@ -42,6 +42,9 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
   //? State
   const [cities, setCities] = useState([])
   const [areas, setAreas] = useState([])
+
+  // ? Dictionary
+  const { dict } = useLanguageContext()
 
   //? Form Hook
   const {
@@ -109,9 +112,9 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
           onClose={onClose}
           className="flex flex-col h-full px-5 py-3 bg-white md:rounded-lg gap-y-5 "
         >
-          <Modal.Header onClose={onClose}>Address Management</Modal.Header>
+          <Modal.Header onClose={onClose}>{dict.header?.address?.modal?.title}</Modal.Header>
           <Modal.Body>
-            <p>Please enter your shipping address</p>
+            <p>{dict.header?.address?.modal?.description}</p>
             <form
               className="flex flex-col justify-between flex-1 pl-4 overflow-y-auto"
               onSubmit={handleSubmit(submitHander)}
@@ -122,7 +125,7 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
                     control={control}
                     name="province"
                     list={AllProvinces}
-                    placeholder="Please select your province"
+                    placeholder={dict.header?.address?.modal?.province}
                   />
                   {/* @ts-ignore TODO figure out formErrors type */}
                   <DisplayError errors={formErrors.province?.name} />
@@ -133,7 +136,7 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
                     control={control}
                     name="city"
                     list={cities}
-                    placeholder="Please select your city"
+                    placeholder={dict.header?.address?.modal?.city}
                   />
                   {/* @ts-ignore TODO figure out formErrors type */}
                   <DisplayError errors={formErrors.city?.name} />
@@ -144,21 +147,21 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
                     control={control}
                     name="area"
                     list={areas}
-                    placeholder="Please select your district"
+                    placeholder={dict.header?.address?.modal?.area}
                   />
                   {/* @ts-ignore TODO figure out formErrors type */}
                   <DisplayError errors={formErrors.area?.name} />
                 </div>
 
                 <TextField
-                  label="Street Information"
+                  label={dict.header?.address?.modal?.street}
                   control={control}
                   errors={formErrors.street}
                   name="street"
                 />
 
                 <TextField
-                  label="Postal Code"
+                  label={dict.header?.address?.modal?.code}
                   control={control}
                   errors={formErrors.postalCode}
                   name="postalCode"
@@ -170,7 +173,7 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
 
               <div className="py-3 border-t-2 border-gray-200 lg:pb-0 flex">
                 <SubmitModalBtn isLoading={isLoading} className="ml-auto">
-                  Confirm
+                  {dict.header?.address?.modal?.submit}
                 </SubmitModalBtn>
               </div>
             </form>

@@ -1,9 +1,9 @@
 'use client'
-import { useRef } from 'react'
 
-import { Control, UseFormRegister, useFieldArray } from 'react-hook-form'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { AddIconBtn, DeleteIconBtn } from '@/components'
+import { useRef } from 'react'
+import { Control, useFieldArray, UseFormRegister } from 'react-hook-form'
 
 interface DetailsListProps {
   categoryName: string
@@ -31,11 +31,18 @@ const DetailsList = ({categoryName, name, control, register}: DetailsListProps) 
     }
   }
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render
   return (
     <section>
       <div className="mb-2 text-sm lg:text-base">
-        {name === 'info' ? <span>Features</span> : <span>Specifications</span>}{' '}
+        {name === 'info' ? (
+          <span>{dict.admin?.details.features}</span>
+        ) : (
+          <span>{dict.admin?.details.specification}</span>
+        )}{' '}
         <span className={name === 'info' ? ' text-emerald-600' : ' text-fuchsia-600'}>
           {categoryName}
         </span>
@@ -47,8 +54,8 @@ const DetailsList = ({categoryName, name, control, register}: DetailsListProps) 
           }
         >
           <tr className="">
-            <th>Name</th>
-            <th className="w-1/4 p-2.5">值</th>
+            <th>{dict.admin?.details.name}</th>
+            <th className="w-1/4 p-2.5">{dict.admin?.details.value}</th>
           </tr>
         </thead>
         <tbody>

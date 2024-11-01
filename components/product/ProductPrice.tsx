@@ -1,6 +1,6 @@
 import { formatNumber } from '@/utils'
-
 import { DiscountProduct } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 
 interface ProductPriceProps {
@@ -12,6 +12,9 @@ interface ProductPriceProps {
 
 const ProductPrice = ({ singleProduct, inStock, discount, price }: ProductPriceProps) => {
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <div className={`${(singleProduct && 'flex flex-col-reverse') || ''}`}>
@@ -19,7 +22,7 @@ const ProductPrice = ({ singleProduct, inStock, discount, price }: ProductPriceP
         <span className="text-sm text-gray-700">
           {formatNumber(price - (discount * price) / 100)}
         </span>
-        <span className="ml-1">€</span>
+        <span className="ml-1">{dict.currency}</span>
       </div>
 
       {discount > 0 && (
@@ -29,7 +32,7 @@ const ProductPrice = ({ singleProduct, inStock, discount, price }: ProductPriceP
           )}
           <span className="ml-2 text-sm text-gray-500 line-through">
             {formatNumber(price)}
-            <span className="ml-1">€</span>
+            <span className="ml-1">{dict.currency}</span>
           </span>
         </div>
       )}

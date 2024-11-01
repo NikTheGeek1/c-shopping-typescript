@@ -1,4 +1,5 @@
 import { Button, Modal } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 interface ConfirmDeleteModalProps {
   title: string
@@ -11,6 +12,9 @@ interface ConfirmDeleteModalProps {
 
 export default function ConfirmDeleteModal({ title, isLoading, isShow, onClose, onCancel, onConfirm }: ConfirmDeleteModalProps) {
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <>
@@ -19,15 +23,16 @@ export default function ConfirmDeleteModal({ title, isLoading, isShow, onClose, 
           <Modal.Body>
             <div className="px-3 py-6 space-y-4 text-center bg-white md:rounded-lg">
               <p>
-                Are you sure you want to delete <span className="font-bold text-red-500">{title}</span>?
+                {dict.profile?.review?.delete?.deletion}
+                <span className="font-bold text-red-500">{title}</span>
+                {dict.profile?.review?.delete?.confirm}？
               </p>
               <div className="flex justify-center gap-x-20">
                 <Button onClick={onConfirm} isLoading={isLoading}>
-                  Confirm
+                  {dict.profile?.review?.delete?.action}
                 </Button>
-
                 <Button className="!bg-green-500" onClick={onCancel}>
-                  Cancel
+                  {dict.profile?.review?.delete?.cancel}
                 </Button>
               </div>
             </div>

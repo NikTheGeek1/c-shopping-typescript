@@ -1,17 +1,18 @@
 'use client'
 
-import { useState, useRef } from 'react'
-
-import { nanoid } from '@reduxjs/toolkit'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useCreateReviewMutation } from '@/store/services'
 
 import { ratingStatus, reviewSchema } from '@/utils'
 
 import { useFieldArray, useForm } from 'react-hook-form'
+// @ts-ignore
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { Icons, TextField, DisplayError, SubmitModalBtn, Modal, HandleResponse } from '@/components'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
+import { useRef, useState } from 'react'
+import { nanoid } from '@reduxjs/toolkit'
 
 interface ReviewModalProps {
   isShow: boolean
@@ -91,6 +92,9 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
       body: { ...data, rating, product: prdouctID },
     })
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <>
@@ -121,7 +125,10 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
           onClose={onClose}
           className="flex flex-col h-full lg:h-[770px] pl-2 pr-4 py-3 bg-white md:rounded-lg gap-y-3"
         >
-            <Modal.Header onClose={onClose}>Leave your review for {productTitle}</Modal.Header>
+          <Modal.Header onClose={onClose}>
+            {dict.profile?.review?.modal?.leave} {productTitle}{' '}
+            {dict.profile?.review?.modal?.product}
+          </Modal.Header>
           <Modal.Body>
             <form
               className="flex flex-col justify-between flex-1 pl-4 overflow-y-auto gap-y-5"
@@ -130,7 +137,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
               {/* rating */}
               <div>
                 <div className="my-2 text-center">
-                    <span className="text-sm text-black">Rating:</span>
+                  <span className="text-sm text-black">{dict.profile?.review?.modal?.rating}‌</span>
                   <span className="px-1 text-sm text-sky-500">{ratingStatus[rating]}</span>
                 </div>
                 <input
@@ -159,8 +166,8 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
               </div>
 
               {/* title */}
-                <TextField
-                label="Review Title"
+              <TextField
+                label={dict.profile?.review?.modal?.title}
                 control={control}
                 errors={formErrors.title}
                 name="title"
@@ -172,9 +179,9 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
                     <label
                     className="text-xs text-gray-700 lg:text-sm md:min-w-max"
                     htmlFor="positivePoints"
-                    >
-                    Positive Points
-                    </label>
+                  >
+                    {dict.profile?.review?.modal?.pros}
+                  </label>
                   <div className="flex items-center input">
                     <input
                       className="flex-1 bg-transparent outline-none"
@@ -213,9 +220,9 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
                     <label
                     className="text-xs text-gray-700 lg:text-sm md:min-w-max"
                     htmlFor="negativePoints"
-                    >
-                    Negative Points
-                    </label>
+                  >
+                    {dict.profile?.review?.modal?.cons}
+                  </label>
                   <div className="flex items-center input">
                     <input
                       className="flex-1 bg-transparent outline-none"
@@ -252,7 +259,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
               {/* comment */}
               <div className="space-y-3 ">
                 <label className="text-xs text-gray-700 lg:text-sm md:min-w-max" htmlFor="comment">
-                  Comment
+                  {dict.profile?.review?.modal?.text}
                 </label>
                 <textarea
                   className="h-24 resize-none input"
@@ -263,7 +270,9 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
               </div>
 
               <div className="py-3 border-t-2 border-gray-200 lg:pb-0 ">
-                <SubmitModalBtn isLoading={isLoading}>Submit Review</SubmitModalBtn>
+                <SubmitModalBtn isLoading={isLoading}>
+                  {dict.profile?.review?.modal?.submit}
+                </SubmitModalBtn>
               </div>
             </form>
           </Modal.Body>

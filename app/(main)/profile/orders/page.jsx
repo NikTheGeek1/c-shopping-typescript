@@ -1,18 +1,17 @@
 'use client'
-import { useChangeRoute } from '@/hooks'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+import { useTitle, useUrlQuery } from '@/hooks'
+import { useGetOrdersQuery } from '@/store/services'
 import {
+  EmptyOrdersList,
   OrderCard,
+  OrderSkeleton,
+  PageContainer,
   Pagination,
   ShowWrapper,
-  EmptyOrdersList,
-  PageContainer,
-  OrderSkeleton,
-} from '@/components'
-
-import { useGetOrdersQuery } from '@/store/services'
-
-import { useTitle, useUrlQuery } from '@/hooks'
+} from 'components'
+import { useChangeRoute } from 'hooks'
 
 const Orders = () => {
   useTitle('Order Management')
@@ -26,10 +25,13 @@ const Orders = () => {
     page: query.page ? +query.page : 1,
   })
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render
   return (
     <main id="profileOrders">
-      <PageContainer title="Order History">
+      <PageContainer title={dict.profile?.order.history}>
         <ShowWrapper
           error={error}
           isError={isError}

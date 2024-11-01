@@ -1,18 +1,21 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-
 import { LoginForm, Logo } from '@/components'
-
-import { useLoginMutation } from '@/store/services'
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { userLogin, showAlert } from '@/store'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
+import { showAlert, userLogin } from '@/store'
+import { useLoginMutation } from '@/store/services'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 export default function LoginPage() {
-  useTitle('Admin Login')
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
+  useTitle(dict.admin ? dict.admin.login : 'Admin Login')
+
   //? Assets
   const dispatch = useDispatch()
   const { push } = useRouter()
@@ -46,7 +49,7 @@ export default function LoginPage() {
         dispatch(
           showAlert({
             status: 'error',
-            title: 'You do not have permission to access the admin panel',
+            title: dict.admin?.login.error,
           })
         )
       }
@@ -72,16 +75,14 @@ export default function LoginPage() {
           </Link>
           <h1>
             <font className="">
-              <font>Login</font>
+              <font>{dict.login?.login}</font>
             </font>
           </h1>
           <LoginForm isLoading={isLoading} onSubmit={submitHander} />
         </section>
 
         <div className="fixed max-w-xs px-2 py-3 bg-white border rounded-lg shadow-lg top-5 right-5">
-          <h5 className="mb-2 text-amber-600">
-            You can use the email address and password below to view the admin dashboard.
-          </h5>
+          <h5 className="mb-2 text-amber-600">{dict.login?.admin}</h5>
           <div className="text-left">
             <span className="text-sm text-zinc-500">Email: admin@gmail.com</span>
             <br />

@@ -3,7 +3,7 @@ import { useController } from 'react-hook-form'
 
 interface TextFieldProps {
   label?: string
-  errors: any
+  errors?: any
   name: string
   type?: string
   control: any

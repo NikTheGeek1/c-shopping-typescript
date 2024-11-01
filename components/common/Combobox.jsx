@@ -1,12 +1,9 @@
 'use client'
 
-import { Fragment, useState } from 'react'
-
 import { Combobox as HUICombobox, Transition } from '@headlessui/react'
-
+import { Fragment, useState } from 'react'
+import { useController } from 'react-hook-form'
 import { HiCheck, HiChevronDown } from 'react-icons/hi'
-
-import { Control, useController } from 'react-hook-form'
 
 const Combobox = props => {
   //? Props
@@ -28,7 +25,7 @@ const Combobox = props => {
 
   //? Render(s)
   return (
-    <HUICombobox value={field.value} name={field.name} onChange={field.onChange}>
+    <HUICombobox value={field.value || ''} name={field.name} onChange={field.onChange}>
       <div className="relative max-w-xl">
         <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left border border-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
           <HUICombobox.Input
@@ -59,8 +56,8 @@ const Combobox = props => {
                 <HUICombobox.Option
                   key={item.code}
                   className={`relative cursor-pointer transition-colors select-none py-3 pl-10 pr-4 hover:bg-teal-100 text-white
-                  ${field.value?.code === item.code ? 'bg-teal-50' : ''}
-                  `}
+                ${field.value?.code === item.code ? 'bg-teal-50' : ''}
+                `}
                   value={item}
                 >
                   {({ active }) => (

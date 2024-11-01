@@ -1,4 +1,6 @@
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { useLanguageContext } from '@/context/LanguageContext'
+// @ts-ignore
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { mobileSchema } from '@/utils'
@@ -35,6 +37,9 @@ const UserMobileModal = ({ isShow, onClose, editedData }: UserMobileModalProps) 
     })
   }
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <>
@@ -56,15 +61,15 @@ const UserMobileModal = ({ isShow, onClose, editedData }: UserMobileModalProps) 
           onClose={onClose}
           className="flex flex-col h-full px-5 py-3 bg-white md:rounded-lg gap-y-5 "
         >
-          <Modal.Header onClose={onClose}>Mobile Number Record and Edit</Modal.Header>
+          <Modal.Header onClose={onClose}>{dict.profile?.account?.record}</Modal.Header>
           <Modal.Body>
-            <p className="text-sm">Please enter your mobile number</p>
+            <p className="text-sm">{dict.profile?.account?.enterPhone}</p>
             <form
               className="flex flex-col justify-between flex-1 gap-y-5"
               onSubmit={handleSubmit(submitHander)}
             >
               <TextField
-                label="Phone Number"
+                label={dict.profile?.account?.phone}
                 control={control}
                 errors={formErrors.mobile}
                 name="mobile"
@@ -73,7 +78,9 @@ const UserMobileModal = ({ isShow, onClose, editedData }: UserMobileModalProps) 
               />
 
               <div className="py-3 border-t-2 border-gray-200 lg:pb-0 ">
-                <SubmitModalBtn isLoading={isLoading}>Confirm</SubmitModalBtn>
+                <SubmitModalBtn isLoading={isLoading}>
+                  {dict.profile?.account?.confirm}
+                </SubmitModalBtn>
               </div>
             </form>
           </Modal.Body>

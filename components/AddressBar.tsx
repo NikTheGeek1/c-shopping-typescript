@@ -1,3 +1,4 @@
+import { useLanguageContext } from '@/context/LanguageContext'
 import { Icons, Skeleton, WithAddressModal } from '@/components'
 
 interface IAddressModalProps {
@@ -14,6 +15,9 @@ const BasicAddressBar = ({ addressModalProps }: IAddressModalProps) => {
   //? Props
   const { address, isLoading, isVerify, openAddressModal, isAddress } = addressModalProps || {}
 
+  // ? Dictionary
+  const translation = useLanguageContext()
+
   //? Render(s)
   if (!isVerify) {
     return null
@@ -27,7 +31,7 @@ const BasicAddressBar = ({ addressModalProps }: IAddressModalProps) => {
         className="flex items-center w-full gap-x-1 lg:w-fit"
       >
         <Icons.Location2 className="icon" />
-        <span>Please select your city</span>
+        <span>{translation?.dict?.header?.address?.select}</span>
 
         <Icons.ArrowRight2 className="mr-auto icon" />
       </button>
@@ -41,7 +45,8 @@ const BasicAddressBar = ({ addressModalProps }: IAddressModalProps) => {
       >
         <Icons.Location2 className="icon" />
         <span>
-          Sent to {address?.province.name}, {address?.city.name}, {address?.area.name}
+          {translation?.dict?.header?.address?.send} {address?.province.name}, {address?.city.name},{' '}
+          {address?.area.name}
         </span>
         <Icons.ArrowRight2 className="mr-auto icon" />
       </button>

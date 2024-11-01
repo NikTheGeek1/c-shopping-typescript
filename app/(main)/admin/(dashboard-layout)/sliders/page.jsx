@@ -1,9 +1,10 @@
 'use client'
 
-import Link from 'next/link'
-import { useGetCategoriesQuery, useGetSlidersQuery } from '@/store/services'
+import { EmptyCustomList, PageContainer, ResponsiveImage, TableSkeleton } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle, useUrlQuery } from '@/hooks'
-import { ResponsiveImage, EmptyCustomList, PageContainer, TableSkeleton } from '@/components'
+import { useGetCategoriesQuery, useGetSlidersQuery } from '@/store/services'
+import Link from 'next/link'
 
 const SlidersPage = () => {
   const query = useUrlQuery()
@@ -28,11 +29,15 @@ const SlidersPage = () => {
     { skip: !!!category_id }
   )
 
-  //? Render(s)
-  const title = category_name ? `Category Slider Management - ${category_name}` : 'Slider Management'
+  // ? Dictionary
+  const { dict } = useLanguageContext()
 
+  const title = category_name
+    ? `${dict.admin?.slider.name} - ${category_name}`
+    : dict.admin?.slider.title
   useTitle(title)
 
+  //? Render(s)
   const renderContent = () => {
     if (isLoading_get_categories || isLoadingGetSliders) {
       return (
@@ -56,7 +61,7 @@ const SlidersPage = () => {
               href={`/admin/sliders?category_id=${category._id}&category_name=${category.name}`}
               className="bg-rose-50 text-rose-500 rounded-sm py-1 px-1.5 mx-1.5 inline-block"
             >
-              Subset
+              {dict.admin?.slider.subset}
             </Link>
           </td>
         </tr>
@@ -83,7 +88,7 @@ const SlidersPage = () => {
               href={`/admin/sliders/edit/${slider._id}?slider_name=${slider.title}`}
               className="bg-rose-50 text-rose-500 rounded-sm py-1 px-1.5 mx-1.5 inline-block"
             >
-              Edit
+              {dict.admin?.slider.edit}
             </Link>
           </td>
         </tr>
@@ -107,18 +112,20 @@ const SlidersPage = () => {
               href={`sliders/create?category_id=${category_id}&category_name=${category_name}`}
               className="flex items-center px-3 py-2 text-red-600 border-2 border-red-600 rounded-lg max-w-max gap-x-3"
             >
-              Add New Slider
+              {dict.admin?.slider.new}
             </Link>
           )}
           <div className="mx-3 overflow-x-auto mt-7 lg:mx-5 xl:mx-10">
             <table className="w-full whitespace-nowrap">
               <thead className="h-9 bg-emerald-50">
                 <tr className="text-emerald-500">
-                  {category_name && <th className="border-gray-100 border-x-2">Image</th>}
+                  {category_name && (
+                    <th className="border-gray-100 border-x-2">{dict.admin?.slider.image}</th>
+                  )}
                   <th className="px-2 border-gray-100 border-x-2">
-                    {category_name ? 'Title' : 'Category Name'}
+                    {category_name ? dict.admin?.slider.titleTH : dict.admin?.slider.categoryName}
                   </th>
-                  <th className="border-gray-100 border-x-2">Actions</th>
+                  <th className="border-gray-100 border-x-2">{dict.admin?.slider.action}</th>
                 </tr>
               </thead>
               <tbody className="text-gray-600">{renderContent()}</tbody>

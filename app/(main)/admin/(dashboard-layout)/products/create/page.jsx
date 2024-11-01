@@ -1,14 +1,16 @@
 'use client'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+import { useTitle } from '@/hooks'
+import { useCreateProductMutation } from '@/store/services'
+import { HandleResponse, PageContainer, ProductsForm } from 'components'
 import { useRouter } from 'next/navigation'
 
-import { HandleResponse, PageContainer, ProductsForm } from '@/components'
-
-import { useCreateProductMutation } from '@/store/services'
-import { useTitle } from '@/hooks'
-
 const CreateProductPage = () => {
-  useTitle('Create Product')
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
+  useTitle(dict.admin ? dict.admin?.create.title : 'Create Product')
   //? Assets
   const { push } = useRouter()
 
@@ -39,7 +41,7 @@ const CreateProductPage = () => {
       )}
 
       <main>
-        <PageContainer title="Create Product">
+        <PageContainer title={dict.admin?.create.title}>
           <ProductsForm mode="create" isLoadingCreate={isLoading} createHandler={createHandler} />
         </PageContainer>
       </main>

@@ -1,12 +1,11 @@
 'use client'
 
-import { useRef } from 'react'
 
 import { Control, UseFormRegister, useFieldArray } from 'react-hook-form'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { AddIconBtn, DeleteIconBtn } from '@/components'
-
 import { nanoid } from '@reduxjs/toolkit'
+import { useRef } from 'react'
 
 interface AddSizesProps {
   control: Control
@@ -36,10 +35,13 @@ const AddSizes = ({ control, register }: AddSizesProps) => {
     }
   }
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <div className="text-sm space-y-1.5">
-      <span>Size</span>
+      <span>{dict.admin?.create.size}</span>
       <div className="w-full max-w-2xl mx-auto space-y-3">
         <div className="flex items-center gap-x-2">
           <AddIconBtn onClick={handleAddSize} />

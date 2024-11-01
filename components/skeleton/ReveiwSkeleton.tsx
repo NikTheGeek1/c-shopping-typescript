@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components'
 
-export default function ReveiwSkeleton() {
+export default function ReviewSkeleton() {
   return (
     <Skeleton count={5}>
       <Skeleton.Items className="mb-8 space-y-2">

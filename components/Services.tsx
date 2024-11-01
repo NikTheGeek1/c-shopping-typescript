@@ -1,22 +1,26 @@
 import { CashOnDelivery, Daysreturn, ExpressDelivery, OriginalProducts, Support } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 export default function Services() {
+  // ? Dictionary
+  const translation = useLanguageContext()
+
   const services = [
     {
-      name: 'Possibility of Express Delivery',
+      name: translation?.dict?.footer?.delivery,
       icon: <ExpressDelivery className="w-10 h-10" />,
     },
-    { name: '24/7 Support', icon: <Support className="w-10 h-10" /> },
+    { name: translation?.dict?.footer?.availability, icon: <Support className="w-10 h-10" /> },
     {
-      name: 'Cash on Delivery Available',
+      name: translation?.dict?.footer?.pay,
       icon: <CashOnDelivery className="w-10 h-10" />,
     },
     {
-      name: 'Seven Days Return Guarantee',
+      name: translation?.dict?.footer?.sevenDay,
       icon: <Daysreturn className="w-10 h-10" />,
     },
     {
-      name: 'Guaranteed Original Products',
+      name: translation?.dict?.footer?.original,
       icon: <OriginalProducts className="w-10 h-10" />,
     },
   ]

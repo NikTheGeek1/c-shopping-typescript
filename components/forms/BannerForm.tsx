@@ -11,6 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { bannerSchema } from '@/utils'
 
 import { useEffect } from 'react'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 interface BannerFormProps {
   mode: 'create' | 'edit'
@@ -61,6 +62,9 @@ const BannerForm = ({ mode, createHandler, updateHandler, deleteHandler, isLoadi
     }
   }, [selectedBanner])
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   return (
     <section className="p-3 mx-auto mb-10 space-y-8">
       <div className="mx-3 overflow-x-auto mt-7 lg:mx-5 xl:mx-10">
@@ -68,12 +72,26 @@ const BannerForm = ({ mode, createHandler, updateHandler, deleteHandler, isLoadi
           onSubmit={mode === 'create' ? handleSubmit(createHandler || (() => {} )) : handleSubmit(updateHandler || (() => {}))}
           className="space-y-3"
         >
-          <TextField label="Banner Title" control={control} name="title" errors={formErrors?.title} />
+          <TextField
+            label={dict.admin?.banner.titleTH}
+            control={control}
+            name="title"
+            errors={formErrors?.title}
+          />
 
-          <TextField label="Link URL" control={control} name="uri" errors={formErrors?.uri} />
+          <TextField
+            label={dict.admin?.banner.link}
+            control={control}
+            name="uri"
+            errors={formErrors?.uri}
+          />
 
           <div className="w-44 my-3">
-            <ControlledCheckbox name="isPublic" control={control} label="Publish Status" />
+            <ControlledCheckbox
+              name="isPublic"
+              control={control}
+              label={dict.admin?.banner.status}
+            />
           </div>
 
           <div className="flex items-center gap-8 mb-5">
@@ -84,7 +102,7 @@ const BannerForm = ({ mode, createHandler, updateHandler, deleteHandler, isLoadi
                 value="one"
                 {...register('type')}
               />
-              <span className="ml-2 text-gray-700">Type One</span>
+              <span className="ml-2 text-gray-700">{dict.admin?.banner.typeOne}</span>
             </label>
 
             <label className="inline-flex items-center gap-x-2">
@@ -94,12 +112,12 @@ const BannerForm = ({ mode, createHandler, updateHandler, deleteHandler, isLoadi
                 value="two"
                 {...register('type')}
               />
-              <span className="ml-2 text-gray-700">Type Two</span>
+              <span className="ml-2 text-gray-700">{dict.admin?.banner.typeTwo}</span>
             </label>
           </div>
 
           <TextField
-            label="Image URL"
+            label={dict.admin?.banner.url}
             control={control}
             name="image.url"
             errors={formErrors?.image?.url}
@@ -129,11 +147,11 @@ const BannerForm = ({ mode, createHandler, updateHandler, deleteHandler, isLoadi
                   type="submit"
                   isLoading={isLoadingUpdate}
                 >
-                  Update
+                  {dict.admin?.banner.update}
                 </Button>
 
                 <Button isRounded={true} isLoading={isLoadingDelete} onClick={deleteHandler}>
-                  Delete
+                  {dict.admin?.banner.delete}
                 </Button>
               </>
             ) : (
@@ -143,7 +161,7 @@ const BannerForm = ({ mode, createHandler, updateHandler, deleteHandler, isLoadi
                 type="submit"
                 isLoading={isLoadingCreate}
               >
-                Submit
+                {dict.admin?.banner.submit}
               </Button>
             )}
           </div>

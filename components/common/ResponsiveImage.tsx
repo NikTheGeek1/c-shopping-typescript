@@ -11,6 +11,8 @@ interface ResponsiveImageProps {
   imageStyles?: string
   onClick?: () => void
   unoptimized?: boolean
+  layout?: 'fill' | 'responsive' | 'intrinsic' | 'fixed'
+  sizes?: string
 }
 
 export default function ResponsiveImage({ dimensions, className, src, alt, imageStyles, ...rest }: ResponsiveImageProps) {

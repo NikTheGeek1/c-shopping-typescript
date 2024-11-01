@@ -3,38 +3,40 @@ import Link from 'next/link'
 import { Icons, BoxLink, Logout, Orders, Person } from '@/components'
 
 import { useUserInfo } from '@/hooks'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 function ProfileAside() {
   const { userInfo, isLoading } = useUserInfo()
+  const { dict } = useLanguageContext()
 
   const profilePaths = [
     {
-      name: '我的订单',
+      name: dict.profile?.orders,
       Icon: Icons.Bag,
       path: '/profile/orders',
     },
     {
-      name: '我的收藏',
+      name: dict.profile?.lists,
       Icon: Icons.Heart,
       path: '/profile/lists',
     },
     {
-      name: '我的评价',
+      name: dict.profile?.reviews,
       Icon: Icons.Comment,
       path: '/profile/reviews',
     },
     {
-      name: '地址管理',
+      name: dict.profile?.addresses,
       Icon: Icons.Location,
       path: '/profile/addresses',
     },
     {
-      name: '最近访问',
+      name: dict.profile?.history,
       Icon: Icons.Clock,
       path: '/profile/user-history',
     },
     {
-      name: '账户信息',
+      name: dict.profile?.info,
       Icon: Icons.User,
       path: '/profile/personal-info',
     },
@@ -69,7 +71,7 @@ function ProfileAside() {
 
       <div className="mt-7">
         <div className="hidden lg:block">
-          <BoxLink name="看板" path="/profile">
+          <BoxLink name={dict.profile?.dashboard} path="/profile">
             <Icons.Home className="text-black icon" />
           </BoxLink>
         </div>

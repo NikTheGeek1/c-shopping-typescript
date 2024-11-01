@@ -1,9 +1,13 @@
 'use client' // Error components must be Client Components
 
 import { Button } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useEffect } from 'react'
 
 export default function Error({ error, reset }) {
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error)
@@ -21,7 +25,7 @@ export default function Error({ error, reset }) {
             () => reset()
           }
         >
-          重试
+          {dict.wrapper?.retry}
         </Button>
       </div>
     </>

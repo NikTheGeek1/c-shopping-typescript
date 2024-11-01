@@ -1,25 +1,25 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
-
+import { useLanguageContext } from '@/context/LanguageContext'
+import { useTitle } from '@/hooks'
+import { useGetSingleProductQuery, useUpdateProductMutation } from '@/store/services'
 import {
   BigLoading,
   ConfirmUpdateModal,
   HandleResponse,
   PageContainer,
   ProductsForm,
-} from '@/components'
-
-import { useDisclosure } from '@/hooks'
-
-import { SubmitHandler } from 'react-hook-form'
-
-import { useGetSingleProductQuery, useUpdateProductMutation } from '@/store/services'
-import { useTitle } from '@/hooks'
+} from 'components'
+import { useDisclosure } from 'hooks'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 const EditProductPage = ({ params: { id } }) => {
-  useTitle('Edit Product')
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
+  useTitle(dict.admin ? dict.admin.products.title : 'Edit Product')
+
   //? Assets
   const { back } = useRouter()
 
@@ -80,7 +80,7 @@ const EditProductPage = ({ params: { id } }) => {
   return (
     <>
       <ConfirmUpdateModal
-        title="Product"
+        title={dict.admin.products.singular}
         isLoading={isLoadingUpdate}
         isShow={isShowConfirmUpdateModal}
         onClose={confirmUpdateModalHandlers.close}
@@ -100,7 +100,7 @@ const EditProductPage = ({ params: { id } }) => {
       )}
 
       <main>
-        <PageContainer title="Edit Product">
+        <PageContainer title={dict.admin?.products.title}>
           {isLoadingGetSelectedProduct ? (
             <div className="px-3 py-20">
               <BigLoading />

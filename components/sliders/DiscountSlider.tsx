@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { DiscountProduct, ProductPrice, ResponsiveImage, Skeleton } from '@/components'
 import { useGetProductsQuery } from '@/store/services'
 
@@ -32,8 +32,10 @@ const DiscountSlider = ({ currentCategory }: DiscountSliderProps) => {
     }
   )
 
-  //? Render(s)
+  //? Dictionary
+  const { dict } = useLanguageContext()
 
+  //? Render(s)
   if (currentCategory) {
     return (
       <section
@@ -119,7 +121,7 @@ const DiscountSlider = ({ currentCategory }: DiscountSliderProps) => {
               height={96}
               priority
             />
-            <div className=" text-white text-sm">View All</div>
+            <div className=" text-white text-sm">{dict.constants?.viewAll}</div>
           </SwiperSlide>
         </Swiper>
       </section>

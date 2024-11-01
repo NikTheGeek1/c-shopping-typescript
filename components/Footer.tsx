@@ -1,21 +1,26 @@
-import Image from 'next/image'
-
-import { Icons, Services, LogoChina, ResponsiveImage } from '@/components'
-import { siteTitle } from '@/utils'
+import { useLanguageContext } from '@/context/LanguageContext'
+import { Icons, LogoChina, LogoH, ResponsiveImage, Services } from '@/components'
 import Link from 'next/link'
 
 export default function Footer() {
+  // ? Dictionary
+  const translation = useLanguageContext()
+
   return (
     <footer className="pt-4 mt-8 border-t border-gray-200 bg-gray-50">
       <div className="container px-3  space-y-8 mx-auto ">
         {/* Logo & scroll to top */}
         <div className="flex justify-between">
           <div>
-            <LogoChina className="w-32 h-10 mb-6" />
+            {translation?.dict?.lang === '中文' ? (
+              <LogoChina className="w-32 h-10 mb-6" />
+            ) : (
+              <LogoH className="w-32 h-10 mb-6" />
+            )}
             <div className="flex flex-col gap-y-2 lg:flex-row lg:space-x-5">
-              <span>We are available 24/7 to answer your questions</span>
+              <span>{translation?.dict?.footer?.support}</span>
               <span className="hidden lg:block bg-gray-300 w-[2px]" />
-              <span>My WeChat: huanghanzhilian</span>
+              <span>{translation?.dict?.footer?.wechat}：huanghanzhilian</span>
             </div>
           </div>
           <div className="min-w-max">
@@ -24,7 +29,7 @@ export default function Footer() {
               onClick={() => window.scrollTo(0, 0)}
               className="flex items-center px-3 py-1 border border-gray-300 rounded-md"
             >
-                <span className="text-sm">Back to top</span>
+              <span className="text-sm ">{translation?.dict?.footer?.top}</span>
               <Icons.ArrowUp className="text-gray-400 h-7 w-7" />
             </button>
           </div>
@@ -37,7 +42,7 @@ export default function Footer() {
         <div className="space-y-8 lg:flex lg:items-start lg:justify-between">
           {/* socials */}
           <div className="flex items-center justify-between">
-            <p className="lg:mr-20">More contact options!</p>
+            <p className="lg:mr-20">{translation?.dict?.footer?.contacts}</p>
             <div className="flex space-x-5">
               <Link target="_blank" href="https://twitter.com/Huanghanzhilian">
                 <Icons.Twitter className="w-8 h-8 text-gray-400" />
@@ -60,12 +65,16 @@ export default function Footer() {
           {/* Newslatter */}
           <div className="flex-1 max-w-lg">
             <form className="flex space-x-3">
-              <input placeholder="Your email" className="input" type="email" />
+              <input
+                placeholder={translation?.dict?.footer?.email}
+                className="input"
+                type="email"
+              />
               <button
               type="submit"
               className="px-2 text-white bg-gray-200 rounded-md whitespace-nowrap"
               >
-              Submit your email
+                {translation?.dict?.footer?.submit}
               </button>
             </form>
           </div>
@@ -74,10 +83,12 @@ export default function Footer() {
         {/* info */}
         <div className="space-y-6 lg:flex lg:justify-between">
           <div className="space-y-3 lg:max-w-2xl">
-            <h5 className="font-semibold text-black">{siteTitle} Online Store, Online Reviews, Selection, and Purchase</h5>
+            <h5 className="font-semibold text-black">
+              {translation?.dict?.constants?.name} {translation?.dict?.footer?.description}
+            </h5>
             <p className="text-justify text-gray-700">
-              Safe online shopping requires stores to provide customers with a variety of high-quality, reasonably priced products in a short period of time, with return guarantees;
-              {siteTitle}. The online store has been working hard to develop these features for many years and has thus gained a loyal customer base.
+              {translation?.dict?.footer?.secure} {translation?.dict?.constants?.name}{' '}
+              {translation?.dict?.footer?.customers}
             </p>
           </div>
 
@@ -90,13 +101,14 @@ export default function Footer() {
           dimensions="h-16 w-16"
           className="overflow-hidden border-4 border-red-600 rounded-full"
           src="/developer.jpg"
-          alt="Huang Jipeng (Jixiaopeng)"
+          sizes="4rem"
+          alt={translation?.dict?.footer?.huang || 'dev'}
         />
         <p className="text-white">
           <a href="/" target="_blank" className="text-sky-400">
-        Huang Jipeng (Jixiaopeng)
-          </a>
-          Developer
+            {translation?.dict?.footer?.huang}
+          </a>{' '}
+          {translation?.dict?.footer?.developer}
         </p>
       </div>
     </footer>

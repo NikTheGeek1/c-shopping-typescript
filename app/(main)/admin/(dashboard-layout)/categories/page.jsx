@@ -1,6 +1,7 @@
 'use client'
 
 import { BigLoading, PageContainer } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle, useUrlQuery } from '@/hooks'
 import { useGetCategoriesQuery } from '@/store/services'
 import Link from 'next/link'

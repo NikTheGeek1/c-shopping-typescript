@@ -1,11 +1,10 @@
 'use client'
 
-import { Fragment, useState } from 'react'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useEditReviewMutation } from '@/store/services'
-
-import { HandleResponse, Icons, ResponsiveImage } from '@/components'
 import { Menu, Transition } from '@headlessui/react'
+import { HandleResponse, Icons, ResponsiveImage } from '@/components'
+import { Fragment, useState } from 'react'
 
 
 interface ReveiwCardProps {
@@ -25,7 +24,7 @@ interface ReveiwCardProps {
   deleteReviewHandler?: (id: string) => void
 }
 
-const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProps) => {
+const ReviewCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProps) => {
 
   //? States
   const [status, setStatus] = useState(item.status)
@@ -41,6 +40,9 @@ const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
     })
     setStatus(statusNum)
   }
+
+  //? Dictionary
+  const { dict } = useLanguageContext()
 
   //? Local Components
   const DropdownReview = () => (
@@ -69,7 +71,7 @@ const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
                   disabled={status === 2}
                 >
                   <Icons.Check className="text-white rounded-full p-0.5 icon bg-green-500 " />
-                    <span className="block">Status changed to approved</span>
+                  <span className="block">{dict.profile?.review?.card?.status}</span>
                 </button>
               </Menu.Item>
               <Menu.Item>
@@ -80,7 +82,7 @@ const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
                   disabled={status === 3}
                 >
                   <Icons.Cross className="text-white rounded-full p-0.5 icon bg-red-500 " />
-                    <span className="block">Status changed to rejected</span>
+                  <span className="block">{dict.profile?.review?.card?.reject}</span>
                 </button>
               </Menu.Item>
             </>
@@ -92,7 +94,7 @@ const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
                 onClick={() => deleteReviewHandler(item._id)}
               >
                 <Icons.Delete className="icon" />
-                <span>Delete</span>
+                <span>{dict.profile?.review?.card?.delete}</span>
               </button>
             </Menu.Item>
           ) : null}
@@ -120,9 +122,8 @@ const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
           <ResponsiveImage
             dimensions="w-16 h-12 lg:w-24 lg:h-20"
             src={item.product.images[0].url}
-            alt=""
+            alt="product image"
           />
-
           <span
             className={`w-5 h-5 text-center pt-0.5 inline-block rounded-md text-white  ml-10 lg:ml-20 ${
               item.rating <= 2 ? 'bg-red-500' : item.rating === 3 ? 'bg-amber-500' : 'bg-green-500'
@@ -158,7 +159,11 @@ const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
                         : 'text-red-500'
                   }`}
                 >
-                  {status === 1 ? '等待确认' : status === 2 ? '已经确认' : '不见了'}
+                  {status === 1
+                    ? dict.profile?.review?.card?.confirmation
+                    : status === 2
+                      ? dict.profile?.review?.card?.confirmed
+                      : dict.profile?.review?.card?.dissapeared}
                 </span>
               </div>
               <DropdownReview />
@@ -191,4 +196,4 @@ const ReveiwCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
   )
 }
 
-export default ReveiwCard
+export default ReviewCard;

@@ -7,6 +7,8 @@ import { SelectBox } from '@/components'
 import { useGetCategoriesQuery } from '@/store/services'
 import { Category } from '@/types'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+
 interface SelectedCategoriesProps {
   selectedCategories: {
     levelOne: any
@@ -74,6 +76,9 @@ const SelectCategories = ({selectedCategories, setSelectedCategories}: SelectedC
       levelThree: category,
     })
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <div className="flex flex-wrap justify-evenly gap-y-6">
@@ -81,21 +86,21 @@ const SelectCategories = ({selectedCategories, setSelectedCategories}: SelectedC
         value={selectedCategories.levelOne}
         list={levelOneCategories}
         onChange={handleLevelOneChange}
-        placeholder="一级分类"
+        placeholder={dict.admin?.category.firstLevel}
       />
 
       <SelectBox
         value={selectedCategories.levelTwo}
         list={levelTwoCategories}
         onChange={handleLevelTwoChange}
-        placeholder="二级分类"
+        placeholder={dict.admin?.category.secondLevel}
       />
 
       <SelectBox
         value={selectedCategories.levelThree}
         list={levelThreeCategories}
         onChange={handleLevelThreeChange}
-        placeholder="三级分类"
+        placeholder={dict.admin?.category.thirdLevel}
       />
     </div>
   )

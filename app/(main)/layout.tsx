@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react'
 // ? Store
 import StoreProvider from '@/app/StoreProvider'
 
-// ? Conponents
-import { PageLoading, Alert } from '@/components'
+// ? Dictionary
 import { LanguageContextProvider } from '@/context/LanguageContext'
+
+// ? Components
+import { Alert, PageLoading } from '@/components'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   //? Fix Hydration failed

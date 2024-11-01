@@ -1,5 +1,4 @@
 // import { Metadata } from 'next'
-import { bannerRepo, categoryRepo, sliderRepo } from '@/helpers'
 import {
   BannerOne,
   BannerTwo,
@@ -9,6 +8,7 @@ import {
   Slider as MainSlider,
   MostFavouriteProducts,
 } from '@/components'
+import { bannerRepo, categoryRepo, sliderRepo } from '@/helpers'
 import { enSiteTitle, siteTitle } from '@/utils'
 
 export const metadata = {

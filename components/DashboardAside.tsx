@@ -1,54 +1,55 @@
-import Link from 'next/link'
-
-import { Icons, BoxLink, Logout, LogoH, LanguageSwitcher, LogoChina } from '@/components'
 import { useLanguageContext } from '@/context/LanguageContext'
+import { BoxLink, Icons, LogoChina, LogoH, Logout } from '@/components'
+import Link from 'next/link'
+import LanguageSwitcher from '../components/LanguageSwitcher'
 
 export default function ProfileAside() {
+  // ? Dictionary
   const { dict } = useLanguageContext()
 
   const profilePaths = [
     {
-      name: 'Add Product',
+      name: dict.admin?.create.title,
       Icon: Icons.Plus,
       path: '/admin/products/create',
     },
     {
-      name: 'Manage Products',
+      name: dict.admin?.products.title,
       Icon: Icons.Save,
       path: '/admin/products',
     },
     {
-      name: 'Manage Orders',
+      name: dict.admin?.orders.title,
       Icon: Icons.Bag,
       path: '/admin/orders',
     },
     {
-      name: 'Manage Categories',
+      name: dict.admin?.category.title,
       Icon: Icons.Category,
       path: '/admin/categories',
     },
     {
-      name: 'Category Specifications',
+      name: dict.admin?.details.title,
       Icon: Icons.Location,
       path: '/admin/details',
     },
     {
-      name: 'Manage Users',
+      name: dict.admin?.user.title,
       Icon: Icons.Users,
       path: '/admin/users',
     },
     {
-      name: 'Manage Reviews',
+      name: dict.admin?.review.title,
       Icon: Icons.Comment,
       path: '/admin/reviews',
     },
     {
-      name: 'Manage Sliders',
+      name: dict.admin?.slider.title,
       Icon: Icons.Slider,
       path: '/admin/sliders',
     },
     {
-      name: 'Manage Banners',
+      name: dict.admin?.banner.title,
       Icon: Icons.Image,
       path: '/admin/banners',
     },

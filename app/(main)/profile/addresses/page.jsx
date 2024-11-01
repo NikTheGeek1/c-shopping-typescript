@@ -1,9 +1,9 @@
 'use client'
 
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
-import { Address, Icons, PageContainer, Skeleton, WithAddressModal } from '@/components'
-
-import { useUserInfo } from '@/hooks'
+import { Address, Icons, PageContainer, Skeleton, WithAddressModal } from 'components'
+import { useUserInfo } from 'hooks'
 
 const BasicAddresses = ({ addressModalProps }) => {
   useTitle('Address Management')
@@ -12,10 +12,13 @@ const BasicAddresses = ({ addressModalProps }) => {
   //? Get User Data
   const { userInfo } = useUserInfo()
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <main>
-      <PageContainer title="Address">
+      <PageContainer title={dict.profile?.address?.address}>
         {isLoading ? (
           <section className="flex-1 px-5 ">
             <div className="flex justify-between py-4 border-b border-gray-200">
@@ -75,13 +78,13 @@ const BasicAddresses = ({ addressModalProps }) => {
         ) : (
           <section className="flex flex-col items-center py-20 gap-y-4">
             <Address className="h-52 w-52" />
-            <p>You have not filled in the address yet</p>
+            <p>{dict.profile?.address?.noAddress}</p>
             <button
               className="flex items-center px-3 py-2 text-red-600 border-2 border-red-600 rounded-lg gap-x-3"
               onClick={openAddressModal}
             >
               <Icons.Location className="text-red-600 icon" />
-              <span>Register Address</span>
+              <span>{dict.profile?.address?.registration}</span>
             </button>
           </section>
         )}

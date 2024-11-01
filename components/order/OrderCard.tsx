@@ -1,12 +1,10 @@
 import Link from 'next/link'
-
 import moment from 'moment-jalaali'
-
 import { HandleResponse, Icons, ResponsiveImage } from '@/components'
-
 import { formatNumber } from '@/utils'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useUpdateOrderMutation } from '@/store/services'
+
 
 interface OrderCardProps {
   order: {
@@ -46,6 +44,9 @@ const OrderCard = ({ order, singleOrder }: OrderCardProps) => {
     })
   }
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <>
@@ -62,7 +63,11 @@ const OrderCard = ({ order, singleOrder }: OrderCardProps) => {
             ) : (
               <Icons.Clock2 className="p-0.5 w-6 h-6 bg-amber-500 text-white rounded-full" />
             )}
-            <span className="text-sm text-black">{order.delivered ? '完成' : '未确认'}</span>
+            <span className="text-sm text-black">
+              {order.delivered
+                ? dict.profile?.order?.status?.completed
+                : dict.profile?.order?.status?.unconfirmed}
+            </span>
           </div>
           {/* <Icons.ArrowLeft className='icon w-7 h-7' /> */}
           {order.delivered && (
@@ -80,7 +85,7 @@ const OrderCard = ({ order, singleOrder }: OrderCardProps) => {
                     disabled={order.delivered}
                   >
                     <Icons.Check className="text-white rounded-full p-0.5 icon bg-green-500 " />
-                    <span className="block">将状态更改为已交付</span>
+                    <span className="block">{dict.profile?.order?.status?.delivered}</span>
                   </button>
                   <button
                     type="button"
@@ -89,7 +94,7 @@ const OrderCard = ({ order, singleOrder }: OrderCardProps) => {
                     disabled={!order.delivered}
                   >
                     <Icons.Clock2 className="text-white rounded-full p-0.5 icon bg-amber-500 " />
-                    <span className="block">将状态更改为处理中</span>
+                    <span className="block">{dict.profile?.order?.status?.processing}</span>
                   </button>
                 </div>
               </div>
@@ -98,14 +103,14 @@ const OrderCard = ({ order, singleOrder }: OrderCardProps) => {
         </div>
         <div className="flex flex-wrap justify-between lg:px-3">
           <div>
-            <span>订单号:</span>
+            <span>{dict.profile?.order?.status?.number}:</span>
             <span className="ml-2 text-sm text-black">{order._id}</span>
           </div>
           <div className="flex items-center gap-x-1">
             <span className="text-black">
               {formatNumber(order.totalPrice - order.totalDiscount)}
             </span>
-            <span className="">€</span>
+            <span className="">{dict.currency}</span>
           </div>
         </div>
         <div className="flex flex-wrap py-5 gap-x-5 gap-y-3 lg:border-t lg:border-gray-200 lg:px-3">

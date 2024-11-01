@@ -1,4 +1,5 @@
 import { Button, Modal } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 interface ConfirmUpdateModalProps {
   title: string
@@ -11,6 +12,9 @@ interface ConfirmUpdateModalProps {
 
 const ConfirmUpdateModal = ({ title, isLoading, isShow, onClose, onConfirm, onCancel }: ConfirmUpdateModalProps) => {
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <Modal isShow={isShow} onClose={onClose} effect="ease-out">
@@ -18,15 +22,15 @@ const ConfirmUpdateModal = ({ title, isLoading, isShow, onClose, onConfirm, onCa
         <Modal.Body>
           <div className="px-3 py-6 space-y-4 text-center bg-white md:rounded-lg">
             <p>
-              Do you agree to update the changes to <span className="font-bold text-green-500">{title}</span>?
+              {dict.admin?.category.confirmation}
+              <span className="font-bold text-green-500">{title}</span>
             </p>
             <div className="flex justify-center gap-x-20">
               <Button onClick={onConfirm} isLoading={isLoading}>
-                Confirm
+                {dict.admin?.category.confirm}
               </Button>
-
               <Button className="!bg-green-500" onClick={onCancel}>
-                Cancel
+                {dict.admin?.category.cancel}
               </Button>
             </div>
           </div>

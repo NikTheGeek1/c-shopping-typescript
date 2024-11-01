@@ -1,6 +1,9 @@
 import { useLanguageContext } from '@/context/LanguageContext'
+import { useGetProductsQuery } from '@/store/services'
+import { DiscountProduct, Icons, ProductPrice, ResponsiveImage, Skeleton } from 'components'
 import Link from 'next/link'
 
+<<<<<<<< HEAD:components/product/MostFavouriteProducts.tsx
 import { DiscountProduct, ProductPrice, Icons, ResponsiveImage, Skeleton } from '@/components'
 import { useGetProductsQuery } from '@/store/services'
 
@@ -9,7 +12,12 @@ interface MostFavouriteProductsProps {
 }
 
 const MostFavouriteProducts = ({ categorySlug }: MostFavouriteProductsProps) => {
- 
+========
+const MostFavouriteProducts = props => {
+  //? Props
+  const { categorySlug } = props
+>>>>>>>> i18n-fork/nacho/i18n:components/product/MostFavouriteProducts.jsx
+
   const { products, isLoading } = useGetProductsQuery(
     {
       sort: '-sold',
@@ -31,7 +39,11 @@ const MostFavouriteProducts = ({ categorySlug }: MostFavouriteProductsProps) => 
     <section className="px-3">
       <div className="flex items-center mb-3 space-x-2">
         <Icons.Heart className="icon text-amber-400" />
+<<<<<<<< HEAD:components/product/MostFavouriteProducts.tsx
+        <h4 className="text-xl">Most Popular Products</h4>
+========
         <h4 className="text-xl">{dict.popular?.title}</h4>
+>>>>>>>> i18n-fork/nacho/i18n:components/product/MostFavouriteProducts.jsx
       </div>
       <div className="grid grid-cols-2 gap-1 md:gap-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {isLoading

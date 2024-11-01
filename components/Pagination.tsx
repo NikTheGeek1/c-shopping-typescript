@@ -1,6 +1,7 @@
 import { Icons } from '@/components'
 
 import { useMediaQuery } from '@/hooks'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 interface IPaginationProps {
   pagination: {
@@ -32,6 +33,9 @@ export default function Pagination({ pagination, changeRoute, section, client }:
     window.scrollTo(0, scrollY)
   }
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <nav>
@@ -46,7 +50,7 @@ export default function Pagination({ pagination, changeRoute, section, client }:
               }}
             >
               <Icons.ArrowLeft className="text-red-500 icon" />
-              上一页
+              {dict.profile?.order?.previous}
             </li>
           )}
         </div>
@@ -115,7 +119,7 @@ export default function Pagination({ pagination, changeRoute, section, client }:
                 scrollToTop()
               }}
             >
-              下一页
+              {dict.profile?.order?.next}
               <Icons.ArrowRight2 className="text-red-500 icon" />
             </li>
           )}

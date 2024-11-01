@@ -1,11 +1,10 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
-import Link from 'next/link'
-
 import { HandleResponse, LoginForm, Logo } from '@/components'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useLoginMutation } from '@/store/services'
+import Link from 'next/link'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { userLogin } from '@/store'
 
@@ -31,7 +30,7 @@ export default function LoginPage() {
   }
 
   // ? Dictionary
-  const { dict } = useLanguageContext();
+  const { dict } = useLanguageContext()
 
   return (
     <>

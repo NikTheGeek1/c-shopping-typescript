@@ -1,11 +1,9 @@
 'use client'
 
 import { useRef } from 'react'
-
 import { AddIconBtn, DeleteIconBtn } from '@/components'
-
 import { Control, UseFormRegister, useFieldArray } from 'react-hook-form'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { nanoid } from '@reduxjs/toolkit'
 
 interface AddColorsProps {
@@ -43,10 +41,13 @@ const AddColors = ({ control, register }: AddColorsProps) => {
     }
   }
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <div className="text-sm space-y-1.5">
-      <span>Colors</span>
+      <span>{dict.admin?.create.color}</span>
       <div className="w-full max-w-2xl mx-auto space-y-3">
         <div className="flex items-center gap-x-2">
           <AddIconBtn onClick={handleAddToColor} />
@@ -54,7 +55,7 @@ const AddColors = ({ control, register }: AddColorsProps) => {
             type="text"
             className="inline-block outline-none input w-44"
             name="name"
-            placeholder="Color Name"
+            placeholder={dict.admin?.create.colorName}
             ref={inputTextRef}
           />
           <input

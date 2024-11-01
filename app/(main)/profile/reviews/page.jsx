@@ -1,23 +1,20 @@
 'use client'
 
-import { useState } from 'react'
-
-import { useDeleteReviewMutation, useGetReviewsQuery } from '@/store/services'
-
-import {
-  Pagination,
-  ReveiwCard,
-  ShowWrapper,
-  EmptyCommentsList,
-  ConfirmDeleteModal,
-  PageContainer,
-  HandleResponse,
-  ReveiwSkeleton,
-} from '@/components'
-
-import { useDisclosure, useChangeRoute } from '@/hooks'
-
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle, useUrlQuery } from '@/hooks'
+import { useDeleteReviewMutation, useGetReviewsQuery } from '@/store/services'
+import {
+  ConfirmDeleteModal,
+  EmptyCommentsList,
+  HandleResponse,
+  PageContainer,
+  Pagination,
+  ReviewCard,
+  ReviewSkeleton,
+  ShowWrapper,
+} from 'components'
+import { useChangeRoute, useDisclosure } from 'hooks'
+import { useState } from 'react'
 
 const Reviews = () => {
   useTitle('My Reviews')
@@ -74,11 +71,14 @@ const Reviews = () => {
     setDeleteInfo({ id: '' })
   }
 
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
   //? Render(s)
   return (
     <>
       <ConfirmDeleteModal
-        title="Review"
+        title={dict.profile?.review?.reviews}
         isLoading={isLoadingDelete}
         isShow={isShowConfirmDeleteModal}
         onClose={confirmDeleteModalHandlers.close}
@@ -99,7 +99,7 @@ const Reviews = () => {
       )}
 
       <main id="profileReviews">
-        <PageContainer title="My Reviews">
+        <PageContainer title={dict.profile?.review?.myReviews}>
           <ShowWrapper
             error={error}
             isError={isError}
@@ -108,12 +108,12 @@ const Reviews = () => {
             isSuccess={isSuccess}
             dataLength={data ? data?.data?.reviewsLength : 0}
             emptyComponent={<EmptyCommentsList />}
-            loadingComponent={<ReveiwSkeleton />}
+            loadingComponent={<ReviewSkeleton />}
           >
             <div className="px-4 py-3 space-y-3 ">
               {data &&
                 data.data.reviews.map(item => (
-                  <ReveiwCard
+                  <ReviewCard
                     deleteReviewHandler={deleteReviewHandler}
                     key={item._id}
                     item={item}
