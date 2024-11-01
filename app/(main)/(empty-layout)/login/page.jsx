@@ -9,6 +9,8 @@ import { useLoginMutation } from '@/store/services'
 import { useDispatch } from 'react-redux'
 import { userLogin } from '@/store'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+
 export default function LoginPage() {
   //? Assets
   const dispatch = useDispatch()
@@ -27,6 +29,10 @@ export default function LoginPage() {
       })
     }
   }
+
+  // ? Dictionary
+  const { dict } = useLanguageContext();
+
   return (
     <>
       {/*  Handle Login Response */}
@@ -49,14 +55,14 @@ export default function LoginPage() {
           </Link>
           <h1>
             <font className="">
-              <font>Login</font>
+              <font>{dict.login?.login}</font>
             </font>
           </h1>
           <LoginForm isLoading={isLoading} onSubmit={submitHander} />
           <div className="text-xs">
-            <p className="inline mr-2 text-gray-800 text-xs">I don't have an account yet</p>
+            <p className="inline mr-2 text-gray-800 text-xs">{dict.login?.noAccount}</p>
             <Link href="/register" className="text-blue-400 text-xs">
-              Register
+              {dict.login?.goto}
             </Link>
           </div>
         </section>

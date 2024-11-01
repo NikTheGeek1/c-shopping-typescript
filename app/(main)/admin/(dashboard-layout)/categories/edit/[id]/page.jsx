@@ -12,8 +12,17 @@ import { useGetCategoriesQuery, useUpdateCategoryMutation } from '@/store/servic
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+
 export default function CategoriesEditPage({ params: { id } }) {
-  useTitle('Edit Category')
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+  useTitle(
+    dict.admin
+      ? `${dict.admin.category.edit}${dict.lang === '中文' ? '' : ' '}${dict.admin.category.category
+      }`
+      : 'Edit Category'
+  )
   //? Assets
   const { push } = useRouter()
   const query = useUrlQuery()
@@ -90,7 +99,7 @@ export default function CategoriesEditPage({ params: { id } }) {
         />
       )}
       <ConfirmUpdateModal
-        title="Category"
+        title={dict.admin?.category.category}
         isLoading={isLoading_update}
         isShow={isShowConfirmUpdateModal}
         onClose={confirmUpdateModalHandlers.close}
@@ -98,7 +107,10 @@ export default function CategoriesEditPage({ params: { id } }) {
         onCancel={onCancel}
       />
       <main>
-        <PageContainer title="Edit Category">
+        <PageContainer
+          title={`${dict.admin?.category.edit}${dict.lang === '中文' ? '' : ' '}${dict.admin
+            ?.category.category}`}
+        >
           {isLoading_get ? (
             <div className="px-3 py-20">
               <BigLoading />

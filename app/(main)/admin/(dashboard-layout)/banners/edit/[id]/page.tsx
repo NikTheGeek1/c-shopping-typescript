@@ -23,6 +23,8 @@ import {
 import { SubmitHandler } from 'react-hook-form'
 import { useTitle, useUrlQuery } from '@/hooks'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+
 interface EditBannerPageProps {
   params: {
     id: string
@@ -122,7 +124,11 @@ const EditBannerPage = ({ params: { id: bannerId } }: EditBannerPageProps) => {
 
   const onErrorDelete = () => confirmDeleteModalHandlers.close()
 
-  useTitle('编辑banner' + ' ' + bannerName)
+  //? Dictionary
+  const { dict } = useLanguageContext()
+
+  useTitle((dict.admin?.banner.title || 'Edit Banner') + ' ' + bannerName)
+
 
   return (
     <>
@@ -167,7 +173,7 @@ const EditBannerPage = ({ params: { id: bannerId } }: EditBannerPageProps) => {
       )}
 
       <main>
-        <PageContainer title={'Edit Banner' + ' ' + bannerName}>
+        <PageContainer title={dict.admin?.banner.title + ' ' + bannerName}>
           {isLoadingGetSelectedBanner ? (
             <div className="px-3 py-20">
               <BigLoading />

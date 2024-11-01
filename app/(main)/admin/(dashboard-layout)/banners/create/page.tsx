@@ -9,6 +9,8 @@ import { SubmitHandler } from 'react-hook-form'
 import { useCreateBannerMutation } from '@/store/services'
 import { useTitle, useUrlQuery } from '@/hooks'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+
 interface BannerFormData {
   image: string
   isPublic: boolean
@@ -18,7 +20,8 @@ interface BannerFormData {
 }
 
 const CreateBannerPage: React.FC = () => {
-  useTitle('Create Banner')
+  const { dict } = useLanguageContext()
+  useTitle(dict.admin?.banner.title || 'Create Banner')
   //? Assets
   const { back } = useRouter()
   const query = useUrlQuery()
@@ -36,6 +39,8 @@ const CreateBannerPage: React.FC = () => {
     })
   }
 
+  //? Dictionary
+
   const onSuccess = () => back()
 
   return (
@@ -51,7 +56,7 @@ const CreateBannerPage: React.FC = () => {
       )}
 
       <main>
-        <PageContainer title="Add Banner">
+        <PageContainer title={dict.admin?.banner.title}>
           <BannerForm mode="create" isLoadingCreate={isLoading} createHandler={createHandler} />
         </PageContainer>
       </main>

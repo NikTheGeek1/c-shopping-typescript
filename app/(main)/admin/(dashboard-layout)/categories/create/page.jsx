@@ -4,9 +4,19 @@ import { BigLoading, CategoryForm, HandleResponse, PageContainer } from '@/compo
 import { useTitle, useUrlQuery } from '@/hooks'
 import { useCreateCategoryMutation, useGetCategoriesQuery } from '@/store/services'
 import { useRouter } from 'next/navigation'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 export default function CategoriesCreatePage() {
-  useTitle('Create Category')
+
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+  useTitle(
+    dict.admin
+      ? `${dict.admin.category.create}${dict.lang === '中文' ? '' : ' '}${dict.admin.category.category
+      }`
+      : 'Create Category'
+  )
+
   //? Assets
   const { push } = useRouter()
   const query = useUrlQuery()
@@ -62,7 +72,10 @@ export default function CategoriesCreatePage() {
         </div>
       ) : (
         <main>
-          <PageContainer title="Create Category">
+          <PageContainer
+            title={`${dict.admin?.category.create}${dict.lang === '中文' ? '' : ' '}${dict.admin
+              ?.category.category}`}
+          >
             <CategoryForm
               mode="create"
               isLoading={isLoading}

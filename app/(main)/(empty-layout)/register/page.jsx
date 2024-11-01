@@ -17,6 +17,8 @@ import { userLogin } from '@/store'
 
 import { useDisclosure } from '@/hooks'
 
+import { useLanguageContext } from '@/context/LanguageContext'
+
 export default function RegisterPage() {
   //? Assets
   const [isShowRedirectModal, redirectModalHandlers] = useDisclosure()
@@ -54,6 +56,9 @@ export default function RegisterPage() {
     }
   }
 
+  // ? Dictionary
+  const { dict } = useLanguageContext()
+
   const onError = () => {
     if (error.status === 422) {
       redirectModalHandlers.open()
@@ -69,7 +74,7 @@ export default function RegisterPage() {
   return (
     <>
       <RedirectToLogin
-        title="Registration Error"
+        title={dict.signup?.error}
         text={error?.data?.message}
         onClose={redirectModalHandlers.close}
         isShow={isShowRedirectModal}
@@ -92,19 +97,19 @@ export default function RegisterPage() {
           </Link>
           <h1>
             <font className="">
-              <font>Register</font>
+              <font>{dict?.signup?.register}</font>
             </font>
           </h1>
           <form className="space-y-4" onSubmit={handleSubmit(submitHander)} autoComplete="off">
             <TextField
               errors={formErrors.name}
-              placeholder="Name"
+              placeholder={dict?.signup?.name}
               name="name"
               control={control}
             />
             <TextField
               errors={formErrors.email}
-              placeholder="Email"
+              placeholder={dict?.signup?.email}
               name="email"
               control={control}
             />
@@ -112,7 +117,7 @@ export default function RegisterPage() {
             <TextField
               errors={formErrors.password}
               type="password"
-              placeholder="Password"
+              placeholder={dict?.signup?.password}
               name="password"
               control={control}
             />
@@ -120,15 +125,15 @@ export default function RegisterPage() {
               control={control}
               errors={formErrors.confirmPassword}
               type="password"
-              placeholder="Confirm Password"
+              placeholder={dict?.signup?.confirm}
               name="confirmPassword"
             />
-            <LoginBtn isLoading={isLoading}>Register</LoginBtn>
+            <LoginBtn isLoading={isLoading}>{dict?.signup?.register}</LoginBtn>
           </form>
           <div className="text-xs">
-            <p className="inline mr-2 text-gray-800 text-xs">Already have an account?</p>
+            <p className="inline mr-2 text-gray-800 text-xs">{dict?.signup?.account}</p>
             <Link href="/login" className="text-blue-400 text-xs">
-              Login
+              {dict?.signup?.goto}
             </Link>
           </div>
         </section>
