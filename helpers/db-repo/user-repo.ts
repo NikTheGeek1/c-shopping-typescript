@@ -28,7 +28,7 @@ const getAll = async ({ page, page_size }: { page: number; page_size: number }) 
   }
 }
 
-const update = async (id: number, params: any) => {
+const update = async (id: string, params: any) => {
   const user = await User.findById(id)
 
   if (!user) throw 'User does not exist'
@@ -87,7 +87,7 @@ const authenticate = async ({ email, password }: { email: string; password: stri
   }
 }
 
-const _delete = async (id: number) => {
+const _delete = async (id: string) => {
   await db.connect()
   const user = await User.findById(id)
   if (!user) throw 'User does not exist'
@@ -95,7 +95,7 @@ const _delete = async (id: number) => {
   await db.disconnect()
 }
 
-const resetPassword = async (id: number, password: string) => {
+const resetPassword = async (id: string, password: string) => {
   const hashPassword = await bcrypt.hash(password, 12)
   await db.connect()
   const user = await User.findById(id)
@@ -104,7 +104,7 @@ const resetPassword = async (id: number, password: string) => {
   await db.disconnect()
 }
 
-const getById = async (id: number) => {
+const getById = async (id: string) => {
   try {
     await db.connect()
     const user = await User.findById(id)
