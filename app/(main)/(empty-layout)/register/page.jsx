@@ -8,19 +8,15 @@ import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 
 import { registerSchema } from '@/utils'
 
-import { TextField, LoginBtn, HandleResponse, RedirectToLogin, Logo } from '@/components'
 
-import { useCreateUserMutation } from '@/store/services'
 import { useDispatch } from 'react-redux'
 import { userLogin } from '@/store'
 
 import { useDisclosure } from '@/hooks'
 
-import { useLanguageContext } from '@/context/LanguageContext'
 
 export default function RegisterPage() {
   //? Assets
