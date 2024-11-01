@@ -3,7 +3,7 @@
 import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
 import { useGetSingleReviewQuery } from '@/store/services'
-import { BigLoading, PageContainer, ReviewCard } from 'components'
+import { BigLoading, PageContainer, ReviewCard } from '@/components'
 
 const SingleCommentPage = ({ params: { id } }) => {
   // ? Dictionary

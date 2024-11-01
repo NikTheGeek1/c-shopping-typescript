@@ -17,13 +17,13 @@ import {
   SelectCategories,
   ShowWrapper,
   TableSkeleton,
-} from 'components'
+} from '@/components'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { useTitle, useUrlQuery } from '@/hooks'
-import { useChangeRoute, useDisclosure } from 'hooks'
+import { useChangeRoute, useDisclosure } from '@/hooks'
 
 const Products = () => {
   // ? Dictionary

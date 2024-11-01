@@ -1,8 +1,8 @@
 'use client'
 
-import { FavoritesListEmpty, PageContainer, useLanguageContext } from '@/components'
+import { FavoritesListEmpty, PageContainer } from '@/components'
+import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
-import { FavoritesListEmpty, PageContainer } from 'components'
 
 const Lists = () => {
   useTitle('My Favorites')

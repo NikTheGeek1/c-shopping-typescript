@@ -12,8 +12,8 @@ import {
   ReviewCard,
   ReviewSkeleton,
   ShowWrapper,
-} from 'components'
-import { useChangeRoute, useDisclosure } from 'hooks'
+} from '@/components'
+import { useChangeRoute, useDisclosure } from '@/hooks'
 import { useState } from 'react'
 
 const Reviews = () => {

@@ -2,8 +2,8 @@
 
 import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
-import { Address, Icons, PageContainer, Skeleton, WithAddressModal } from 'components'
-import { useUserInfo } from 'hooks'
+import { Address, Icons, PageContainer, Skeleton, WithAddressModal } from '@/components'
+import { useUserInfo } from '@/hooks'
 
 const BasicAddresses = ({ addressModalProps }) => {
   useTitle('Address Management')

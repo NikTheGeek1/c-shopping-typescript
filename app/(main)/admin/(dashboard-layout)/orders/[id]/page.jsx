@@ -3,7 +3,7 @@
 import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle, useUrlQuery } from '@/hooks'
 import { useGetSingleOrderQuery } from '@/store/services'
-import { BigLoading, OrderCard, PageContainer } from 'components'
+import { BigLoading, OrderCard, PageContainer } from '@/components'
 
 const SingleOrder = ({ params }) => {
   // ? Dictionary

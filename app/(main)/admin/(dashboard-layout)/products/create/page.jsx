@@ -3,7 +3,7 @@
 import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
 import { useCreateProductMutation } from '@/store/services'
-import { HandleResponse, PageContainer, ProductsForm } from 'components'
+import { HandleResponse, PageContainer, ProductsForm } from '@/components'
 import { useRouter } from 'next/navigation'
 
 const CreateProductPage = () => {

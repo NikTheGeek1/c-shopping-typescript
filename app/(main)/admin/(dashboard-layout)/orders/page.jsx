@@ -10,8 +10,8 @@ import {
   Pagination,
   ShowWrapper,
   TableSkeleton,
-} from 'components'
-import { useChangeRoute } from 'hooks'
+} from '@/components'
+import { useChangeRoute } from '@/hooks'
 
 const OrdersHome = () => {
   // ? Dictionary

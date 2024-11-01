@@ -1,9 +1,8 @@
 'use client'
 
 import { useLanguageContext } from '@/context/LanguageContext'
-import { useTitle } from '@/hooks'
-import { Icons, PageContainer, Skeleton, UserMobileModal, UserNameModal } from 'components'
-import { useDisclosure, useUserInfo } from 'hooks'
+import { Icons, PageContainer, Skeleton, UserMobileModal, UserNameModal } from '@/components'
+import { useDisclosure, useUserInfo, useTitle } from '@/hooks'
 
 const PersonalInfo = () => {
   useTitle('Account Information')

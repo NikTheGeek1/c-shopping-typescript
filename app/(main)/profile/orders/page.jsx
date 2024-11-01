@@ -10,8 +10,8 @@ import {
   PageContainer,
   Pagination,
   ShowWrapper,
-} from 'components'
-import { useChangeRoute } from 'hooks'
+} from '@/components'
+import { useChangeRoute } from '@/hooks'
 
 const Orders = () => {
   useTitle('Order Management')

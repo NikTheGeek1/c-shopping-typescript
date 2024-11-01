@@ -16,8 +16,8 @@ import {
   DetailsList,
   HandleResponse,
   PageContainer,
-} from 'components'
-import { useAppDispatch, useDisclosure } from 'hooks'
+} from '@/components'
+import { useAppDispatch, useDisclosure } from '@/hooks'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'

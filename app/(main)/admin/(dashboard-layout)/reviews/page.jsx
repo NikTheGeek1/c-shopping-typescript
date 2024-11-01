@@ -10,8 +10,8 @@ import {
   ReviewsTable,
   ShowWrapper,
   TableSkeleton,
-} from 'components'
-import { useChangeRoute } from 'hooks'
+} from '@/components'
+import { useChangeRoute } from '@/hooks'
 
 const ReviewsPage = () => {
   // ? Dictionary

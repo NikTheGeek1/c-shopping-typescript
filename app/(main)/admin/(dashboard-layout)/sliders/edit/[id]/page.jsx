@@ -14,8 +14,8 @@ import {
   HandleResponse,
   PageContainer,
   SliderForm,
-} from 'components'
-import { useDisclosure } from 'hooks'
+} from '@/components'
+import { useDisclosure } from '@/hooks'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 

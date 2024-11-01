@@ -2,7 +2,7 @@
 import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle, useUrlQuery } from '@/hooks'
 import { useCreateSliderMutation } from '@/store/services'
-import { HandleResponse, PageContainer, SliderForm } from 'components'
+import { HandleResponse, PageContainer, SliderForm } from '@/components'
 import { useRouter } from 'next/navigation'
 
 const CreateSliderPage = () => {

@@ -2,8 +2,8 @@
 
 import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
-import { EmptyCart, PageContainer, ResponsiveImage } from 'components'
-import { useAppSelector } from 'hooks'
+import { EmptyCart, PageContainer, ResponsiveImage } from '@/components'
+import { useAppSelector } from '@/hooks'
 import Link from 'next/link'
 import { truncate } from 'utils'
 

@@ -2,7 +2,7 @@
 import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle } from '@/hooks'
 import { useGetCategoriesQuery } from '@/store/services'
-import { BigLoading, PageContainer } from 'components'
+import { BigLoading, PageContainer } from '@/components'
 import moment from 'moment-jalaali'
 import Link from 'next/link'
 
