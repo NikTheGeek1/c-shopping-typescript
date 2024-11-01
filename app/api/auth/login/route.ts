@@ -1,7 +1,7 @@
 import joi from 'joi'
 
-import { usersRepo } from 'helpers'
-import { apiHandler, setJson } from 'helpers/api'
+import { usersRepo } from '@/helpers'
+import { apiHandler, setJson } from '@/helpers/api'
 
 const login = apiHandler(
   async req => {

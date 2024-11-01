@@ -10,20 +10,13 @@ interface RegisterBody {
 }
 
 const register = apiHandler(
-  async (req: Request): Promise<Response> => {
+  async (req: Request) => {
     const body: RegisterBody = await req.json();
 
     const result = await usersRepo.create(body);
-
-    return new Response(
-      JSON.stringify({
-        data: result,
-      }),
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
-    
+    return setJson({
+      data: result,
+    });
   },
   {
     schema: joi.object({
