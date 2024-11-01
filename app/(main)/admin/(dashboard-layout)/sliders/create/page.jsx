@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 
-import { HandleResponse, PageContainer, SliderForm } from 'components'
+import { HandleResponse, PageContainer, SliderForm } from '@/components'
 
 import { SubmitHandler } from 'react-hook-form'
 
@@ -29,7 +29,7 @@ const CreateSliderPage = () => {
 
   const onSuccess = () => back()
 
-  useTitle('新增类别滑块' + ' ' + categoryName)
+  useTitle('Add Category Slider' + ' ' + categoryName)
 
   return (
     <>
@@ -44,7 +44,7 @@ const CreateSliderPage = () => {
       )}
 
       <main>
-        <PageContainer title={'新增类别滑块' + ' ' + categoryName}>
+        <PageContainer title={'Add Category Slider' + ' ' + categoryName}>
           <SliderForm mode="create" isLoadingCreate={isLoading} createHandler={createHandler} />
         </PageContainer>
       </main>

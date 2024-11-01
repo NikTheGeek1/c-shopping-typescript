@@ -13,14 +13,14 @@ import {
   PageContainer,
   HandleResponse,
   ReveiwSkeleton,
-} from 'components'
+} from '@/components'
 
-import { useDisclosure, useChangeRoute } from 'hooks'
+import { useDisclosure, useChangeRoute } from '@/hooks'
 
 import { useTitle, useUrlQuery } from '@/hooks'
 
 const Reviews = () => {
-  useTitle('我的评价')
+  useTitle('My Reviews')
   //? Assets
   const query = useUrlQuery()
   const changeRoute = useChangeRoute()
@@ -78,7 +78,7 @@ const Reviews = () => {
   return (
     <>
       <ConfirmDeleteModal
-        title="评价"
+        title="Review"
         isLoading={isLoadingDelete}
         isShow={isShowConfirmDeleteModal}
         onClose={confirmDeleteModalHandlers.close}
@@ -99,7 +99,7 @@ const Reviews = () => {
       )}
 
       <main id="profileReviews">
-        <PageContainer title="我的评价">
+        <PageContainer title="My Reviews">
           <ShowWrapper
             error={error}
             isError={isError}

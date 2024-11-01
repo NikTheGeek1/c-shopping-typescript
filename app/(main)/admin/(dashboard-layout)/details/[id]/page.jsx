@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/navigation'
 
-import { showAlert } from 'store'
+import { showAlert } from '@/store'
 
 import {
   useCreateDetailsMutation,
@@ -20,18 +20,18 @@ import {
   DetailsList,
   HandleResponse,
   PageContainer,
-} from 'components'
+} from '@/components'
 import { Tab } from '@headlessui/react'
 
-import { useAppDispatch, useDisclosure } from 'hooks'
+import { useAppDispatch, useDisclosure } from '@/hooks'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useTitle, useUrlQuery } from '@/hooks'
 
 const tabListNames = [
-  { id: 0, name: '选择类型' },
-  { id: 1, name: '属性' },
-  { id: 2, name: '规格' },
+  { id: 0, name: 'Select Type' },
+  { id: 1, name: 'Attributes' },
+  { id: 2, name: 'Specifications' },
 ]
 
 const DetailsContentPage = ({ params: { id } }) => {
@@ -43,14 +43,14 @@ const DetailsContentPage = ({ params: { id } }) => {
   const categoryId = id
   const categoryName = query.category_name
 
-  const initialUpdataInfo = {}
+  const initialUpdateInfo = {}
 
   //? Modals
   const [isShowConfirmDeleteModal, confirmDeleteModalHandlers] = useDisclosure()
   const [isShowConfirmUpdateModal, confirmUpdateModalHandlers] = useDisclosure()
 
   //? States
-  const [updateInfo, setUpdateInfo] = useState(initialUpdataInfo)
+  const [updateInfo, setUpdateInfo] = useState(initialUpdateInfo)
 
   const [mode, setMode] = useState('create')
 
@@ -133,7 +133,7 @@ const DetailsContentPage = ({ params: { id } }) => {
       dispatch(
         showAlert({
           status: 'error',
-          title: '请输入详细信息和属性',
+          title: 'Please enter detailed information and attributes',
         })
       )
     }
@@ -160,17 +160,17 @@ const DetailsContentPage = ({ params: { id } }) => {
   }
 
   const onCancelUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
   }
 
   const onSuccessUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
   }
 
   const onErrorUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
   }
 
@@ -193,13 +193,13 @@ const DetailsContentPage = ({ params: { id } }) => {
 
   const onErrorDelete = () => confirmDeleteModalHandlers.close()
 
-  useTitle(`品类规格及特点 - ${categoryName ? categoryName : ''}`)
+  useTitle(`Category Specifications and Features - ${categoryName ? categoryName : ''}`)
 
   //? Render(s)
   return (
     <>
       <ConfirmDeleteModal
-        title={`${categoryName}-分类规格`}
+        title={`${categoryName}-Category Specifications`}
         isLoading={isLoadingDelete}
         isShow={isShowConfirmDeleteModal}
         onClose={confirmDeleteModalHandlers.close}
@@ -220,7 +220,7 @@ const DetailsContentPage = ({ params: { id } }) => {
       )}
 
       <ConfirmUpdateModal
-        title={`${categoryName}-分类规格`}
+        title={`${categoryName}-Category Specifications`}
         isLoading={isLoadingUpdate}
         isShow={isShowConfirmUpdateModal}
         onClose={confirmUpdateModalHandlers.close}
@@ -256,7 +256,7 @@ const DetailsContentPage = ({ params: { id } }) => {
             <BigLoading />
           </div>
         ) : (
-          <PageContainer title={`品类规格及特点 - ${categoryName ? categoryName : ''}`}>
+          <PageContainer title={`Category Specifications and Features - ${categoryName ? categoryName : ''}`}>
             <form
               onSubmit={
                 mode === 'create' ? handleSubmit(createHandler) : handleSubmit(updateHandler)
@@ -286,7 +286,7 @@ const DetailsContentPage = ({ params: { id } }) => {
                 <Tab.Panels>
                   <Tab.Panel>
                     <div className="space-y-3">
-                      <p className="mb-2">选择类型：</p>
+                      <p className="mb-2">Select Type:</p>
                       <div className="flex items-center gap-x-1">
                         <input
                           type="radio"
@@ -295,7 +295,7 @@ const DetailsContentPage = ({ params: { id } }) => {
                           className="mr-1"
                           {...register('optionsType')}
                         />
-                        <label htmlFor="none">默认</label>
+                        <label htmlFor="none">Default</label>
                       </div>
                       <div className="flex items-center gap-x-1">
                         <input
@@ -305,7 +305,7 @@ const DetailsContentPage = ({ params: { id } }) => {
                           className="mr-1"
                           {...register('optionsType')}
                         />
-                        <label htmlFor="colors">根据颜色</label>
+                        <label htmlFor="colors">By Color</label>
                       </div>
                       <div className="flex items-center gap-x-1">
                         <input
@@ -315,7 +315,7 @@ const DetailsContentPage = ({ params: { id } }) => {
                           className="mr-1"
                           {...register('optionsType')}
                         />
-                        <label htmlFor="sizes">根据尺寸</label>
+                        <label htmlFor="sizes">By Size</label>
                       </div>
                     </div>
                   </Tab.Panel>
@@ -347,7 +347,7 @@ const DetailsContentPage = ({ params: { id } }) => {
                       type="submit"
                       isLoading={isLoadingUpdate}
                     >
-                      更新分类规格
+                      Update Category Specifications
                     </Button>
 
                     <Button
@@ -355,7 +355,7 @@ const DetailsContentPage = ({ params: { id } }) => {
                       isLoading={isLoadingDelete}
                       onClick={deleteHandler}
                     >
-                      删除分类规格
+                      Delete Category Specifications
                     </Button>
                   </>
                 ) : (
@@ -365,7 +365,7 @@ const DetailsContentPage = ({ params: { id } }) => {
                     type="submit"
                     isLoading={isLoadingCreate}
                   >
-                    建立分类规格
+                    Create Category Specifications
                   </Button>
                 )}
               </div>

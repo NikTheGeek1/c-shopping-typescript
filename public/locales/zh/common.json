@@ -1,0 +1,358 @@
+{
+  "lang": "中文",
+  "currency": "¥",
+  "constants": {
+    "name": "精选好物",
+    "profile": "用户中心",
+    "viewAll": "查看全部",
+    "admin": "管理中心"
+  },
+  "header": {
+    "notLogged": "您尚未登录",
+    "search": {
+      "placeholder": "善假于物，用好搜索...",
+      "modal": {
+        "title": "搜索",
+        "empty": {
+          "title": "没有找到结果",
+          "description": "使用更多可变单词或检查输入属性",
+          "list": "列表为空"
+        }
+      }
+    },
+    "address": {
+      "select": "请选择您所在的城市",
+      "send": "发送",
+      "modal": {
+        "title": "地址管理",
+        "description": "请输入您的收货地址",
+        "province": "请选择您所在的省份",
+        "city": "请选择您所在的城市",
+        "area": "请选择您所在的区县",
+        "street": "街道信息",
+        "code": "邮政编码",
+        "submit": "确定"
+      }
+    },
+    "navbar": {
+      "categories": "商品分类"
+    },
+    "cart": {
+      "items": "件商品",
+      "check": "查看购物车",
+      "amount": "应付金额",
+      "goto": "去支付",
+      "empty": "你的购物车是空的！"
+    },
+    "signup" : {
+      "register": "注册",
+      "login": "登录",
+      "logout": "退出",
+      "response": "退出登录成功"
+    }
+  },
+  "signup": {
+    "register": "注册",
+    "error": "注册异常",
+    "name": "请输入您的账户名称",
+    "email": "请输入您的账户邮箱",
+    "password": "请输入您的账户密码",
+    "confirm": "确认密码，请再次输入",
+    "account": "我已经有账户了",
+    "goto": "去登录"
+  },
+  "login": {
+    "email": "请输入您的账户邮箱",
+    "password": "请输入您的账户密码",
+    "login": "登录",
+    "noAccount": "我还没有账户",
+    "goto": "去注册",
+    "admin": "您可以使用下面的电子邮件地址和密码来查看管理仪表板"
+  },
+  "wrapper": {
+    "title": "出现异常",
+    "retry": "重试"
+  },
+  "profile": {
+    "dashboard": "看板",
+    "orders": "我的订单",
+    "lists": "我的收藏",
+    "reviews": "我的评价",
+    "addresses": "地址管理",
+    "history": "最近访问",
+    "info": "账户信息",
+    "order": {
+      "title": "我的订单",
+      "viewAll": "查看全部",
+      "currentOrders": "当前订单",
+      "records": "条记录",
+      "completedOrders": "成功订单",
+      "refundedOrders": "退款订单",
+      "history": "最近访问",
+      "empty": "列表为空",
+      "previous": "上一页",
+      "next": "下一页",
+      "status": {
+        "completed": "完成",
+        "unconfirmed": "未确认",
+        "delivered": "将状态更改为已交付",
+        "processing": "将状态更改为处理中",
+        "number": "订单号"
+      },
+      "details": {
+        "name": "收件人姓名",
+        "status": "状态",
+        "email": "电子邮件",
+        "time": "下单时间",
+        "change": "更改状态",
+        "completed": "完成",
+        "unconfirmed": "未确认"
+      }
+    },
+    "list" : {
+      "title": "我的收藏",
+      "empty": "您的收藏夹列表为空",
+      "soon": "（即将上线）"
+    },
+    "review": {
+      "reviews": "评价",
+      "myReviews": "我的评价",
+      "product": "商品评价",
+      "number": "条评价",
+      "write": "写下您对该商品的评价",
+      "submit": "提交确认后，通过将赠送积分。",
+      "modal": {
+        "leave": "留下你对",
+        "product": "商品的评价",
+        "rating": "评分!:",
+        "title": "评价标题",
+        "pros": "优点",
+        "cons": "缺点",
+        "text": "评价文字",
+        "submit": "提交评价"
+      },
+      "emptyComment": "暂时还没有评论，快来成为第一位评论者吧",
+      "card": {
+        "status": "状态改为已批准",
+        "reject": "拒绝",
+        "delete": "删除",
+        "confirmation": "等待确认",
+        "confirmed": "已经确认",
+        "disappeared": "不见了"
+      },
+      "delete": {
+        "deletion": "确定删除",
+        "confirm": "吗",
+        "action": "确定",
+        "cancel": "取消"
+      }
+    },
+    "address": {
+      "address": "地址",
+      "noAddress": "您尚未填写地址",
+      "registration": "地址登记"
+    },
+    "userHistory": {
+      "viewed": "最近访问",
+      "empty": "您的最近访问列表为空"
+    },
+    "account": {
+      "information": "帐户信息",
+      "name": "名字和姓氏",
+      "phone": "电话号码",
+      "edit": "身份信息的提交和编辑",
+      "identity": "请输入身份信息，包括名字和姓氏",
+      "confirm": "确认",
+      "record": "手机号码记录及编辑",
+      "enterPhone": "请输入您的手机号码"
+    }
+  },
+  "bestSellers": {
+    "title": "最畅销商品"
+  },
+  "popular": {
+    "title": "最受欢迎的商品"
+  },
+  "footer": {
+    "support": "我们每周 7 天、每天 24 小时为您解答",
+    "wechat": "我的微信",
+    "top": "回到顶部",
+    "delivery": "快递的可能性",
+    "availability": "每周 7 天、每天 24 小时",
+    "pay": "可以当场付款",
+    "sevenDay": "七日退货保证",
+    "original": "保证产品的原创性",
+    "contacts": "更多联系方式！",
+    "email": "你的邮件",
+    "submit": "提交你的邮箱",
+    "description": "在线商店，在线评价、选择和购买",
+    "secure": "安全的网购需要店铺能够在短时间内为顾客提供多样、优质、价格合理的商品，并有退货保障。",
+    "customers": "在线商店多年来一直在努力开发的功能，并通过这种方式拥有了固定客户",
+    "huang": "黄继鹏（继小鹏）",
+    "developer": "开发"
+  },
+  "admin": {
+    "login": "管理员登录",
+    "loginError": "您无权访问管理面板",
+    "notFound": "返回管理后台",
+    "charts": "图表",
+    "analytics": "情况分析",
+    "development": "开发中",
+    "create": {
+      "title": "商品新增",
+      "tab": "标题",
+      "description": "介绍",
+      "image": "图片",
+      "price": "价格",
+      "group": "分组",
+      "subProducts": "子产品",
+      "attributes": "属性",
+      "specifications": "规格",
+      "inventory": "存货",
+      "discount": "折扣百分比",
+      "category": "首先选择类别",
+      "noProducts": "没有产品",
+      "name": "名称",
+      "value": "值",
+      "update": "更新信息",
+      "submit": "提交信息",
+      "size": "大小",
+      "color": "颜色",
+      "colorName": "颜色名称"
+    },
+    "upload": {
+      "select": "请选择一个文件",
+      "validation": "所选文件必须是图像",
+      "limit": "图像的大小不应超过5 MB",
+      "success": "上传成功",
+      "noImage": "未上载图像",
+      "plugin": "图像插件",
+      "uploading": "正在上传...",
+      "upload": "上传"
+    },
+    "products":{
+      "title": "商品管理",
+      "singular": "商品",
+      "this": "该商品",
+      "edit": "编辑商品",
+      "reset": "重制筛选",
+      "product": "商品名称...",
+      "filter": "过滤筛选",
+      "name": "名称",
+      "price": "价格",
+      "sales": "销量",
+      "inventory": "库存",
+      "action": "操作"
+    },
+    "orders":{
+      "title": "订单管理"
+    },
+    "category":{
+      "title": "分类管理",
+      "firstLevel": "一级分类",
+      "secondLevel": "二级分类",
+      "thirdLevel": "三级分类",
+      "new": "添加新文件夹",
+      "chartBtn": "图表展示",
+      "category": "分类",
+      "chart": "图表",
+      "name": "名称",
+      "action": "操作",
+      "subcategories": "子类",
+      "edit": "编辑",
+      "specifications": "规格和特点",
+      "slider": "滑块",
+      "banner": "横幅",
+      "empty": "还没有分类",
+      "path": "路径（英文字母）",
+      "image": "图片地址",
+      "startColor": "开始颜色",
+      "endColor": "结束颜色",
+      "update": "更新信息",
+      "submit": "提交信息",
+      "confirmation": "您是否同意更新更改后的",
+      "confirm": "确定",
+      "cancel": "取消",
+      "details": {
+        "title": "分类规格",
+        "name": "名称",
+        "createTime": "创建时间",
+        "updateTime": "更新时间",
+        "action": "操作",
+        "edit": "编辑规格",
+        "select": "选择类型",
+        "attribute": "属性",
+        "detail": "规格",
+        "error": "请输入详细信息和属性",
+        "details": "品类规格及特点",
+        "default": "默认",
+        "color": "根据颜色",
+        "size": "根据尺寸",
+        "update": "更新分类规格",
+        "delete": "删除分类规格",
+        "create": "建立分类规格"
+      }
+    }, 
+    "details":{
+      "title": "分类规格",
+      "features": "特点",
+      "specification": "规格",
+      "name": "名称",
+      "value": "值"
+    },
+    "user":{
+      "title": "用户管理",
+      "user": "用户",
+      "role": "角色",
+      "name": "名称",
+      "email": "邮箱",
+      "action": "操作",
+      "empty": "用完为空"
+    }, 
+    "review":{
+      "title": "评价管理",
+      "status": "状态",
+      "user": "用户",
+      "action": "操作",
+      "pending": "等待确认",
+      "confirmed": "已确认",
+      "details": "评价详情"
+    },
+    "slider":{
+      "title": "滑块管理",
+      "name": "滑块管理",
+      "subset": "子集",
+      "edit": "编辑",
+      "new": "添加新滑块",
+      "image": "图片",
+      "titleTH": "标题",
+      "categoryName": "分类名称",
+      "action": "操作",
+      "added": "新增类别滑块",
+      "link": "链接地址",
+      "url": "图片地址",
+      "status": "发布状态",
+      "update": "更新",
+      "delete": "删除",
+      "submit": "提交"
+    },
+    "banner":{
+      "title": "banner管理",
+      "subset": "子集",
+      "edit": "编辑",
+      "image": "图片",
+      "categoryName": "分类名称",
+      "type": "类型",
+      "action": "操作",
+      "titleTH": "横幅标题",
+      "link": "链接地址",
+      "url": "图片地址",
+      "status": "发布状态",
+      "typeOne": "第一种",
+      "typeTwo": "第二种",
+      "update": "更新",
+      "delete": "删除",
+      "submit": "提交"
+    }
+  }
+}

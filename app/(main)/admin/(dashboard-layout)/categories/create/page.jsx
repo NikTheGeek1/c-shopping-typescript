@@ -6,7 +6,7 @@ import { useCreateCategoryMutation, useGetCategoriesQuery } from '@/store/servic
 import { useRouter } from 'next/navigation'
 
 export default function CategoriesCreatePage() {
-  useTitle('创建分类')
+  useTitle('Create Category')
   //? Assets
   const { push } = useRouter()
   const query = useUrlQuery()
@@ -22,13 +22,13 @@ export default function CategoriesCreatePage() {
     }),
   })
   //*   Create Category
-  const [createCtegory, { data, isSuccess, isLoading, error, isError }] =
+  const [createCategory, { data, isSuccess, isLoading, error, isError }] =
     useCreateCategoryMutation()
 
   //? Handlers
   const createHandler = data => {
     const { name, slug, image, colors } = data
-    createCtegory({
+    createCategory({
       body: {
         name,
         parent: parentId || '',
@@ -62,7 +62,7 @@ export default function CategoriesCreatePage() {
         </div>
       ) : (
         <main>
-          <PageContainer title="创建分类">
+          <PageContainer title="Create Category">
             <CategoryForm
               mode="create"
               isLoading={isLoading}

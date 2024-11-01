@@ -1,9 +1,9 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-import { HandleResponse, LoginForm, Logo } from '@/components'
+import { LoginForm, Logo } from '@/components'
 
 import { useLoginMutation } from '@/store/services'
 import { useDispatch } from 'react-redux'
@@ -12,7 +12,7 @@ import { userLogin, showAlert } from '@/store'
 import { useTitle } from '@/hooks'
 
 export default function LoginPage() {
-  useTitle('管理员登录')
+  useTitle('Admin Login')
   //? Assets
   const dispatch = useDispatch()
   const { push } = useRouter()
@@ -46,7 +46,7 @@ export default function LoginPage() {
         dispatch(
           showAlert({
             status: 'error',
-            title: '您无权访问管理面板',
+            title: 'You do not have permission to access the admin panel',
           })
         )
       }
@@ -72,7 +72,7 @@ export default function LoginPage() {
           </Link>
           <h1>
             <font className="">
-              <font>登录</font>
+              <font>Login</font>
             </font>
           </h1>
           <LoginForm isLoading={isLoading} onSubmit={submitHander} />
@@ -80,7 +80,7 @@ export default function LoginPage() {
 
         <div className="fixed max-w-xs px-2 py-3 bg-white border rounded-lg shadow-lg top-5 right-5">
           <h5 className="mb-2 text-amber-600">
-            您可以使用下面的电子邮件地址和密码来查看管理仪表板。
+            You can use the email address and password below to view the admin dashboard.
           </h5>
           <div className="text-left">
             <span className="text-sm text-zinc-500">Email: admin@gmail.com</span>

@@ -1,6 +1,6 @@
 'use client'
 
-import { BigLoading, PageContainer } from 'components'
+import { BigLoading, PageContainer } from '@/components'
 
 import { useGetCategoriesQuery } from '@/store/services'
 import { useTitle } from '@/hooks'

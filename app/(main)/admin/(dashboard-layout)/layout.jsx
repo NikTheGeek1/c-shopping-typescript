@@ -1,6 +1,6 @@
 'use client'
 
-import { DashboardLayout } from 'components'
+import { DashboardLayout } from '@/components'
 
 export default function Layout({ children }) {
   return (

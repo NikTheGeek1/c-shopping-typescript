@@ -29,7 +29,7 @@ const SlidersPage = () => {
   )
 
   //? Render(s)
-  const title = category_name ? `分类滑块管理 - ${category_name}` : '滑块管理'
+  const title = category_name ? `Category Slider Management - ${category_name}` : 'Slider Management'
 
   useTitle(title)
 
@@ -56,7 +56,7 @@ const SlidersPage = () => {
               href={`/admin/sliders?category_id=${category._id}&category_name=${category.name}`}
               className="bg-rose-50 text-rose-500 rounded-sm py-1 px-1.5 mx-1.5 inline-block"
             >
-              子集
+              Subset
             </Link>
           </td>
         </tr>
@@ -83,7 +83,7 @@ const SlidersPage = () => {
               href={`/admin/sliders/edit/${slider._id}?slider_name=${slider.title}`}
               className="bg-rose-50 text-rose-500 rounded-sm py-1 px-1.5 mx-1.5 inline-block"
             >
-              编辑
+              Edit
             </Link>
           </td>
         </tr>
@@ -107,18 +107,18 @@ const SlidersPage = () => {
               href={`sliders/create?category_id=${category_id}&category_name=${category_name}`}
               className="flex items-center px-3 py-2 text-red-600 border-2 border-red-600 rounded-lg max-w-max gap-x-3"
             >
-              添加新滑块
+              Add New Slider
             </Link>
           )}
           <div className="mx-3 overflow-x-auto mt-7 lg:mx-5 xl:mx-10">
             <table className="w-full whitespace-nowrap">
               <thead className="h-9 bg-emerald-50">
                 <tr className="text-emerald-500">
-                  {category_name && <th className="border-gray-100 border-x-2">图片</th>}
+                  {category_name && <th className="border-gray-100 border-x-2">Image</th>}
                   <th className="px-2 border-gray-100 border-x-2">
-                    {category_name ? '标题' : '分类名称'}
+                    {category_name ? 'Title' : 'Category Name'}
                   </th>
-                  <th className="border-gray-100 border-x-2">操作</th>
+                  <th className="border-gray-100 border-x-2">Actions</th>
                 </tr>
               </thead>
               <tbody className="text-gray-600">{renderContent()}</tbody>

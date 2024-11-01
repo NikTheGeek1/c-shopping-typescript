@@ -1,0 +1,359 @@
+{
+  "lang": "en",
+  "currency": "$",
+  "constants": {
+    "name": "C-Shopping",
+    "profile": "Profile",
+    "viewAll": "View All",
+    "admin": "Control Center"
+  },
+  "header": {
+    "notLogged": "You are not logged in",
+    "search": {
+      "placeholder": "Good things waiting for you, search...",
+      "modal": {
+        "title": "Search",
+        "empty": {
+          "title": "Results not found",
+          "description": "Use more words or check input properties",
+          "list": "List is empty"
+        }
+      }
+    },
+    "address": {
+      "select": "Please select your address",
+      "send": "Delivery Address",
+      "modal": {
+        "title": "Addresses",
+        "description": "Please enter your delivery address",
+        "province": "Please select your province",
+        "city": "Please select your city",
+        "area": "Please select your country",
+        "street": "Street Information",
+        "code": "Zip Code",
+        "submit": "Submit"
+      }
+    },
+    "navbar": {
+      "categories": "Categories"
+    },
+    "cart": {
+      "items": "Items",
+      "check": "Check your shopping cart",
+      "amount": "Amount due",
+      "goto": "Go to payment",
+      "empty": "Your shopping cart is empty!"
+    },
+    "signup" : {
+      "register": "Register",
+      "login": "Log In",
+      "logout": "Log Out",
+      "response": "Logged out successfully"
+    }
+  },
+  "signup" : {
+    "register": "Register",
+    "error": "Registration Error",
+    "name": "Please enter your account name",
+    "email": "Please enter your email",
+    "password": "Please enter your password",
+    "confirm": "Please confirm your password",
+    "account": "I already have an account",
+    "goto": "Log In"
+  },
+  "login": {
+    "email": "Please enter your email",
+    "password": "Please enter your password",
+    "login": "Log In",
+    "noAccount": "I don't have an account",
+    "goto": "Register",
+    "admin": "You can use the email address and password below to view the admin dashboard."
+  },
+  "wrapper": {
+    "title": "Error",
+    "retry": "Retry"
+  },
+  "profile": {
+    "dashboard": "Dashboard",
+    "orders": "My Orders",
+    "lists": "My Lists",
+    "reviews": "My Reviews",
+    "addresses": "My Addresses",
+    "history": "Recently Viewed",
+    "info": "Account Information",
+    "order": {
+      "title": "My Orders",
+      "viewAll": "View All",
+      "currentOrders": "Current Orders",
+      "records": "Records",
+      "completedOrders": "Completed Orders",
+      "refundedOrders": "Refunded Orders",
+      "history": "Order History",
+      "empty": "List is empty",
+      "previous": "Previous",
+      "next": "Next",
+      "status": {
+        "completed": "Completed",
+        "unconfirmed": "Unconfirmed",
+        "delivered": "Change Status to Delivered",
+        "processing": "Change Status to Processing",
+        "number": "Order Number"
+      },
+      "details": {
+        "name": "Recipient Name",
+        "status": "Status",
+        "email": "Email",
+        "time": "Order Time",
+        "change": "Change Status",
+        "completed": "Completed",
+        "unconfirmed": "Unconfirmed"
+      }
+    },
+    "list" : {
+      "title": "My Lists",
+      "empty": "Your list is empty",
+      "soon": "（Coming Soon）"
+    },
+    "review": {
+      "reviews": "Reviews",
+      "myReviews": "My Reviews",
+      "product": "Product Reviews",
+      "number": "Reviews Number",
+      "write": "Write your review for this product",
+      "submit": "After submitting confirmation, points will be awarded.",
+      "modal": {
+        "leave": "Leave your",
+        "product": "review for the product",
+        "rating": "Rating!:",
+        "title": "Review Title",
+        "pros": "Pros",
+        "cons": "Cons",
+        "text": "Review Text",
+        "submit": "Submit Review"
+      },
+      "emptyComment": "No comments yet, be the first to review!",
+      "card": {
+        "status": "Status changed to approved",
+        "reject": "Reject",
+        "delete": "Delete",
+        "confirmation": "Awaiting Confirmation",
+        "confirmed": "Confirmed",
+        "disappeared": "Disappeared"
+      },
+      "delete": {
+        "deletion": "Confirm Deletion",
+        "confirm": "Are you sure?",
+        "action": "Confirm",
+        "cancel": "Cancel"
+      }
+    },
+    "address": {
+      "address": "My Addresses",
+      "noAddress": "You have not filled in an address",
+      "registration": "Address Registration"
+    },
+    "userHistory": {
+      "viewed": "Recently Viewed",
+      "empty": "Your recently viewed list is empty"
+    },
+    "account": {
+      "information": "Account Information",
+      "name": "Name and Surname",
+      "phone": "Phone Number",
+      "edit": "Submit and Edit Identity Information",
+      "identity": "Please enter identity information, including name and surname",
+      "confirm": "Confirm",
+      "record": "Phone Number Record and Edit",
+      "enterPhone": "Please enter your phone number"
+    }
+  },
+  "bestSellers": {
+    "title": "Best Sellers"
+  },
+  "popular": {
+    "title": "Most Popular Products"
+  },
+  "footer": {
+    "support": "We are available 24/7 to assist you",
+    "wechat": "My WeChat",
+    "top": "Back to Top",
+    "delivery": "Delivery Possibility",
+    "availability": "24/7 Availability",
+    "pay": "Pay on Delivery",
+    "sevenDay": "7-Day Return Guarantee",
+    "original": "Product Originality Guarantee",
+    "contacts": "Contact Information!",
+    "email": "Your Email",
+    "submit": "Submit Your Email",
+    "description": "Online Store - Online Reviews, Selection, and Purchase",
+    "secure": "Secure online shopping requires stores to offer diverse, high-quality, reasonably priced products with a return guarantee in a short period.",
+    "customers": "Online stores have been developing this functionality for years, thus gaining a fixed customer base.",
+    "huang": "Huang Jipeng (Jixiaopeng)",
+    "developer": "Developer"
+  },
+  "admin": {
+    "login": "Admin Login",
+    "loginError": "You do not have access to the admin panel",
+    "notFound": "Return to admin dashboard",
+    "charts": "Charts",
+    "analytics": "Analytics",
+    "development": "Under Development",
+    "create": {
+      "title": "Add Product",
+      "tab": "Title",
+      "description": "Description",
+      "image": "Image",
+      "price": "Price",
+      "group": "Group",
+      "subProducts": "SubProducts",
+      "attributes": "Attributes",
+      "specifications": "Specs",
+      "inventory": "Inventory",
+      "discount": "Discount %",
+      "category": "Please select a category first",
+      "noProducts": "No products",
+      "name": "Name",
+      "value": "Value",
+      "update": "Update Information",
+      "submit": "Submit Information",
+      "size": "Size",
+      "color": "Color",
+      "colorName": "Color Name"
+    },
+    "upload": {
+      "select": "Select a file",
+      "validation": "The selected file must be an image",
+      "limit": "The size of the image should not exceed 5MB",
+      "success": "Upload successful",
+      "noImage": "No image uploaded",
+      "plugin": "Image Upload",
+      "uploading": "Uploading...",
+      "upload": "Upload"
+    },
+    "products":{
+      "title": "Products",
+      "singular": "Product",
+      "this": "This Product",
+      "edit": "Edit Product",
+      "reset": "Reset Filter",
+      "product": "Product Name...",
+      "filter": "Filter",
+      "name": "Name",
+      "price": "Price",
+      "sales": "Sales",
+      "inventory": "Inventory",
+      "action": "Action"
+    },
+    "orders":{
+      "title": "Orders"
+    },
+    "category":{
+      "title": "Categories",
+      "firstLevel": "First Level",
+      "secondLevel": "Second Level",
+      "thirdLevel": "Third Level",
+      "new": "Add New Category",
+      "chartBtn": "Chart Display",
+      "category": "Category",
+      "chart": "Chart",
+      "name": "Name",
+      "action": "Action",
+      "subcategories": "Subcategories",
+      "edit": "Edit",
+      "specifications": "Specs and Features",
+      "slider": "Slider",
+      "banner": "Banner",
+      "empty": "No categories yet",
+      "path": "Path (English letters)",
+      "image": "Image URL",
+      "startColor": "Start Color",
+      "endColor": "End Color",
+      "create": "Create",
+      "update": "Update",
+      "submit": "Submit",
+      "confirmation": "Do you agree to update the changes?",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "details": {
+        "title": "Category Details",
+        "name": "Name",
+        "createTime": "Create Time",
+        "updateTime": "Update Time",
+        "action": "Create",
+        "edit": "Edit",
+        "select": "Select Type",
+        "attribute": "Attribute",
+        "detail": "Detail",
+        "error": "Please enter details and attributes",
+        "details": "Details and Features",
+        "default": "Default",
+        "color": "By Color",
+        "size": "By Size",
+        "update": "Update",
+        "delete": "Delete",
+        "create": "Create"
+      }
+    }, 
+    "details":{
+      "title": "Category Details",
+      "features": "Features",
+      "specification": "Specs",
+      "name": "Name",
+      "value": "Value"
+    },
+    "user":{
+      "title": "Users",
+      "user": "User",
+      "role": "Role",
+      "name": "Name",
+      "email": "Email",
+      "action": "Actions",
+      "empty": "User list is empty"
+    }, 
+    "review":{
+      "title": "Reviews",
+      "status": "Status",
+      "user": "User",
+      "action": "Actions",
+      "pending": "Pending Confirmation",
+      "confirmed": "Confirmed",
+      "details": "Comment"
+    },
+    "slider":{
+      "title": "Sliders",
+      "name": "Slider",
+      "subset": "Subset",
+      "edit": "Edit",
+      "new": "Add New Slider",
+      "image": "Image",
+      "titleTH": "Title",
+      "categoryName": "Category Name",
+      "action": "Actions",
+      "added": "Category Slider",
+      "link": "Link URL",
+      "url": "Image URL",
+      "status": "Published",
+      "update": "Update",
+      "delete": "Delete",
+      "submit": "Submit"
+    },
+    "banner":{
+      "title": "Banners",
+      "subset": "Subset",
+      "edit": "Edit",
+      "image": "Image",
+      "categoryName": "Category Name",
+      "type": "Type",
+      "action": "Actions",
+      "titleTH": "Banner Title",
+      "link": "Link URL",
+      "url": "Image URL",
+      "status": "Published",
+      "typeOne": "Type One",
+      "typeTwo": "Type Two",
+      "update": "Update",
+      "delete": "Delete",
+      "submit": "Submit"
+    }
+  }
+}

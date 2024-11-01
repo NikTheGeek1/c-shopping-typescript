@@ -9,14 +9,14 @@ import {
   PageContainer,
   OrdersTable,
   TableSkeleton,
-} from 'components'
+} from '@/components'
 
-import { useChangeRoute } from 'hooks'
+import { useChangeRoute } from '@/hooks'
 
 import { useTitle, useUrlQuery } from '@/hooks'
 
 const OrdersHome = () => {
-  useTitle('订单管理')
+  useTitle('Order Management')
   //? Assets
   const query = useUrlQuery()
   const page = query.page ? +query.page : 1
@@ -32,7 +32,7 @@ const OrdersHome = () => {
   //? Render(s)
   return (
     <main id="_adminOrders">
-      <PageContainer title="订单管理">
+      <PageContainer title="Order Management">
         <section className="p-3 md:px-3 xl:px-8 2xl:px-10" id="orders">
           <ShowWrapper
             error={error}

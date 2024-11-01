@@ -1,5 +1,5 @@
 'use client'
-import { useChangeRoute } from 'hooks'
+import { useChangeRoute } from '@/hooks'
 
 import {
   OrderCard,
@@ -8,14 +8,14 @@ import {
   EmptyOrdersList,
   PageContainer,
   OrderSkeleton,
-} from 'components'
+} from '@/components'
 
 import { useGetOrdersQuery } from '@/store/services'
 
 import { useTitle, useUrlQuery } from '@/hooks'
 
 const Orders = () => {
-  useTitle('订单管理')
+  useTitle('Order Management')
   //? Assets
   const query = useUrlQuery()
   const changeRoute = useChangeRoute()
@@ -29,7 +29,7 @@ const Orders = () => {
   //? Render
   return (
     <main id="profileOrders">
-      <PageContainer title="订单历史">
+      <PageContainer title="Order History">
         <ShowWrapper
           error={error}
           isError={isError}

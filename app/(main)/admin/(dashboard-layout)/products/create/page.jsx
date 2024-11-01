@@ -2,13 +2,13 @@
 
 import { useRouter } from 'next/navigation'
 
-import { HandleResponse, PageContainer, ProductsForm } from 'components'
+import { HandleResponse, PageContainer, ProductsForm } from '@/components'
 
 import { useCreateProductMutation } from '@/store/services'
 import { useTitle } from '@/hooks'
 
 const CreateProductPage = () => {
-  useTitle('商品新增')
+  useTitle('Create Product')
   //? Assets
   const { push } = useRouter()
 
@@ -39,7 +39,7 @@ const CreateProductPage = () => {
       )}
 
       <main>
-        <PageContainer title="商品新增">
+        <PageContainer title="Create Product">
           <ProductsForm mode="create" isLoadingCreate={isLoading} createHandler={createHandler} />
         </PageContainer>
       </main>

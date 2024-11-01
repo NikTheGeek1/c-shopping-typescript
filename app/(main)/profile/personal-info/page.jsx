@@ -1,12 +1,12 @@
 'use client'
 
 import { useTitle } from '@/hooks'
-import { Icons, UserMobileModal, UserNameModal, PageContainer, Skeleton } from 'components'
+import { Icons, UserMobileModal, UserNameModal, PageContainer, Skeleton } from '@/components'
 
-import { useUserInfo, useDisclosure } from 'hooks'
+import { useUserInfo, useDisclosure } from '@/hooks'
 
 const PersonalInfo = () => {
-  useTitle('账户信息')
+  useTitle('Account Information')
   //? Assets
   const [isShowNameModal, nameModalHandlers] = useDisclosure()
   const [isShowPhoneModal, phoneModalHandlers] = useDisclosure()
@@ -54,16 +54,16 @@ const PersonalInfo = () => {
       )}
 
       <main>
-        <PageContainer title="帐户信息">
+        <PageContainer title="Account Information">
           <section className="lg:flex">
             <InfoField
-              label="名字和姓氏"
+              label="First and Last Name"
               info={userInfo?.name}
               editHandler={nameModalHandlers.open}
               isLoading={isLoading}
             />
             <InfoField
-              label="电话号码"
+              label="Phone Number"
               info={userInfo?.mobile}
               editHandler={phoneModalHandlers.open}
               isLoading={isLoading}

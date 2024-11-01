@@ -2,12 +2,12 @@
 
 import { useGetSingleOrderQuery } from '@/store/services'
 
-import { BigLoading, DashboardLayout, OrderCard, PageContainer } from 'components'
+import { BigLoading, DashboardLayout, OrderCard, PageContainer } from '@/components'
 
 import { useTitle, useUrlQuery } from '@/hooks'
 
 const SingleOrder = ({ params }) => {
-  useTitle('订单详情')
+  useTitle('Order Details')
   //? Assets
   const query = useUrlQuery()
 
@@ -19,7 +19,7 @@ const SingleOrder = ({ params }) => {
   //? Render(s)
   return (
     <main>
-      <PageContainer title="订单详情">
+      <PageContainer title="Order Details">
         {isLoading ? (
           <div className="px-3 py-20">
             <BigLoading />

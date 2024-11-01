@@ -1,12 +1,12 @@
 'use client'
 
 import { useTitle } from '@/hooks'
-import { Address, Icons, PageContainer, Skeleton, WithAddressModal } from 'components'
+import { Address, Icons, PageContainer, Skeleton, WithAddressModal } from '@/components'
 
-import { useUserInfo } from 'hooks'
+import { useUserInfo } from '@/hooks'
 
 const BasicAddresses = ({ addressModalProps }) => {
-  useTitle('地址管理')
+  useTitle('Address Management')
   const { isAddress, address, isLoading, openAddressModal } = addressModalProps || {}
 
   //? Get User Data
@@ -15,7 +15,7 @@ const BasicAddresses = ({ addressModalProps }) => {
   //? Render(s)
   return (
     <main>
-      <PageContainer title="地址">
+      <PageContainer title="Address">
         {isLoading ? (
           <section className="flex-1 px-5 ">
             <div className="flex justify-between py-4 border-b border-gray-200">
@@ -75,13 +75,13 @@ const BasicAddresses = ({ addressModalProps }) => {
         ) : (
           <section className="flex flex-col items-center py-20 gap-y-4">
             <Address className="h-52 w-52" />
-            <p>您尚未填写地址</p>
+            <p>You have not filled in the address yet</p>
             <button
               className="flex items-center px-3 py-2 text-red-600 border-2 border-red-600 rounded-lg gap-x-3"
               onClick={openAddressModal}
             >
               <Icons.Location className="text-red-600 icon" />
-              <span>地址登记</span>
+              <span>Register Address</span>
             </button>
           </section>
         )}

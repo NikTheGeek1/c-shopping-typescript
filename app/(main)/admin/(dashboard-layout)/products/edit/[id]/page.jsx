@@ -9,9 +9,9 @@ import {
   HandleResponse,
   PageContainer,
   ProductsForm,
-} from 'components'
+} from '@/components'
 
-import { useDisclosure } from 'hooks'
+import { useDisclosure } from '@/hooks'
 
 import { SubmitHandler } from 'react-hook-form'
 
@@ -19,17 +19,17 @@ import { useGetSingleProductQuery, useUpdateProductMutation } from '@/store/serv
 import { useTitle } from '@/hooks'
 
 const EditProductPage = ({ params: { id } }) => {
-  useTitle('编辑商品')
+  useTitle('Edit Product')
   //? Assets
   const { back } = useRouter()
 
-  const initialUpdataInfo = {}
+  const initialUpdateInfo = {}
 
   //? Modals
   const [isShowConfirmUpdateModal, confirmUpdateModalHandlers] = useDisclosure()
 
   //? States
-  const [updateInfo, setUpdateInfo] = useState(initialUpdataInfo)
+  const [updateInfo, setUpdateInfo] = useState(initialUpdateInfo)
 
   //? Queries
   //*    Get Product
@@ -62,25 +62,25 @@ const EditProductPage = ({ params: { id } }) => {
   }
 
   const onCancelUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
   }
 
   const onSuccessUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
     back()
   }
 
   const onErrorUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
   }
 
   return (
     <>
       <ConfirmUpdateModal
-        title="商品"
+        title="Product"
         isLoading={isLoadingUpdate}
         isShow={isShowConfirmUpdateModal}
         onClose={confirmUpdateModalHandlers.close}
@@ -100,7 +100,7 @@ const EditProductPage = ({ params: { id } }) => {
       )}
 
       <main>
-        <PageContainer title="编辑商品">
+        <PageContainer title="Edit Product">
           {isLoadingGetSelectedProduct ? (
             <div className="px-3 py-20">
               <BigLoading />

@@ -22,13 +22,13 @@ import {
   SelectCategories,
   ShowWrapper,
   TableSkeleton,
-} from 'components'
+} from '@/components'
 
-import { useDisclosure, useChangeRoute } from 'hooks'
+import { useDisclosure, useChangeRoute } from '@/hooks'
 import { useTitle, useUrlQuery } from '@/hooks'
 
 const Products = () => {
-  useTitle('商品管理')
+  useTitle('Product Management')
   //? Assets
   const { push } = useRouter()
   const query = useUrlQuery()
@@ -175,7 +175,7 @@ const Products = () => {
   return (
     <>
       <ConfirmDeleteModal
-        title="该商品"
+        title="This product"
         isLoading={isLoadingDelete}
         isShow={isShowConfirmDeleteModal}
         onClose={confirmDeleteModalHandlers.close}
@@ -196,7 +196,7 @@ const Products = () => {
       )}
 
       <main>
-        <PageContainer title="商品管理">
+        <PageContainer title="Product Management">
           <section className="p-3 space-y-7" id="_adminProducts">
             <form className="max-w-4xl mx-auto space-y-5" onSubmit={handleSubmit}>
               <SelectCategories
@@ -210,18 +210,18 @@ const Products = () => {
                   className="p-2 text-white border flex-center gap-x-2 min-w-max"
                   onClick={handleRemoveSearch}
                 >
-                  <span>重制筛选</span>
+                  <span>Reset Filters</span>
                   <Icons.Close className="icon" />
                 </button>
                 <input
                   type="text"
-                  placeholder="商品名称..."
+                  placeholder="Product Name..."
                   className="flex-grow p-2 text-left input"
                   value={search}
                   onChange={handleSearchChange}
                 />
                 <button type="submit" className="p-2 border flex-center gap-x-2 min-w-max">
-                  <span>过滤筛选</span>
+                  <span>Filter</span>
                   <Icons.Search className="icon" />
                 </button>
               </div>
@@ -241,11 +241,11 @@ const Products = () => {
                   <thead className="h-9 bg-emerald-50">
                     <tr className="text-emerald-500">
                       <th className="border-gray-50 border-x-2">ID</th>
-                      <th className="border-gray-100 border-x-2">名称</th>
-                      <th className="border-gray-100 border-x-2">价格</th>
-                      <th className="border-gray-100 border-x-2">销量</th>
-                      <th className="border-gray-100 border-x-2">库存</th>
-                      <th className="border-r-2 border-gray-100">操作</th>
+                      <th className="border-gray-100 border-x-2">Name</th>
+                      <th className="border-gray-100 border-x-2">Price</th>
+                      <th className="border-gray-100 border-x-2">Sales</th>
+                      <th className="border-gray-100 border-x-2">Stock</th>
+                      <th className="border-r-2 border-gray-100">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="text-gray-600">

@@ -17,7 +17,7 @@ import { useGetUsersQuery, useDeleteUserMutation } from '@/store/services'
 import { useDisclosure, useChangeRoute, useTitle } from '@/hooks'
 
 export default function UsersPage() {
-  useTitle('用户管理')
+  useTitle('User Management')
   //? Assets
   const { replace } = useRouter()
   const searchParams = useSearchParams()
@@ -65,7 +65,7 @@ export default function UsersPage() {
   return (
     <>
       <ConfirmDeleteModal
-        title="用户"
+        title="User"
         isLoading={isLoading_delete}
         isShow={isShowConfirmDeleteModal}
         onClose={onCancelUserDelete}
@@ -88,7 +88,7 @@ export default function UsersPage() {
         />
       )}
       <main id="_adminUsers">
-        <PageContainer title="用户管理">
+        <PageContainer title="User Management">
           <ShowWrapper
             error={error}
             isError={isError}

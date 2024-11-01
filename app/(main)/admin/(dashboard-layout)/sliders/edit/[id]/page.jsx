@@ -10,9 +10,9 @@ import {
   HandleResponse,
   PageContainer,
   SliderForm,
-} from 'components'
+} from '@/components'
 
-import { useDisclosure } from 'hooks'
+import { useDisclosure } from '@/hooks'
 
 import { SubmitHandler } from 'react-hook-form'
 
@@ -29,10 +29,10 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
   const query = useUrlQuery()
   const sliderName = query?.slider_name
 
-  const initialUpdataInfo = {}
+  const initialUpdateInfo = {}
 
   //? States
-  const [updateInfo, setUpdateInfo] = useState(initialUpdataInfo)
+  const [updateInfo, setUpdateInfo] = useState(initialUpdateInfo)
 
   //? Modals
   const [isShowConfirmDeleteModal, confirmDeleteModalHandlers] = useDisclosure()
@@ -83,12 +83,12 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
   }
 
   const onCancelUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
   }
 
   const onSuccessUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
     console.log('isSuccessUpdate', isSuccessUpdate)
     console.log('isErrorUpdate', isErrorUpdate)
@@ -96,7 +96,7 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
   }
 
   const onErrorUpdate = () => {
-    setUpdateInfo(initialUpdataInfo)
+    setUpdateInfo(initialUpdateInfo)
     confirmUpdateModalHandlers.close()
   }
 
@@ -114,12 +114,12 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
 
   const onErrorDelete = () => confirmDeleteModalHandlers.close()
 
-  useTitle('编辑滑块' + ' ' + sliderName)
+  useTitle('Edit Slider' + ' ' + sliderName)
 
   return (
     <>
       <ConfirmDeleteModal
-        title="滑块"
+        title="Slider"
         isLoading={isLoadingDelete}
         isShow={isShowConfirmDeleteModal}
         onClose={confirmDeleteModalHandlers.close}
@@ -139,7 +139,7 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
       )}
 
       <ConfirmUpdateModal
-        title="滑块"
+        title="Slider"
         isLoading={isLoadingUpdate}
         isShow={isShowConfirmUpdateModal}
         onClose={confirmUpdateModalHandlers.close}
@@ -159,7 +159,7 @@ const EditSliderPage = ({ params: { id: sliderId } }) => {
       )}
 
       <main>
-        <PageContainer title={'编辑滑块' + ' ' + sliderName}>
+        <PageContainer title={'Edit Slider' + ' ' + sliderName}>
           {isLoadingGetSelectedSlider ? (
             <div className="px-3 py-20">
               <BigLoading />

@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 export default function CategoriesEditPage({ params: { id } }) {
-  useTitle('编辑分类')
+  useTitle('Edit Category')
   //? Assets
   const { push } = useRouter()
   const query = useUrlQuery()
@@ -90,7 +90,7 @@ export default function CategoriesEditPage({ params: { id } }) {
         />
       )}
       <ConfirmUpdateModal
-        title="分类"
+        title="Category"
         isLoading={isLoading_update}
         isShow={isShowConfirmUpdateModal}
         onClose={confirmUpdateModalHandlers.close}
@@ -98,7 +98,7 @@ export default function CategoriesEditPage({ params: { id } }) {
         onCancel={onCancel}
       />
       <main>
-        <PageContainer title="编辑分类">
+        <PageContainer title="Edit Category">
           {isLoading_get ? (
             <div className="px-3 py-20">
               <BigLoading />
