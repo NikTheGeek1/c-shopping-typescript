@@ -9,19 +9,15 @@ import { addressSchema } from '@/utils'
 
 import { useUserInfo } from '@/hooks'
 
-//@ts-ignore
-import regions from 'china-citys';
-
 import {
   TextField,
   DisplayError,
   SubmitModalBtn,
-  Combobox,
   Modal,
   HandleResponse,
 } from '@/components'
 import { UserAddress } from '@/types'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 
@@ -33,15 +29,8 @@ interface AddressModalProps {
 
 const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
 
-  //? Assets
-  let AllProvinces = regions.getProvinces()
-
   //? Get User Data
   const { userInfo } = useUserInfo()
-
-  //? State
-  const [cities, setCities] = useState([])
-  const [areas, setAreas] = useState([])
 
   // ? Dictionary
   const { dict } = useLanguageContext()
@@ -52,8 +41,6 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
     control,
     formState: { errors: formErrors },
     setValue,
-    getValues,
-    watch,
   } = useForm({
     resolver: yupResolver(addressSchema),
     defaultValues: address,
@@ -62,26 +49,13 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
   //? Edit User-Info Query
   const [editUser, { data, isSuccess, isLoading, isError, error }] = useEditUserMutation()
 
-  //? Re-Renders
-  //* Change cities beside on province
-  useEffect(() => {
-    setValue('area', {})
-    getValues('city')?.code ? setAreas(regions.getAreasByCity(getValues('city')?.code)) : ''
-    watch('city')
-  }, [getValues('city')?.code])
-
-  useEffect(() => {
-    setValue('city', {})
-    setCities(regions.getCitysByProvince(getValues('province')?.code))
-    watch('province')
-  }, [getValues('province')?.code])
-
+  // Load user address on modal open
   useEffect(() => {
     if (userInfo?.address) {
       setValue('city', userInfo.address.city)
       setValue('area', userInfo.address.area)
     }
-  }, [])
+  }, [userInfo])
 
   //? Handlers
   const submitHander = (address: UserAddress) => {
@@ -120,38 +94,26 @@ const AddressModal = ({ isShow, onClose, address }: AddressModalProps) => {
               onSubmit={handleSubmit(submitHander)}
             >
               <div className="space-y-12 md:grid md:grid-cols-3 md:gap-x-12 md:gap-y-5 md:items-baseline ">
-                <div className="space-y-2">
-                  <Combobox
-                    control={control}
-                    name="province"
-                    list={AllProvinces}
-                    placeholder={dict.header?.address?.modal?.province}
-                  />
-                  {/* @ts-ignore TODO figure out formErrors type */}
-                  <DisplayError errors={formErrors.province?.name} />
-                </div>
+                <TextField
+                  label={dict.header?.address?.modal?.country}
+                  control={control}
+                  errors={formErrors.country}
+                  name="country"
+                />
 
-                <div className="space-y-2 ">
-                  <Combobox
-                    control={control}
-                    name="city"
-                    list={cities}
-                    placeholder={dict.header?.address?.modal?.city}
-                  />
-                  {/* @ts-ignore TODO figure out formErrors type */}
-                  <DisplayError errors={formErrors.city?.name} />
-                </div>
+                <TextField
+                  label={dict.header?.address?.modal?.city}
+                  control={control}
+                  errors={formErrors.city}
+                  name="city"
+                />
 
-                <div className="space-y-2 ">
-                  <Combobox
-                    control={control}
-                    name="area"
-                    list={areas}
-                    placeholder={dict.header?.address?.modal?.area}
-                  />
-                  {/* @ts-ignore TODO figure out formErrors type */}
-                  <DisplayError errors={formErrors.area?.name} />
-                </div>
+                <TextField
+                  label={dict.header?.address?.modal?.area}
+                  control={control}
+                  errors={formErrors.area}
+                  name="area"
+                />
 
                 <TextField
                   label={dict.header?.address?.modal?.street}

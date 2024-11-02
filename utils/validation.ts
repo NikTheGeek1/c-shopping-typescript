@@ -49,15 +49,9 @@ export const reviewSchema = Yup.object().shape({
 })
 
 export const addressSchema = Yup.object().shape({
-  province: Yup.object().shape({
-    name: Yup.string().required('Please select your province'),
-  }),
-  city: Yup.object().shape({
-    name: Yup.string().required('Please select your city'),
-  }),
-  area: Yup.object().shape({
-    name: Yup.string().required('Please select your area'),
-  }),
+  country: Yup.string().required('Please enter your country'),
+  city: Yup.string().required('Please enter your city'),
+  area: Yup.string().required('Please enter your area'),
   street: Yup.string().required('Street name is required'),
   postalCode: Yup.string().required('Postal code is required'),
 })

@@ -45,8 +45,8 @@ const BasicAddressBar = ({ addressModalProps }: IAddressModalProps) => {
       >
         <Icons.Location2 className="icon" />
         <span>
-          {translation?.dict?.header?.address?.send} {address?.province.name}, {address?.city.name},{' '}
-          {address?.area.name}
+          {translation?.dict?.header?.address?.send} {address?.country}, {address?.city},{' '}
+          {address?.area}
         </span>
         <Icons.ArrowRight2 className="mr-auto icon" />
       </button>

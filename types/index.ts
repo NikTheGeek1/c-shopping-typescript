@@ -29,15 +29,9 @@ export interface User {
 }
 
 export interface UserAddress {
-    city: {
-        name: string
-    }
-    area: {
-        name: string
-    }
-    province: {
-        name: string
-    }
+    city: string
+    area: string
+    country: string
     street: string
     postalCode: string
 }

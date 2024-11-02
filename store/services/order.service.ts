@@ -29,7 +29,7 @@ type CreateUpdateOrderBody = Partial<{
   address: {
     city: string;
     area: string;
-    province: string;
+    country: string;
     street: string;
     postalCode: string;
   }

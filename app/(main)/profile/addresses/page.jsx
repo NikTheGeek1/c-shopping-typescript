@@ -56,7 +56,7 @@ const BasicAddresses = ({ addressModalProps }) => {
               <div className="flex items-center gap-x-2 ">
                 <Icons.UserLocation className="text-gray-500 icon" />
                 <span className="text-xs md:text-sm">
-                  {address?.province.name}, {address?.city.name}, {address?.area.name}
+                  {address?.country}, {address?.city}, {address?.area}
                 </span>
               </div>
               <div className="flex items-center gap-x-2 ">

@@ -26,9 +26,9 @@
       "modal": {
         "title": "Addresses",
         "description": "Please enter your delivery address",
-        "province": "Please select your province",
-        "city": "Please select your city",
-        "area": "Please select your country",
+        "country": "Country",
+        "city": "City",
+        "area": "Area",
         "street": "Street Information",
         "code": "Zip Code",
         "submit": "Submit"

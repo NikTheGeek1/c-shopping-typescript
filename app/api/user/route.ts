@@ -1,19 +1,24 @@
 import joi from 'joi'
+import { NextRequest } from 'next/server'
 
-import { usersRepo } from 'helpers'
-import { apiHandler } from 'helpers/api'
-import { setJson } from '@/helpers/api'
+import { usersRepo } from '@/helpers'
+import { apiHandler, setJson } from '@/helpers/api'
+
+interface SearchParams {
+  page: number;
+  page_size: number;
+}
 
 const getUsers = apiHandler(
-  async req => {
+  async (req: NextRequest) => {
     const searchParams = req.nextUrl.searchParams
-    const page = +searchParams.get('page') || 1
-    const page_size = +searchParams.get('page_size') || 5
+    const page = +(searchParams.get('page') || 1)
+    const page_size = +(searchParams.get('page_size') || 5)
 
     const result = await usersRepo.getAll({
       page,
       page_size,
-    })
+    } as SearchParams)
     return setJson({
       data: result,
     })
@@ -25,9 +30,10 @@ const getUsers = apiHandler(
 )
 
 const uploadInfo = apiHandler(
-  async req => {
-    const userId = req.headers.get('userId')
+  async (req: NextRequest) => {
+    const userId = req.headers.get('userId') as string
     const body = await req.json()
+
     const result = await usersRepo.update(userId, body)
     return setJson({
       data: result,

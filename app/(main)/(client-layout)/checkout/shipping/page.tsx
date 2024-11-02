@@ -44,7 +44,7 @@ const ShippingPage = () => {
   const handleCreateOrder = () => {
     if (
       !userInfo?.address?.city &&
-      !userInfo?.address?.province &&
+      !userInfo?.address?.country &&
       !userInfo?.address?.area &&
       !userInfo?.address?.street &&
       !userInfo?.address?.postalCode
@@ -59,10 +59,10 @@ const ShippingPage = () => {
       postData({
         body: {
           address: {
-            city: userInfo.address.city.name,
-            area: userInfo.address.area.name,
+            city: userInfo.address.city,
+            area: userInfo.address.area,
             postalCode: userInfo.address.postalCode,
-            province: userInfo.address.province.name,
+            country: userInfo.address.country,
             street: userInfo.address.street,
           },
           mobile: userInfo.mobile,

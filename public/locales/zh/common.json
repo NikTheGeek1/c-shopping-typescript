@@ -26,7 +26,7 @@
       "modal": {
         "title": "地址管理",
         "description": "请输入您的收货地址",
-        "province": "请选择您所在的省份",
+        "country": "请选择您所在的省份",
         "city": "请选择您所在的城市",
         "area": "请选择您所在的区县",
         "street": "街道信息",
