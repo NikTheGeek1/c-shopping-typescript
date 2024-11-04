@@ -46,7 +46,7 @@ const _delete = async (id: string) => {
   await db.disconnect()
 }
 
-const update = async (id: number, params: any) => {
+const update = async (id: string, params: any) => {
   await db.connect()
   const category = await Category.findById(id)
   if (!category) throw 'Category does not exist'

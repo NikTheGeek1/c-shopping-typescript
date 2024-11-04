@@ -2,13 +2,16 @@ import joi from 'joi'
 
 import { setJson, apiHandler } from '@/helpers/api'
 import { categoryRepo } from '@/helpers'
+import { Category } from '@/types'
 
-const getCategory = apiHandler(async req => {
+
+const getCategory = apiHandler(async (req: Request) => {
   const result = await categoryRepo.getAll()
-  async function getCategoriesWithChildren() {
-    const allCategories = await categoryRepo.getAll()
 
-    function findChildren(category) {
+  async function getCategoriesWithChildren(): Promise<Category[]> {
+    const allCategories: Category[] = await categoryRepo.getAll() as Category[];
+
+    function findChildren(category: Category): Category {
       const children = allCategories.filter(c => c.parent && c.parent === category._id)
       if (children.length > 0) {
         category.children = children.map(child => {
@@ -25,6 +28,7 @@ const getCategory = apiHandler(async req => {
 
     return categoriesWithChildren
   }
+
   const categoriesList = await getCategoriesWithChildren()
   return setJson({
     data: {
@@ -35,12 +39,12 @@ const getCategory = apiHandler(async req => {
 })
 
 const createCategory = apiHandler(
-  async req => {
+  async (req: Request) => {
     const body = await req.json()
     await categoryRepo.create(body)
 
     return setJson({
-      message: '创建分类成功',
+      message: 'Category created successfully',
     })
   },
   {

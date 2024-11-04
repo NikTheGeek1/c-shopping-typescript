@@ -13,8 +13,6 @@ import { useGetCategoriesQuery, useUpdateCategoryMutation } from '@/store/servic
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-import { useLanguageContext } from '@/context/LanguageContext'
-
 export default function CategoriesEditPage({ params: { id } }) {
   // ? Dictionary
   const { dict } = useLanguageContext()

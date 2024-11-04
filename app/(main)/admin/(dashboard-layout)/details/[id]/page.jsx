@@ -21,7 +21,7 @@ import { useAppDispatch, useDisclosure } from '@/hooks'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { showAlert } from 'store'
+import { showAlert } from '@/store'
 
 const DetailsContentPage = ({ params: { id } }) => {
   // ? Dictionary

@@ -6,17 +6,21 @@ const storeSTS = new STS({
   accessKeySecret: process.env.NEXT_PUBLIC_ALI_SECRET_KEY,
 })
 
-const getToken = apiHandler(
-  async req => {
-    const result = await storeSTS.assumeRole(
-      process.env.NEXT_PUBLIC_ALI_ACS_RAM_NAME,
-      '',
-      '3000',
-      'sessiontest'
-    )
-    return setJson({
-      data: { ...result.credentials },
-    })
+const getToken = apiHandler(async req => {
+    try {
+      const result = await storeSTS.assumeRole(
+        process.env.NEXT_PUBLIC_ALI_ACS_RAM_NAME,
+        '',
+        '3000',
+        'sessiontest'
+      );
+      return setJson({
+        data: { ...result.credentials },
+      });
+    } catch (e) {
+      console.log("Error trying to get token:", e);
+      return setJson({ error: e.message }, 500)
+    }
   },
   {
     isJwt: true,

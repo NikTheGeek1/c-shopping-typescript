@@ -71,7 +71,12 @@ const DetailsList = ({categoryName, name, control, register}: DetailsListProps) 
                     ? 'bg-emerald-50 text-emerald-500'
                     : 'bg-fuchsia-50 text-fuchsia-500'
                 }
-              ></td>
+              >
+                <input
+                  className="text-field__input"
+                  {...register(`${name}.${index}.value`)}
+                />
+              </td>
             </tr>
           ))}
           <tr className="border-b-2 border-green-50">
@@ -90,7 +95,9 @@ const DetailsList = ({categoryName, name, control, register}: DetailsListProps) 
                   ? 'bg-emerald-50 text-emerald-500'
                   : 'bg-fuchsia-50 text-fuchsia-500'
               }
-            ></td>
+            >
+              <input type="text" className="text-field__input" placeholder="..." />
+            </td>
           </tr>
         </tbody>
       </table>

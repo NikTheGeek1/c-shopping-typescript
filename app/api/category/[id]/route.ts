@@ -3,12 +3,16 @@ import joi from 'joi'
 import { setJson, apiHandler } from '@/helpers/api'
 import { categoryRepo } from '@/helpers'
 
+interface Params {
+  id: string;
+}
+
 const deleteCategory = apiHandler(
-  async (req, { params }) => {
+  async (req: Request, { params }: { params: Params }) => {
     const { id } = params
     await categoryRepo.delete(id)
     return setJson({
-      message: '删除成功',
+      message: 'Category deleted successfully',
     })
   },
   {
@@ -18,12 +22,12 @@ const deleteCategory = apiHandler(
 )
 
 const updateCategory = apiHandler(
-  async (req, { params }) => {
+  async (req: Request, { params }: { params: Params }) => {
     const { id } = params
     const body = await req.json()
     await categoryRepo.update(id, body)
     return setJson({
-      message: '更新成功',
+      message: 'Category updated successfully',
     })
   },
   {

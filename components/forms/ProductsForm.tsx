@@ -152,7 +152,7 @@ const ProductsForm = ({
 
           <Tab.Panels>
             <Tab.Panel>
-              <TextField label={dict.admin?.create.tab} name="title" control={control} errors={[]} />
+              <TextField label={dict.admin?.create.tab} name="title" control={control} />
 
               <TextArea
                 name="description"
@@ -180,7 +180,7 @@ const ProductsForm = ({
                   control={control}
                   type="number"
                   inputMode="numeric"
-                  errors={[]}
+                 
                 />
 
                 <TextField
@@ -189,7 +189,7 @@ const ProductsForm = ({
                   control={control}
                   type="number"
                   inputMode="numeric"
-                  errors={[]}
+                 
                 />
               </div>
             </Tab.Panel>

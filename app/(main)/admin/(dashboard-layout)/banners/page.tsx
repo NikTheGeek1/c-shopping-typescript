@@ -6,8 +6,6 @@ import { useTitle, useUrlQuery } from '@/hooks'
 import { useGetBannersQuery, useGetCategoriesQuery } from '@/store/services'
 import Link from 'next/link'
 
-import { useLanguageContext } from '@/context/LanguageContext'
-
 interface Category {
   _id: string;
   name: string;
