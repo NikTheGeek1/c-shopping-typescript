@@ -4,7 +4,7 @@ import { setJson, apiHandler } from '@/helpers/api'
 import { detailsRepo } from '@/helpers'
 
 const getAllDetails = apiHandler(
-  async req => {
+  async (req: Request) => {
     const result = await detailsRepo.getAll()
     return setJson({
       data: result,
@@ -17,11 +17,11 @@ const getAllDetails = apiHandler(
 )
 
 const createDetails = apiHandler(
-  async req => {
+  async (req: Request) => {
     const body = await req.json()
     await detailsRepo.create(body)
     return setJson({
-      message: '新增商品成功',
+      message: 'Product added successfully',
     })
   },
   {
