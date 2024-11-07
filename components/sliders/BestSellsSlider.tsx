@@ -64,7 +64,7 @@ const BestSellsSlider = ({ categorySlug }: BestSellsSliderProps) => {
                   <article className="flex space-x-4">
                     <ResponsiveImage
                       dimensions="w-24 h-24"
-                      src={item.images[0].url}
+                      src={item.images[0]?.url}
                       alt={item.title}
                       className="shrink-0"
                     />

@@ -70,7 +70,7 @@ const MostFavouriteProducts = ({ categorySlug }: MostFavouriteProductsProps) => 
                   <ResponsiveImage
                     dimensions="h-32 w-28 md:w-32 md:h-36"
                     className="mx-auto"
-                    src={product.images[0].url}
+                    src={product.images[0]?.url}
                     alt={product.title}
                   />
                   <div

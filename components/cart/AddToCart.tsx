@@ -7,6 +7,7 @@ import { formatNumber } from '@/utils'
 import { useAppSelector } from '@/hooks'
 import { siteTitle } from '@/utils'
 import { RootState } from '@/store'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 interface AddToCartProps {
   second?: boolean
@@ -22,6 +23,9 @@ interface AddToCartProps {
 }
 
 const AddToCart = ({ second, product }: AddToCartProps) => {
+
+    //? Dictionary
+    const { dict } = useLanguageContext()
 
   //? Store
   const { tempColor, tempSize } = useAppSelector((state: RootState) => state.cart)
@@ -41,7 +45,7 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
         } `}
       >
         <div className="items-center justify-between hidden space-y-2 lg:py-3 lg:flex">
-          <span className="text-base text-black">卖方 :</span>
+          <span className="text-base text-black">{dict.header.cart.seller} :</span>
           <div className="flex gap-x-2">
             <Image src="/icons/mini-logo.png" width={24} height={24} alt={siteTitle} />
             <span>{siteTitle}</span>
@@ -52,7 +56,7 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
             <div className="flex py-3 gap-x-4 ">
               <ResponsiveImage
                 dimensions="w-28 h-28"
-                src={product.images[0].url}
+                src={product.images[0]?.url}
                 alt={product.title}
               />
 
@@ -79,7 +83,7 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
 
         <div className="py-3 lg:items-center lg:gap-x-2 lg:flex">
           <Icons.ShieldCheck className="icon" />
-          <span className="font-light">正品保证和发货保证</span>
+          <span className="font-light">{dict.header.cart.quality} :</span>
         </div>
 
         <div className="lg:block lg:py-3 ">
@@ -88,7 +92,7 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
 
         <div className="lg:flex lg:items-center lg:gap-x-1 lg:py-3">
           <Icons.Check className="icon" />
-          <span> 销售 :</span>
+          <span> {dict.header.cart.sold} :</span>
           <span className="">{formatNumber(product.sold)}</span>
         </div>
 

@@ -36,7 +36,7 @@ const ReviewsTable = ({ reviews }: ReviewsTableProps) => {
                   <ResponsiveImage
                     dimensions="w-7 h-7"
                     className="mx-auto"
-                    src={review.product.images[0].url}
+                    src={review.product.images[0]?.url}
                     alt=""
                   />
                 </td>

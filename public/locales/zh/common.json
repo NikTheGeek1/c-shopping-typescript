@@ -42,7 +42,10 @@
       "check": "查看购物车",
       "amount": "应付金额",
       "goto": "去支付",
-      "empty": "你的购物车是空的！"
+      "empty": "你的购物车是空的！",
+      "seller": "卖方",
+      "quality": "正品保证和发货保证",
+      "sold": "销售"
     },
     "signup" : {
       "register": "注册",

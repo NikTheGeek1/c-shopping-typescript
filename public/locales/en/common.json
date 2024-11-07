@@ -42,7 +42,10 @@
       "check": "Check your shopping cart",
       "amount": "Amount due",
       "goto": "Go to payment",
-      "empty": "Your shopping cart is empty!"
+      "empty": "Your shopping cart is empty!",
+      "seller": "Seller",
+      "quality": "Authenticity and Shipping Guarantee",
+      "sold": "Sold"
     },
     "signup" : {
       "register": "Register",

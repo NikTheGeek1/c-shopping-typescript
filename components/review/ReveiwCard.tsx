@@ -121,7 +121,7 @@ const ReviewCard = ({ item, singleComment, deleteReviewHandler }: ReveiwCardProp
         <div>
           <ResponsiveImage
             dimensions="w-16 h-12 lg:w-24 lg:h-20"
-            src={item.product.images[0].url}
+            src={item.product.images[0]?.url}
             alt="product image"
           />
           <span

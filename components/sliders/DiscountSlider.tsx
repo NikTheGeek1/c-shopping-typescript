@@ -95,7 +95,7 @@ const DiscountSlider = ({ currentCategory }: DiscountSliderProps) => {
                       <ResponsiveImage
                         dimensions="w-32 h-32 lg:w-36 lg:h-36"
                         className=" mx-auto"
-                        src={product.images[0].url}
+                        src={product.images[0]?.url}
                         alt={product.title}
                       />
 
