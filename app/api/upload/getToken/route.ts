@@ -2,24 +2,25 @@ import { apiHandler, setJson } from '@/helpers/api'
 import { STS } from 'ali-oss'
 
 const storeSTS = new STS({
-  accessKeyId: process.env.NEXT_PUBLIC_ALI_ACCESS_KEY,
-  accessKeySecret: process.env.NEXT_PUBLIC_ALI_SECRET_KEY,
+  accessKeyId: process.env.NEXT_PUBLIC_ALI_ACCESS_KEY as string,
+  accessKeySecret: process.env.NEXT_PUBLIC_ALI_SECRET_KEY as string,
 })
 
-const getToken = apiHandler(async req => {
+const getToken = apiHandler(
+  async (req: Request) => {
     try {
       const result = await storeSTS.assumeRole(
-        process.env.NEXT_PUBLIC_ALI_ACS_RAM_NAME,
+        process.env.NEXT_PUBLIC_ALI_ACS_RAM_NAME as string,
         '',
-        '3000',
+        3000,
         'sessiontest'
       );
       return setJson({
         data: { ...result.credentials },
       });
-    } catch (e) {
+    } catch (e: any) {
       console.log("Error trying to get token:", e);
-      return setJson({ error: e.message }, 500)
+      return setJson({ message: e.message, code: 500 })
     }
   },
   {

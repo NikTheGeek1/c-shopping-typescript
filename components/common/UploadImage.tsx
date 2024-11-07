@@ -59,7 +59,8 @@ const UploadImage = ({folder, handleAddUploadedImageUrl}: UploadImageProps) => {
       bucket: process.env.NEXT_PUBLIC_ALI_BUCKET_NAME,
       region: process.env.NEXT_PUBLIC_ALI_REGION,
     })
-
+    
+    console.log("process.env.NEXT_PUBLIC_ALI_FILES_PATH", process.env.NEXT_PUBLIC_ALI_FILES_PATH)
     const filePath = `${process.env.NEXT_PUBLIC_ALI_FILES_PATH}${folder || '/others'}/`
     const fileName = `${nanoid()}.${getFilenameExt(file.name)}`
 
