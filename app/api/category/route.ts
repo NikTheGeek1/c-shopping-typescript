@@ -4,7 +4,6 @@ import { setJson, apiHandler } from '@/helpers/api'
 import { categoryRepo } from '@/helpers'
 import { Category } from '@/types'
 
-
 const getCategory = apiHandler(async (req: Request) => {
   const result = await categoryRepo.getAll()
 

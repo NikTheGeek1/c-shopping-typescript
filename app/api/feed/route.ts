@@ -1,11 +1,6 @@
 import { setJson, apiHandler } from '@/helpers/api'
 import { bannerRepo, categoryRepo, sliderRepo } from '@/helpers'
-import { NextApiRequest, NextApiResponse } from 'next'
-
-interface Category {
-  _id: string;
-  parent?: string;
-}
+import { Category } from '@/types'
 
 interface Slider {
   // Define the properties of a slider here
@@ -16,7 +11,7 @@ interface Banner {
 }
 
 const getFeed = apiHandler(
-  async (req: NextApiRequest, res: NextApiResponse) => {
+  async (req: Request, res: Response) => {
     const currentCategory: Category | null = await categoryRepo.getOne({
       parent: undefined,
     })

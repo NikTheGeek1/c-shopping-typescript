@@ -8,10 +8,11 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { categorySchema } from '@/utils'
+import { Category } from '@/types'
 
 interface CategoryFormProps {
   mode: 'create' | 'edit'
-  selectedCategory: any
+  selectedCategory: Category
   createHandler: (data: any) => void
   updateHandler: (data: any) => void
   isLoading: boolean

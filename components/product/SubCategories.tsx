@@ -1,14 +1,10 @@
 import Link from 'next/link'
+import { Category } from '@/types'
 
 import { ResponsiveImage, SubCategoriesSkeleton } from '@/components'
 
 interface SubCategoriesProps {
-  childCategories: {
-    _id: string
-    name: string
-    slug: string
-    image: string
-  }[]
+  childCategories: Category[]
   isLoading: boolean
 }
 

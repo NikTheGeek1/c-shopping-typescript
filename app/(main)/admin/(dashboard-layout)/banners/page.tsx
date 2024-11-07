@@ -5,12 +5,7 @@ import { useLanguageContext } from '@/context/LanguageContext'
 import { useTitle, useUrlQuery } from '@/hooks'
 import { useGetBannersQuery, useGetCategoriesQuery } from '@/store/services'
 import Link from 'next/link'
-
-interface Category {
-  _id: string;
-  name: string;
-  level: number;
-}
+import { Category } from '@/types'
 
 interface Banner {
   _id: string;
