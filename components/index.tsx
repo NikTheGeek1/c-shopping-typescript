@@ -156,7 +156,7 @@ export { default as ReviewsTable } from './review/ReviewsTable'
 export { default as BestSellsSlider } from './sliders/BestSellsSlider'
 export { default as DiscountSlider } from './sliders/DiscountSlider'
 export { default as Slider } from './sliders/Slider'
-export { default as SmilarProductsSlider } from './sliders/SmilarProductsSlider'
+export { default as SimilarProductsSlider } from './sliders/SimilarProductsSlider'
 
 //* BANNER COMPONENTS
 export { default as BannerOne } from './banners/BannerOne'
