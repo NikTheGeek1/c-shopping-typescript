@@ -47,14 +47,14 @@
       "quality": "Authenticity and Shipping Guarantee",
       "sold": "Sold"
     },
-    "signup" : {
+    "signup": {
       "register": "Register",
       "login": "Log In",
       "logout": "Log Out",
       "response": "Logged out successfully"
     }
   },
-  "signup" : {
+  "signup": {
     "register": "Register",
     "error": "Registration Error",
     "name": "Please enter your account name",
@@ -112,7 +112,7 @@
         "unconfirmed": "Unconfirmed"
       }
     },
-    "list" : {
+    "list": {
       "title": "My Lists",
       "empty": "Your list is empty",
       "soon": "（Coming Soon）"
@@ -233,7 +233,7 @@
       "uploading": "Uploading...",
       "upload": "Upload"
     },
-    "products":{
+    "products": {
       "title": "Products",
       "singular": "Product",
       "this": "This Product",
@@ -247,10 +247,10 @@
       "inventory": "Inventory",
       "action": "Action"
     },
-    "orders":{
+    "orders": {
       "title": "Orders"
     },
-    "category":{
+    "category": {
       "title": "Categories",
       "firstLevel": "First Level",
       "secondLevel": "Second Level",
@@ -296,15 +296,15 @@
         "delete": "Delete",
         "create": "Create"
       }
-    }, 
-    "details":{
+    },
+    "details": {
       "title": "Category Details",
       "features": "Features",
       "specification": "Specs",
       "name": "Name",
       "value": "Value"
     },
-    "user":{
+    "user": {
       "title": "Users",
       "user": "User",
       "role": "Role",
@@ -312,8 +312,8 @@
       "email": "Email",
       "action": "Actions",
       "empty": "User list is empty"
-    }, 
-    "review":{
+    },
+    "review": {
       "title": "Reviews",
       "status": "Status",
       "user": "User",
@@ -322,7 +322,7 @@
       "confirmed": "Confirmed",
       "details": "Comment"
     },
-    "slider":{
+    "slider": {
       "title": "Sliders",
       "name": "Slider",
       "subset": "Subset",
@@ -340,7 +340,7 @@
       "delete": "Delete",
       "submit": "Submit"
     },
-    "banner":{
+    "banner": {
       "title": "Banners",
       "subset": "Subset",
       "edit": "Edit",
@@ -358,5 +358,8 @@
       "delete": "Delete",
       "submit": "Submit"
     }
+  },
+  "other": {
+    "description": "Description"
   }
 }

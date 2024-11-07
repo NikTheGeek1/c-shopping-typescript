@@ -19,7 +19,12 @@ const LanguageSwitcher: React.FC = () => {
   const changeLanguage = () => {
     if (typeof window !== 'undefined') {
       const languageStorage = window.localStorage.getItem('lng')
-      const lng = languageStorage === 'zh' ? 'en' : 'zh'
+      let lng;
+      if (languageStorage === 'en') {
+        lng = 'gr'
+      } else {
+        lng = 'en'
+      }
       setLang(lng)
       window.localStorage.setItem('lng', lng)
       getDict(lng)
@@ -39,6 +44,7 @@ const LanguageSwitcher: React.FC = () => {
       onClick={() => changeLanguage()}
     >
       {language === 'en' && <button>En</button>}
+      {language === 'gr' && <button>Gr</button>}
       {language === 'zh' && <button>中文</button>}
       <Icons.Translate className="icon" />
     </div>

@@ -18,7 +18,7 @@ export const LanguageContextProvider = ({ children }: LanguageContextProviderPro
   const currentLng = localStorage.getItem('lng')
 
   const getDict = useCallback(async () => {
-    const lang = await getDictionary(currentLng || 'zh')
+    const lang = await getDictionary(currentLng || 'en')
     setDict(lang)
   }, [currentLng])
 
