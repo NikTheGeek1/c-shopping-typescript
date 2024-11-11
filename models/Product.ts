@@ -46,7 +46,7 @@ const ProductSchema = new mongoose.Schema(
         type: mongoose.Types.ObjectId,
         ref: 'category',
       },
-      Level_three: {
+      level_three: {
         type: mongoose.Types.ObjectId,
         ref: 'category',
       },

@@ -1,6 +1,7 @@
 import { db } from '..'
 import Category from '@/models/Category'
 import Product from '@/models/Product'
+import { Product as ProductType } from '@/types'
 
 const getAll = async ({ page, page_size }: { page: number; page_size: number }, filter: any, sort: "asc" | "desc" = "desc") => {
   await db.connect()
@@ -46,7 +47,7 @@ const getAll = async ({ page, page_size }: { page: number; page_size: number }, 
 const getById = async (id: number) => {
   await db.connect()
   const result = await Product.findById(id)
-  if (!result) throw '产品不存在'
+  if (!result) throw 'Product does not exist'
   await db.disconnect()
   return result
 }
@@ -66,7 +67,7 @@ const create = async (params: any) => {
 const _delete = async (id: number) => {
   await db.connect()
   const product = await Product.findById(id)
-  if (!product) throw '产品不存在'
+  if (!product) throw 'Product does not exist'
   await Product.findByIdAndDelete(id)
   await db.disconnect()
 }
@@ -84,8 +85,8 @@ const getItemDetail = async (id: number) => {
   const product = await Product.findById({ _id: id })
     .populate('category_levels.level_one')
     .populate('category_levels.level_two')
-    .populate('category_levels.Level_three')
-    .lean()
+    .populate('category_levels.level_three')
+    .lean() as ProductType;
 
   if (!product) return { notFound: true }
 

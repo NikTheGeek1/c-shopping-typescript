@@ -105,7 +105,7 @@ const ProductsForm = ({
         category_levels: {
           level_one: selectedCategories.levelOne?._id,
           level_two: selectedCategories.levelTwo?._id,
-          Level_three: selectedCategories.levelThree?._id,
+          level_three: selectedCategories.levelThree?._id,
         },
       })
   }

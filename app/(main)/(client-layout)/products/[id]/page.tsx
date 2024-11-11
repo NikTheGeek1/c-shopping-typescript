@@ -23,7 +23,7 @@ export const getData = async (params: { id: string }) => {
   const product = await Product.findById({ _id: params?.id })
     .populate('category_levels.level_one')
     .populate('category_levels.level_two')
-    .populate('category_levels.Level_three')
+    .populate('category_levels.level_three')
     .lean()
 
   if (!product) return { notFound: true }

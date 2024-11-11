@@ -37,3 +37,25 @@ export interface UserAddress {
     street: string
     postalCode: string
 }
+
+
+// TODO: Define the Product type CORRECTLY. THIS WAS COPILOT CREATED CODE
+export interface Product {
+    _id: string;
+    name: string;
+    slug: string;
+    image: string;
+    description: string;
+    info: string;
+    specification: string;
+    category: string[];
+    category_levels: Category[];
+    sizes: string[];
+    price: number;
+    discount: number;
+    inStock: number;
+    rating: number;
+    numReviews: number;
+    created_at: string;
+    updated_at: string;
+}

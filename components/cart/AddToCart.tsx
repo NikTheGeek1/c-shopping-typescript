@@ -92,7 +92,7 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
 
         <div className="lg:flex lg:items-center lg:gap-x-1 lg:py-3">
           <Icons.Check className="icon" />
-          <span> {dict.header.cart?.sold} :</span>
+          <span> {dict.header?.cart?.sold} :</span>
           <span className="">{formatNumber(product.sold)}</span>
         </div>
 

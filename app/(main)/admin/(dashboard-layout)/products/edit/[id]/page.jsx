@@ -105,7 +105,7 @@ const EditProductPage = ({ params: { id } }) => {
             <div className="px-3 py-20">
               <BigLoading />
             </div>
-          ) : selectedProduct.data ? (
+          ) : selectedProduct?.data ? (
             <ProductsForm
               mode="edit"
               isLoadingUpdate={isLoadingUpdate}
