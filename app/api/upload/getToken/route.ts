@@ -1,5 +1,6 @@
 import { apiHandler, setJson } from '@/helpers/api'
 import { STS } from 'ali-oss'
+import { NextRequest } from 'next/server';
 
 const storeSTS = new STS({
   accessKeyId: process.env.NEXT_PUBLIC_ALI_ACCESS_KEY as string,
@@ -7,7 +8,7 @@ const storeSTS = new STS({
 })
 
 const getToken = apiHandler(
-  async (req: Request) => {
+  async (req: NextRequest) => {
     try {
       const result = await storeSTS.assumeRole(
         process.env.NEXT_PUBLIC_ALI_ACS_RAM_NAME as string,

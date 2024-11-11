@@ -38,3 +38,6 @@ next-env.d.ts
 
 # Database 
 mongoose-data.js
+
+# Products
+./products-data

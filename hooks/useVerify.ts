@@ -17,7 +17,6 @@ export default function useVerify(): boolean {
     if (decoded) status = true
   }
 
-
   jwt.verify(token, process.env.NEXT_PUBLIC_ACCESS_TOKEN_SECRET as string, verifyCallback)
 
   return status
