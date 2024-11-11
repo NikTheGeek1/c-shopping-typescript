@@ -40,4 +40,4 @@ next-env.d.ts
 mongoose-data.js
 
 # Products
-./products-data
+products-data
