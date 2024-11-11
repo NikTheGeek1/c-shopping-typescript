@@ -13,7 +13,6 @@ const convertImage = apiHandler(async (
     const imgBuffer = await file.arrayBuffer();
 
     const results = await sharp(Buffer.from(imgBuffer)).avif({ quality }).toBuffer();
-    console.log("results", results.length)
     return setJson({
       data: Array.from(results)
     });

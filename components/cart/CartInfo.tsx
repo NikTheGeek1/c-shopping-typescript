@@ -3,20 +3,24 @@ import { formatNumber } from '@/utils'
 import { Button } from '@/components'
 
 import { useAppSelector } from '@/hooks'
+import { RootState } from '@/store'
 
-const CartInfo = props => {
-  //? Porps
-  const { handleRoute, cart } = props
+type CartInfoProps = {
+  handleRoute: () => void
+  cart: boolean
+}
+
+const CartInfo = ({ handleRoute, cart }: CartInfoProps) => {
 
   //? Store
-  const { totalItems, totalPrice, totalDiscount } = useAppSelector(state => state.cart)
+  const { totalItems, totalPrice, totalDiscount } = useAppSelector((state: RootState) => state.cart)
 
   //? Render(s)
   return (
     <div className="px-4 py-2 mt-10 space-y-5 lg:mt-0 lg:h-fit lg:py-4">
       {/* total cart price */}
       <div className="pb-2 border-b border-gray-200 flex justify-between">
-        <span className="text-sm">商品价格({formatNumber(totalItems)}件商品)</span>
+        <span className="text-sm">Product Price ({formatNumber(totalItems)} items)</span>
         <div className="flex-center">
           <span className="">{formatNumber(totalPrice)}</span>
           <span className="ml-1">€</span>

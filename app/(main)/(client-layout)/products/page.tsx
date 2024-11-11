@@ -41,17 +41,18 @@ const ProductsHome = () => {
     })
   }
 
+  console.log("sort", sort)
   //? Querirs
   //*    Get Products Data
   const { data, isFetching: isFetchingProduct } = useGetProductsQuery({
-    category: category.toString(),
-    page_size: +page_size,
-    page: +page,
-    sort: sort.toString(),
-    search: search.toString(),
+    category: category?.toString(),
+    page_size: page_size ? +page_size : undefined,
+    page: page ? +page : undefined,
+    sort: sort?.toString(),
+    search: search?.toString(),
     inStock: !!inStock,
-    discount: +discount,
-    price: +price
+    discount: discount ? +discount : undefined,
+    price: price ? +price : undefined,
   })
 
   //*    Get childCategories Data
@@ -94,7 +95,7 @@ const ProductsHome = () => {
 
               <div className="flex justify-between py-2">
                 <span>All Products</span>
-                <span className="">{data?.data?.productsLength} 件商品</span>
+                <span className="">{data?.data?.productsLength} items found</span>
               </div>
             </div>
 
@@ -106,9 +107,9 @@ const ProductsHome = () => {
                 {data?.data?.products.map(item => <ProductCard product={item as any} key={item._id} />)}
               </section>
             ) : (
-                <section className="text-center text-red-500 xl:border xl:border-gray-200 xl:rounded-md xl:py-4">
+              <section className="text-center text-red-500 xl:border xl:border-gray-200 xl:rounded-md xl:py-4">
                 No products found
-                </section>
+              </section>
             )}
           </div>
         </div>
