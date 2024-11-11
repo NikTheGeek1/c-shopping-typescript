@@ -10,7 +10,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb = ({ categoryLevels }: BreadcrumbProps) => {
   const { level_one, level_three, level_two } = categoryLevels
-  console.log("${level_one.slug}", level_one.slug)
+
   //? Render(s)
   return (
     <div className=" pl-3">
