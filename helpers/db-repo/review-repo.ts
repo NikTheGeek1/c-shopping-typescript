@@ -11,6 +11,7 @@ const getAll = async ({ page, page_size }: { page: number; page_size: number }, 
     .sort({
       createdAt: 'desc',
     })
+    console.log("reviews", reviews)
   const reviewsLength = await Review.countDocuments(filter)
   await db.disconnect()
   return {

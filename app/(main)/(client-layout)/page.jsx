@@ -22,6 +22,7 @@ export default async function Home({ searchParams }) {
   const currentCategory = await categoryRepo.getOne({
     parent: undefined,
   })
+  
   const childCategories = await categoryRepo.getAll(
     {},
     {

@@ -41,7 +41,6 @@ const ProductsHome = () => {
     })
   }
 
-  console.log("sort", sort)
   //? Querirs
   //*    Get Products Data
   const { data, isFetching: isFetchingProduct } = useGetProductsQuery({
@@ -52,7 +51,7 @@ const ProductsHome = () => {
     search: search?.toString(),
     inStock: !!inStock,
     discount: discount ? +discount : undefined,
-    price: price ? +price : undefined,
+    price: price ? (price as string) : undefined,
   })
 
   //*    Get childCategories Data

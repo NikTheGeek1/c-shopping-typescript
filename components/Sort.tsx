@@ -78,7 +78,7 @@ const Sort = ({ handleChangeRoute }: SortProps) => {
       <div className="hidden xl:flex xl:gap-x-4 xl:items-center ">
         <div className="flex items-center gap-x-1">
           <Icons.Sort className="icon " />
-          <span>排序：</span>
+            <span>Sort by:</span>
         </div>
         {sorts.map((item, i) => (
           <button

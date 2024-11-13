@@ -49,7 +49,7 @@ type GetProductsQueryArgs = {
   search?: string;
   inStock?: boolean;
   discount?: number;
-  price?: number;
+  price?: string;
 };
 
 export const productApiSlice = apiSlice.injectEndpoints({

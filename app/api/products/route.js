@@ -10,7 +10,6 @@ const getAllProduct = apiHandler(async req => {
   const page = query.page ? +query.page : 1
   const page_size = query.page_size ? +query.page_size : 10
   const sort = query.sort ? +query.sort : 1
-
   const { category, search, inStock, discount, price } = query
 
   //? Filters
@@ -86,7 +85,7 @@ const createProduct = apiHandler(
     const body = await req.json()
     await productRepo.create(body)
     return setJson({
-      message: '新增商品成功',
+      message: 'Product added successfully',
     })
   },
   {

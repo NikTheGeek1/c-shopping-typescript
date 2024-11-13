@@ -12,6 +12,7 @@ const getAll = async ({ page, page_size }: { page: number; page_size: number }, 
     .skip((page - 1) * page_size)
     .limit(page_size)
     .sort(sort)
+
   const productsLength = await Product.countDocuments(filter)
 
   const mainMaxPrice = Math.max(

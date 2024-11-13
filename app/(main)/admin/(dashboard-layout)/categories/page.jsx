@@ -38,8 +38,7 @@ export default function CategoriesPage() {
           <div className="flex justify-between">
             {childCategories && childCategories[0]?.level !== 0 ? (
               <Link
-                href={`categories/create${parentId ? `?parent_id=${parentId}` : ''}&${parentLvl ? `parent_lvl=${parentLvl}` : ''
-                  }`}
+                href={`categories/create${parentId ? `?parent_id=${parentId}` : ''}${parentLvl ? `${parentId ? '&' : '?'}parent_lvl=${parentLvl}` : ''}`}
                 className="flex items-center px-3 py-2 text-red-600 border-2 border-red-600 rounded-lg max-w-max gap-x-3"
               >
                 {dict.admin?.category.new}

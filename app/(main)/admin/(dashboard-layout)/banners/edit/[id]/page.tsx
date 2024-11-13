@@ -21,7 +21,7 @@ import { SubmitHandler } from 'react-hook-form'
 import { useTitle, useUrlQuery } from '@/hooks'
 
 import { useLanguageContext } from '@/context/LanguageContext'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 interface EditBannerPageProps {

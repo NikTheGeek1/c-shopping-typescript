@@ -21,6 +21,7 @@ const getCategory = apiHandler(async (req: Request) => {
     }
 
     const rootCategories = allCategories.filter(c => !c.parent)
+
     const categoriesWithChildren = rootCategories.map(category => {
       return findChildren(category)
     })
@@ -29,6 +30,7 @@ const getCategory = apiHandler(async (req: Request) => {
   }
 
   const categoriesList = await getCategoriesWithChildren()
+
   return setJson({
     data: {
       categories: result,
