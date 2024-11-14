@@ -50,13 +50,13 @@ export default function Navbar() {
         {translation?.dict?.header?.navbar.categories}
       </button>
       <div
-        className={`fixed left-0 z-20 w-full h-screen top-28 bg-gray-400/50 ${
+        className={`fixed left-0 z-20 w-full h-screen top-28 bg-gray-400/50 dark:bg-gray-900/50 ${
           hover ? 'block' : 'hidden'
         }`}
       />
 
       <div
-        className="absolute z-40 hidden w-full bg-white rounded-md shadow-lg border border-gray-100 top-8 group-hover:block"
+        className="absolute z-40 hidden w-full bg-background rounded-md shadow-lg border border-gray-100 top-8 group-hover:block"
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => {
           hanldeDeactive()

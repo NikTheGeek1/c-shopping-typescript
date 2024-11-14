@@ -7,7 +7,7 @@ export default function Footer() {
   const translation = useLanguageContext()
 
   return (
-    <footer className="pt-4 mt-8 border-t border-gray-200 bg-gray-50">
+    <footer className="pt-4 mt-8 border-t border-gray-200 ">
       <div className="container px-3  space-y-8 mx-auto ">
         {/* Logo & scroll to top */}
         <div className="flex justify-between">
@@ -30,7 +30,7 @@ export default function Footer() {
               className="flex items-center px-3 py-1 border border-gray-300 rounded-md"
             >
               <span className="text-sm ">{translation?.dict?.footer?.top}</span>
-              <Icons.ArrowUp className="text-gray-400 h-7 w-7" />
+              <Icons.ArrowUp className="text-gray-400 dark:text-gray-200 h-7 w-7" />
             </button>
           </div>
         </div>
@@ -44,25 +44,25 @@ export default function Footer() {
           <div className="flex items-center justify-between">
             <p className="lg:mr-20">{translation?.dict?.footer?.contacts}</p>
             <div className="flex space-x-5">
-              <Link target="_blank" href="https://twitter.com/Huanghanzhilian">
-                <Icons.Twitter className="w-8 h-8 text-gray-400" />
+              <Link target="_blank" href="https://twitter.com">
+                <Icons.Twitter className="w-8 h-8 text-gray-400 dark:text-gray-200" />
               </Link>
               <Link
                 target="_blank"
-                href="https://www.linkedin.com/in/%E7%BB%A7%E9%B9%8F-%E9%BB%84-65217a265/"
+                href="https://www.linkedin.com/in/nikos-theodoropoulos-30/"
               >
-                <Icons.Linkedin className="w-8 h-8 text-gray-400" />
+                <Icons.Linkedin className="w-8 h-8 text-gray-400 dark:text-gray-200" />
               </Link>
-              <Link target="_blank" href="https://www.instagram.com/jipenghuang/">
-                <Icons.Instagram className="w-8 h-8 text-gray-400" />
+              <Link target="_blank" href="https://www.instagram.com/">
+                <Icons.Instagram className="w-8 h-8 text-gray-400 dark:text-gray-200" />
               </Link>
-              <Link target="_blank" href="https://www.youtube.com/channel/UCPJUB4zMmknuFw7pWUSWgIw">
-                <Icons.Youtube className="w-8 h-8 text-gray-400" />
+              <Link target="_blank" href="https://www.youtube.com/">
+                <Icons.Youtube className="w-8 h-8 text-gray-400 dark:text-gray-200" />
               </Link>
             </div>
           </div>
 
-          {/* Newslatter */}
+          {/* Newsletter */}
           <div className="flex-1 max-w-lg">
             <form className="flex space-x-3">
               <input
@@ -72,7 +72,7 @@ export default function Footer() {
               />
               <button
               type="submit"
-              className="px-2 text-white bg-gray-200 rounded-md whitespace-nowrap"
+              className="px-2 text-white bg-gray-200 dark:bg-gray-600 rounded-md whitespace-nowrap"
               >
                 {translation?.dict?.footer?.submit}
               </button>
@@ -83,10 +83,10 @@ export default function Footer() {
         {/* info */}
         <div className="space-y-6 lg:flex lg:justify-between">
           <div className="space-y-3 lg:max-w-2xl">
-            <h5 className="font-semibold text-black">
+            <h5 className="font-semibold text-foreground">
               {translation?.dict?.constants?.name} {translation?.dict?.footer?.description}
             </h5>
-            <p className="text-justify text-gray-700">
+            <p className="text-justify text-gray-700 dark:text-gray-300">
               {translation?.dict?.footer?.secure} {translation?.dict?.constants?.name}{' '}
               {translation?.dict?.footer?.customers}
             </p>
@@ -100,13 +100,13 @@ export default function Footer() {
         <ResponsiveImage
           dimensions="h-16 w-16"
           className="overflow-hidden border-4 border-red-600 rounded-full"
-          src="/developer.jpg"
+          src="/developer.jpeg"
           sizes="4rem"
-          alt={translation?.dict?.footer?.huang || 'dev'}
+          alt={translation?.dict?.footer?.nikos || 'dev'}
         />
         <p className="text-white">
           <a href="/" target="_blank" className="text-sky-400">
-            {translation?.dict?.footer?.huang}
+            {translation?.dict?.footer?.nikos}
           </a>{' '}
           {translation?.dict?.footer?.developer}
         </p>

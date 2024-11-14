@@ -10,6 +10,7 @@ import { LanguageContextProvider } from '@/context/LanguageContext'
 
 // ? Components
 import { Alert, PageLoading } from '@/components'
+import { ThemeProvider } from '../ThemeProvider'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   //? Fix Hydration failed
@@ -24,9 +25,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <StoreProvider>
-      <LanguageContextProvider>{children}</LanguageContextProvider>
-      <Alert />
-      <PageLoading />
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
+        <LanguageContextProvider>{children}</LanguageContextProvider>
+        <Alert />
+        <PageLoading />
+      </ThemeProvider>
     </StoreProvider>
   )
 }
