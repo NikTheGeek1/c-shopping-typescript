@@ -21,7 +21,7 @@ export default function ConfirmDeleteModal({ title, isLoading, isShow, onClose, 
       <Modal isShow={isShow} onClose={onClose} effect="ease-out">
         <Modal.Content onClose={onClose}>
           <Modal.Body>
-            <div className="px-3 py-6 space-y-4 text-center bg-white md:rounded-lg">
+            <div className="px-3 py-6 space-y-4 text-center bg-background md:rounded-lg">
               <p>
                 {dict.profile?.review?.delete?.deletion}
                 <span className="font-bold text-red-500">{title}</span>

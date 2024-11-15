@@ -1,9 +1,11 @@
 import { formatNumber } from '@/utils'
 
-const DiscountCartItem = props => {
-  //? Props
-  const { discount, price } = props
+type DiscountCartItemProps = {
+  discount: number
+  price: number
+}
 
+const DiscountCartItem = ({ discount, price }: DiscountCartItemProps) => {
   //? Assets
   const discountPercent = discount / 100
   console.log('discountPercent', discountPercent)
@@ -16,7 +18,7 @@ const DiscountCartItem = props => {
 
         <span className="text-red-500">€</span>
 
-        <span className="text-red-500">折扣</span>
+        <span className="text-red-500">Discount</span>
       </div>
       <div className="flex items-center gap-x-2">
         <span className="text-sm text-gray-700">

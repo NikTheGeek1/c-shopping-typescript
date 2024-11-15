@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="flex flex-col gap-y-2 lg:flex-row lg:space-x-5">
               <span>{translation?.dict?.footer?.support}</span>
               <span className="hidden lg:block bg-gray-300 w-[2px]" />
-              <span>{translation?.dict?.footer?.wechat}：huanghanzhilian</span>
+              <span>{translation?.dict?.footer?.wechat} ntheodoropoulos</span>
             </div>
           </div>
           <div className="min-w-max">

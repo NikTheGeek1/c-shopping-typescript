@@ -26,7 +26,7 @@ export default function RedirectToLogin({ isShow, onClose, title, text }: Redire
     <Modal isShow={isShow} onClose={onClose} effect="ease-out">
       <Modal.Content>
         <Modal.Body>
-          <div className="p-3 space-y-4 text-center bg-white md:rounded-lg">
+          <div className="p-3 space-y-4 text-center bg-background md:rounded-lg">
             <Image
               className="mx-auto"
               src="/icons/exclamation.svg"

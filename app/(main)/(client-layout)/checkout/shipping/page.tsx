@@ -56,7 +56,8 @@ const ShippingPage = () => {
         })
       )
     else
-      postData({
+
+    postData({
         body: {
           address: {
             city: userInfo.address.city,
@@ -198,7 +199,7 @@ const ShippingPage = () => {
 
           {/* cart info */}
           <section className="lg:border lg:border-gray-200 lg:rounded-md lg:h-fit">
-            <CartInfo />
+            <CartInfo handleRoute={() => {}} cart={false}/>
             <div className="px-3 py-2 space-y-3">
               <div className="flex items-center gap-x-2 ">
                 <input

@@ -30,7 +30,7 @@ const createOrder = apiHandler(
     const body = await req.json()
     await orderRepo.create(userId, body)
     return setJson({
-      message: '创建订单成功',
+      message: 'Order created successfully',
     })
   },
   {

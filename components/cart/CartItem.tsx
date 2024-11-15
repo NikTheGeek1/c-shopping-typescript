@@ -56,14 +56,14 @@ const CartItem = ({ item }: CartItemProps) => {
               <span className="">{item.size.size}</span>
             </div>
           )}
-          <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-x-2">
             <Icons.ShieldCheck className="icon" />
-            <span className="font-light">正品保证和发货保证</span>
-          </div>
-          <div className="flex items-center gap-x-2">
+            <span className="font-light">Authenticity and Shipping Guarantee</span>
+            </div>
+            <div className="flex items-center gap-x-2">
             <Icons.Save className="icon text-sky-400" />
-            <span className="font-light">仓库有售</span>
-          </div>
+            <span className="font-light">Available in Warehouse</span>
+            </div>
           {item.discount > 0 ? (
             <DiscountCartItem discount={item.discount} price={item.price} />
           ) : (

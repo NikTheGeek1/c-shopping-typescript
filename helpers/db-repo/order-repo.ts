@@ -30,12 +30,13 @@ const getAll = async ({ page, page_size }: { page: number; page_size: number }, 
 const getById = async (id: string) => {
   await db.connect()
   const result = await Order.findById(id)
-  if (!result) throw '订单不存在'
+  if (!result) throw 'Order does not exist'
   await db.disconnect()
   return result
 }
 
 const create = async (id: string, params: any) => {
+
   await db.connect()
   const newOrder = new Order({
     user: id,

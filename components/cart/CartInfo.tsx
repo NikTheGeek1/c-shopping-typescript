@@ -29,7 +29,7 @@ const CartInfo = ({ handleRoute, cart }: CartInfoProps) => {
 
       {/* total cart items */}
       <div className="flex justify-between">
-        <span>总计购物车</span>
+        <span>Total Cart</span>
         <div className="flex-center">
           <span className="text-sm">{formatNumber(totalPrice - totalDiscount)}</span>
           <span className="ml-1">€</span>
@@ -37,12 +37,12 @@ const CartInfo = ({ handleRoute, cart }: CartInfoProps) => {
       </div>
 
       <span className="inline-block w-full pb-2 border-b border-gray-200 lg:max-w-xs">
-        运费是根据您的货件的地址、交货时间、重量和体积计算的
+        Shipping costs are calculated based on your shipment's address, delivery time, weight, and volume
       </span>
 
       {/* total cart profit */}
       <div className="flex justify-between">
-        <span className="text-red-500">您从购买中省去的金额</span>
+        <span className="text-red-500">Amount you saved from the purchase</span>
         <div className="flex-center gap-x-1">
           <span className="text-red-500 text-sm">
             ({((totalDiscount / totalPrice) * 100).toFixed(1)}%)
@@ -54,7 +54,7 @@ const CartInfo = ({ handleRoute, cart }: CartInfoProps) => {
 
       {cart && (
         <Button onClick={handleRoute} className="hidden w-full lg:block">
-          继续
+          Continue
         </Button>
       )}
     </div>

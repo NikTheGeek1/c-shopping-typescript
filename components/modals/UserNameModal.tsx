@@ -57,7 +57,7 @@ const UserNameModal = ({ isShow, onClose, editedData }: UserNameModalProps) => {
       <Modal isShow={isShow} onClose={onClose} effect="bottom-to-top">
         <Modal.Content
           onClose={onClose}
-          className="flex flex-col h-full px-5 py-3 bg-white md:rounded-lg gap-y-5 "
+          className="flex flex-col h-full px-5 py-3 bg-background md:rounded-lg gap-y-5 "
         >
           <Modal.Header onClose={onClose}>{dict.profile?.account?.edit}</Modal.Header>
           <Modal.Body>
