@@ -29,7 +29,7 @@ export const bannerSchema = Yup.object().shape({
     url: Yup.string()
       .required('Image URL is required')
       .url('Invalid URL')
-      .matches(/\.(gif|jpe?g|png|webp)$/i, 'Image URL must be a valid image URL'),
+      .matches(/\.(avif|gif|jpe?g|png|webp)$/i, 'Image URL must be a valid image URL'),
   }),
 })
 
@@ -39,7 +39,7 @@ export const sliderSchema = Yup.object().shape({
     url: Yup.string()
       .required('Image URL is required')
       .url('Invalid URL')
-      .matches(/\.(gif|jpe?g|png|webp)$/i, 'Image URL must be a valid image URL'),
+      .matches(/\.(avif|gif|jpe?g|png|webp)$/i, 'Image URL must be a valid image URL'),
   }),
 })
 

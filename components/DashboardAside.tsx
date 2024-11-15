@@ -2,6 +2,7 @@ import { useLanguageContext } from '@/context/LanguageContext'
 import { BoxLink, Icons, LogoChina, LogoH, Logout } from '@/components'
 import Link from 'next/link'
 import LanguageSwitcher from '../components/LanguageSwitcher'
+import { ThemeToggle } from './ThemeToggle'
 
 export default function ProfileAside() {
   // ? Dictionary
@@ -67,11 +68,12 @@ export default function ProfileAside() {
       </Link>
       <div className="mt-4">
         <div className="flex-center py-4 mx-4 text-xs font-medium text-gray-700 border-t border-gray-300 gap-x-1 md:text-sm">
+          <ThemeToggle />
           <LanguageSwitcher />
         </div>
         {profilePaths.map((item, index) => (
           <BoxLink key={index} path={item.path} name={item.name}>
-            <item.Icon className="icon text-black" />
+            <item.Icon className="icon text-black dark:text-white" />
           </BoxLink>
         ))}
         <Logout />

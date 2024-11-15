@@ -15,7 +15,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+      className="dropdown__button inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
     >
       {theme === "dark" ? (
       <HiSun className="h-5 w-5 text-yellow-500" />

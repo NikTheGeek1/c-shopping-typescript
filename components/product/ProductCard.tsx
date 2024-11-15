@@ -30,7 +30,7 @@ const ProductCard = ({ product, slide }: ProductCardProps) => {
   return (
     <a target="_blank" href={`/products/${product._id}`}>
       <article
-        className={`pt-2 pb-3 border-b border-gray-100 sm:h-[540px] xl:h-[470px] sm:px-3 ${
+        className={`pt-2 pb-3 border-b border-gray-100 dark:border-gray-900 sm:h-[540px] xl:h-[470px] sm:px-3 ${
           !slide && 'sm:border sm:hover:shadow-3xl'
         }`}
       >
@@ -51,7 +51,7 @@ const ProductCard = ({ product, slide }: ProductCardProps) => {
                   .map(color => (
                     <span
                       key={color.id}
-                      className="inline-block w-2.5 h-2.5 rounded-xl border-gray-300 shadow border "
+                      className="inline-block w-2.5 h-2.5 rounded-xl border-gray-300 dark:border-gray-600 shadow border "
                       style={{ background: color.hashCode }}
                     ></span>
                   ))}
@@ -61,10 +61,10 @@ const ProductCard = ({ product, slide }: ProductCardProps) => {
             </div>
           </div>
           <div className="flex-1 space-y-5 sm:w-full">
-            <h2 className="hidden text-xs leading-6 text-gray-800 break-all h-14 xl:block">
+            <h2 className="hidden text-xs leading-6 text-gray-800 dark:text-gray-200 break-all h-14 xl:block">
               {truncate(product.title, 70)}
             </h2>
-            <h2 className="text-xs leading-6 text-gray-800 h-14 xl:hidden">
+            <h2 className="text-xs leading-6 text-gray-800 dark:text-gray-200 h-14 xl:hidden">
               {truncate(product.title, 90)}
             </h2>
             <div className="flex justify-between">

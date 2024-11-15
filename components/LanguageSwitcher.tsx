@@ -40,13 +40,13 @@ const LanguageSwitcher: React.FC = () => {
 
   return (
     <div
-      className="flex-center text-sm gap-x-2 cursor-pointer dropdown__button"
+      className="flex-center text-sm gap-x-2 cursor-pointer dropdown__button dark:text-gray-400"
       onClick={() => changeLanguage()}
     >
       {language === 'en' && <button>En</button>}
       {language === 'gr' && <button>Gr</button>}
       {language === 'zh' && <button>中文</button>}
-      <Icons.Translate className="icon" />
+      <Icons.Translate className="icon dark:text-gray-400" />
     </div>
   )
 }

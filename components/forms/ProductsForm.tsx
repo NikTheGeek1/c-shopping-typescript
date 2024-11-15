@@ -132,14 +132,14 @@ const ProductsForm = ({
         className="space-y-10"
       >
         <Tab.Group>
-          <Tab.List className="flex space-x-1 rounded-xl bg-slate-200 p-1">
+          <Tab.List className="flex space-x-1 rounded-xl bg-slate-200 dark:bg-slate-900 p-1">
             {tabListNames.map(item => (
               <Tab
                 key={item.id}
                 className={({ selected }) =>
                   `tab
                          ${selected
-                    ? 'bg-white shadow'
+                    ? 'bg-background shadow'
                     : 'text-blue-400 hover:bg-white/[0.12] hover:text-blue-600'
                   }
                         `

@@ -81,7 +81,7 @@ const Reviews = ({ numReviews, prdouctID, productTitle }: ReviewsProps) => {
               className="flex items-center w-full gap-x-5"
             >
               <Icons.Comment className="icon" />
-              <span className="text-sm text-black ">{dict.profile?.review?.write}</span>
+              <span className="text-sm text-black dark:text-white ">{dict.profile?.review?.write}</span>
               <Icons.ArrowRight2 className="ml-auto icon" />
             </button>
             <p className="mt-6 text-xs text-gray-500">{dict.profile?.review?.submit}</p>

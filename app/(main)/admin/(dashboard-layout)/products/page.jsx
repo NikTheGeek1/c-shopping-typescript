@@ -209,7 +209,7 @@ const Products = () => {
               <div className="flex flex-row-reverse rounded-md gap-x-2 ">
                 <button
                   type="button"
-                  className="p-2 text-white border flex-center gap-x-2 min-w-max"
+                  className="p-2 text-background border flex-center gap-x-2 min-w-max"
                   onClick={handleRemoveSearch}
                 >
                   <span>{dict.admin?.products.reset}</span>
@@ -218,7 +218,7 @@ const Products = () => {
                 <input
                   type="text"
                   placeholder={dict.admin?.products.product}
-                  className="flex-grow p-2 text-left input"
+                  className="flex-grow p-2 text-left input bg-background"
                   value={search}
                   onChange={handleSearchChange}
                 />
@@ -240,23 +240,23 @@ const Products = () => {
             >
               <div className="overflow-x mt-7">
                 <table className="w-full overflow-scroll table-auto">
-                  <thead className="h-9 bg-emerald-50">
-                    <tr className="text-emerald-500">
-                      <th className="border-gray-50 border-x-2">ID</th>
-                      <th className="border-gray-100 border-x-2">{dict.admin?.products.name}</th>
-                      <th className="border-gray-100 border-x-2">{dict.admin?.products.price}</th>
-                      <th className="border-gray-100 border-x-2">{dict.admin?.products.sales}</th>
-                      <th className="border-gray-100 border-x-2">
+                  <thead className="h-9 bg-emerald-50 dark:bg-emerald-950">
+                    <tr className="text-emerald-500 dark:text-emerald-700">
+                      <th className="border-gray-50 dark:border-gray-900 border-x-2 px-2">ID</th>
+                      <th className="border-gray-100 dark:border-gray-900 border-x-2 px-2">{dict.admin?.products.name}</th>
+                      <th className="border-gray-100 dark:border-gray-900 border-x-2 px-2">{dict.admin?.products.price}</th>
+                      <th className="border-gray-100 dark:border-gray-900 border-x-2 px-2">{dict.admin?.products.sales}</th>
+                      <th className="border-gray-100 dark:border-gray-900 border-x-2 px-2">
                         {dict.admin?.products.inventory}
                       </th>
-                      <th className="border-r-2 border-gray-100">{dict.admin?.products.action}</th>
+                      <th className="border-r-2 border-gray-100 dark:border-gray-700">{dict.admin?.products.action}</th>
                     </tr>
                   </thead>
                   <tbody className="text-gray-600">
                     {data?.data?.products.length > 0 &&
                       data?.data?.products.map(item => (
                         <tr
-                          className="text-xs text-center transition-colors border-b border-gray-100 md:text-sm hover:bg-gray-50"
+                          className="text-xs text-center transition-colors border-b border-gray-100 dark:border-gray-700 md:text-sm hover:bg-gray-50 dark:hover:bg-gray-900"
                           key={item._id}
                         >
                           <td className="px-2 py-4">{item._id}</td>

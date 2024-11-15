@@ -56,7 +56,7 @@ export default function Navbar() {
       />
 
       <div
-        className="absolute z-40 hidden w-full bg-background rounded-md shadow-lg border border-gray-100 top-8 group-hover:block"
+        className="absolute z-40 hidden w-full bg-background rounded-md shadow-lg border border-gray-100 dark:border-gray-800 top-8 group-hover:block"
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => {
           hanldeDeactive()
@@ -64,7 +64,7 @@ export default function Navbar() {
         }}
       >
         <div className="flex">
-          <ul className="border-l-2 border-gray-100 w-72">
+          <ul className="border-l-2 border-gray-100 dark:border-gray-800 w-72">
             {isLoading ? (
               <NavbarSkeleton />
             ) : categories ? (
@@ -73,7 +73,7 @@ export default function Navbar() {
                 .map(levelOneCategory => (
                   <li
                     key={levelOneCategory._id}
-                    className="w-full px-2 py-0.5 text-sm hover:bg-gray-100 group"
+                    className="w-full px-2 py-0.5 text-sm group hover:bg-gray-100 dark:hover:bg-gray-800"
                     onMouseOver={() => handleActive(levelOneCategory)}
                   >
                     <Link
@@ -103,7 +103,7 @@ export default function Navbar() {
                         <li key={levelTwoCategory._id} className="h-fit">
                           <Link
                             href={`/products?category=${levelTwoCategory.slug}`}
-                            className="flex-center px-2 mb-1 text-sm font-semibold tracking-wider text-gray-700 border-l-2 border-red-500"
+                            className="flex-center px-2 mb-1 text-sm font-semibold tracking-wider text-gray-700 dark:text-gray-200 border-l-2 border-red-500"
                           >
                             {levelTwoCategory.name}
                             <Icons.ArrowRight2 className="icon" />
@@ -115,7 +115,7 @@ export default function Navbar() {
                                 <li key={levelThreeCategory._id}>
                                   <Link
                                     href={`/products?category=${levelThreeCategory.slug}`}
-                                    className="px-3 text-xs font-medium text-gray-700"
+                                    className="px-3 text-xs font-medium text-gray-700 dark:text-gray-200"
                                   >
                                     {levelThreeCategory.name}
                                   </Link>

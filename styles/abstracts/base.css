@@ -86,7 +86,7 @@
     @apply text-sm lg:text-base font-normal leading-6 tracking-wide;
   }
   p {
-    @apply text-sm tracking-wide text-gray-700;
+    @apply text-sm tracking-wide text-gray-700 dark:text-gray-300;
   }
   button {
     @apply cursor-pointer inline-block;
@@ -96,6 +96,6 @@
   }
   label,
   span {
-    @apply text-xs text-gray-500 md:text-sm font-light;
+    @apply text-xs text-gray-500 dark:text-gray-400 md:text-sm font-light;
   }
 }

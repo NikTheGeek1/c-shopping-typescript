@@ -61,7 +61,7 @@ const MostFavouriteProducts = ({ categorySlug }: MostFavouriteProductsProps) => 
               ))
           : products?.map(product => (
               <Link key={product._id} href={`/products/${product._id}`}>
-                <article className="p-1 transition border border-gray-50 hover:border-gray-200 min-h-[248px]">
+                <article className="p-1 transition border border-gray-50 dark:border-gray-950 hover:border-gray-200 dark:hover:border-gray-900 rounded-md min-h-[248px]">
                   <div className="flex gap-x-1 ">
                     <span className="text-base">{product.rating.toFixed(1)}</span>
                     <Icons.Star className="w-5 h-5 md:w-7 md:h-7 text-amber-400 " />
@@ -73,12 +73,8 @@ const MostFavouriteProducts = ({ categorySlug }: MostFavouriteProductsProps) => 
                     src={product.images[0]?.url}
                     alt={product.title}
                   />
-                  <div
-                    className={`flex items-start mt-2 gap-x-2 ${
-                      product.discount ? 'justify-evenly' : 'justify-end pl-8'
-                    }`}
-                  >
-                    {product.discount ? <DiscountProduct discount={product.discount} /> : null}
+                  <div className={`flex items-start mt-2 gap-x-2 justify-evenly`}>
+                     <DiscountProduct discount={product.discount} />
                     <ProductPrice
                       inStock={product.inStock}
                       discount={product.discount}

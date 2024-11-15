@@ -18,7 +18,7 @@ export const sorts = [
 ]
 export const ratingStatus = ['', 'Worst', 'Bad', 'Average', 'Good', 'Excellent']
 
-export const siteTitle = 'Selected Goodies'
+export const siteTitle = 'Goodies'
 export const enSiteTitle = 'C-Shopping'
 
 export const siteDescription = `Buy everything you need at the best prices from ${siteTitle}! Latest phones, laptops, clothes, cosmetics, books, home appliances, cars, and more, easy exchange | ✓Free shipping ✓Cash on delivery ✓Return guarantee - Click to buy!`

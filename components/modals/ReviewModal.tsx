@@ -123,7 +123,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
       <Modal isShow={isShow} onClose={onClose} effect="bottom-to-top">
         <Modal.Content
           onClose={onClose}
-          className="flex flex-col h-full lg:h-[770px] pl-2 pr-4 py-3 bg-white md:rounded-lg gap-y-3"
+          className="flex flex-col h-full lg:h-[770px] pl-2 pr-4 py-3 bg-background md:rounded-lg gap-y-3"
         >
           <Modal.Header onClose={onClose}>
             {dict.profile?.review?.modal?.leave} {productTitle}{' '}
@@ -137,7 +137,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
               {/* rating */}
               <div>
                 <div className="my-2 text-center">
-                  <span className="text-sm text-black">{dict.profile?.review?.modal?.rating}‌</span>
+                  <span className="text-sm text-black dark:text-white">{dict.profile?.review?.modal?.rating}‌</span>
                   <span className="px-1 text-sm text-sky-500">{ratingStatus[rating]}</span>
                 </div>
                 <input
@@ -148,7 +148,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
                   max="5"
                   step="1"
                   value={rating}
-                  className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer "
+                  className="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-lg cursor-pointer "
                   onChange={e => {
                     setRating(+e.target.value)
                   }}
@@ -159,7 +159,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
                     .map((_, i) => (
                       <span
                         key={i}
-                        className="h-1 w-1 rounded-full mx-1.5 bg-gray-300 inline-block"
+                        className="h-1 w-1 rounded-full mx-1.5 bg-gray-300 dark:bg-gray-700 inline-block"
                       />
                     ))}
                 </div>
@@ -177,7 +177,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
               <div className="space-y-3">
                 <div className="space-y-3">
                     <label
-                    className="text-xs text-gray-700 lg:text-sm md:min-w-max"
+                    className="text-xs text-gray-700 dark:text-gray-200 lg:text-sm md:min-w-max"
                     htmlFor="positivePoints"
                   >
                     {dict.profile?.review?.modal?.pros}
@@ -218,7 +218,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
               <div className="space-y-3">
                 <div className="space-y-3">
                     <label
-                    className="text-xs text-gray-700 lg:text-sm md:min-w-max"
+                    className="text-xs text-gray-700 dark:text-gray-200 lg:text-sm md:min-w-max"
                     htmlFor="negativePoints"
                   >
                     {dict.profile?.review?.modal?.cons}
@@ -258,7 +258,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
 
               {/* comment */}
               <div className="space-y-3 ">
-                <label className="text-xs text-gray-700 lg:text-sm md:min-w-max" htmlFor="comment">
+                <label className="text-xs text-gray-700 dark:text-gray-200 lg:text-sm md:min-w-max" htmlFor="comment">
                   {dict.profile?.review?.modal?.text}
                 </label>
                 <textarea
@@ -269,7 +269,7 @@ const ReviewModal = ({ isShow, onClose, productTitle, prdouctID }: ReviewModalPr
                 <DisplayError errors={formErrors.comment} />
               </div>
 
-              <div className="py-3 border-t-2 border-gray-200 lg:pb-0 ">
+              <div className="py-3 border-t-2 border-gray-200 dark:border-gray-700 lg:pb-0 ">
                 <SubmitModalBtn isLoading={isLoading}>
                   {dict.profile?.review?.modal?.submit}
                 </SubmitModalBtn>

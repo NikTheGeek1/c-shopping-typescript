@@ -17,7 +17,7 @@ export default function BoxLink({ children, path, name }: BoxLinkProps) {
   //? Render(s)
   return (
     <div
-      className={`transition-colors hover:bg-gray-200 px-3 ${asPath === path ? 'border-r-4 border-red-600' : 'border-r-4 border-white'
+      className={`transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 px-3 ${asPath === path ? 'border-r-4 border-red-600' : 'border-r-4 border-white'
         }`}
     >
       <Link
@@ -25,8 +25,8 @@ export default function BoxLink({ children, path, name }: BoxLinkProps) {
         className="flex-center py-4 mx-4 text-xs font-medium text-gray-700 border-t border-gray-300 gap-x-1 md:text-sm"
       >
         {children}
-        <span className="mr-auto ml-3 text-gray-700">{name}</span>
-        <Icons.ArrowRight2 className="icon text-gray-700  lg:mr-3" />
+        <span className="mr-auto ml-3 text-gray-700 dark:text-gray-200">{name}</span>
+        <Icons.ArrowRight2 className="icon text-gray-700 dark:text-gray-200 lg:mr-3" />
       </Link>
     </div>
   )

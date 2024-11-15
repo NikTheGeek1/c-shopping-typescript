@@ -47,7 +47,7 @@ const Categories = ({ homePage, childCategories, color, name }: CategoriesProps)
                   src={item.image}
                   alt={item.name}
                 />
-                <span className="text-sm text-black">{item.name}</span>
+                <span className="text-sm text-black dark:text-white">{item.name}</span>
               </Link>
             </div>
           ))}

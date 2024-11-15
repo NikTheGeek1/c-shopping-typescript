@@ -13,6 +13,7 @@
       "placeholder": "Good things waiting for you, search...",
       "modal": {
         "title": "Search",
+        "placeholder": "Products...",
         "empty": {
           "title": "Results not found",
           "description": "Use more words or check input properties",
@@ -44,7 +45,7 @@
       "goto": "Go to payment",
       "empty": "Your shopping cart is empty!",
       "seller": "Seller",
-      "quality": "Authenticity and Shipping Guarantee",
+      "quality": "Authenticity Guarantee",
       "sold": "Sold"
     },
     "signup": {

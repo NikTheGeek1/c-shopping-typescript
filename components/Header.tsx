@@ -18,7 +18,7 @@ export default function Header() {
               <ThemeToggle />
               <LanguageSwitcher />
               <Signup />
-              <span className="hidden lg:block bg-gray-300 w-0.5 h-8" />
+              <span className="hidden lg:block bg-gray-300 dark:bg-gray-700 w-0.5 h-8" />
               <Cart />
             </div>
           </div>

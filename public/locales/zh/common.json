@@ -13,6 +13,7 @@
       "placeholder": "善假于物，用好搜索...",
       "modal": {
         "title": "搜索",
+        "placeholder": "商品...",
         "empty": {
           "title": "没有找到结果",
           "description": "使用更多可变单词或检查输入属性",

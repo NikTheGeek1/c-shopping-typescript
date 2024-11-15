@@ -52,24 +52,24 @@ export default function CategoriesPage() {
             </Link>
           </div>
 
-          <div className=" overflow-x-auto mt-7 ">
-            <table className="w-full whitespace-nowrap">
-              <thead className="h-9 bg-emerald-50">
-                <tr className="text-emerald-500">
-                  <th className="px-2 border-gray-100 border-x-2">{`${dict.admin?.category
+          <div className="overflow-x-auto mt-7">
+            <table className="w-full whitespace-nowrap table-auto">
+              <thead className="h-9 bg-emerald-50 dark:bg-emerald-950">
+                <tr className="text-emerald-500 dark:text-emerald-700">
+                  <th className="px-2 border-gray-100 dark:border-gray-900 border-x-2">{`${dict.admin?.category
                     .category}${dict.lang === '中文' ? '' : ' '}${dict.admin?.category.name}`}</th>
-                  <th className="border-gray-100 border-x-2">{dict.admin?.category.action}</th>
+                  <th className="border-gray-100 dark:border-gray-900 border-x-2">{dict.admin?.category.action}</th>
                 </tr>
               </thead>
               <tbody className="text-gray-600">
                 {childCategories && childCategories.length > 0 ? (
                   childCategories?.map(category => (
                     <tr
-                      className="text-xs text-center transition-colors border-b border-gray-100 md:text-sm hover:bg-gray-50/50 "
+                      className="text-xs text-center transition-colors border-b border-gray-100 dark:border-gray-700 md:text-sm hover:bg-gray-50 dark:hover:bg-gray-900"
                       key={category._id}
                     >
                       <td className="w-2/4 px-2 py-4">{category.name}</td>
-                      <td className=" gap-3 px-2 py-4">
+                      <td className="gap-3 px-2 py-4">
                         {category.level !== 3 && (
                           <Link
                             href={`/admin/categories?parent_id=${category._id}&parent_lvl=${category.level}`}

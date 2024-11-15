@@ -40,12 +40,12 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
 
       {/* desktop */}
       <div
-        className={`hidden divide-y lg:col-start-8 lg:col-end-10 lg:row-start-2 lg:row-end-5 lg:rounded-lg lg:bg-gray-100 lg:flex lg:flex-col   xl:row-end-5 lg:px-3 lg:py-1.5 lg:border lg:border-gray-200 lg:shadow lg:sticky ${
+        className={`hidden divide-y lg:col-start-8 lg:col-end-10 lg:row-start-2 lg:row-end-5 lg:rounded-lg lg:bg-gray-100 dark:lg:bg-gray-900 lg:flex lg:flex-col   xl:row-end-5 lg:px-3 lg:py-1.5 lg:border lg:border-gray-200 dark:lg:border-gray-800 lg:shadow lg:sticky ${
           second ? 'lg:top-4 xl:top-32' : 'lg:top-60 xl:top-[260px]'
         } `}
       >
         <div className="items-center justify-between hidden space-y-2 lg:py-3 lg:flex">
-          <span className="text-base text-black">{dict.header?.cart.seller} :</span>
+          <span className="text-base text-black dark:text-white">{dict.header?.cart.seller}:</span>
           <div className="flex gap-x-2">
             <Image src="/icons/mini-logo.png" width={24} height={24} alt={siteTitle} />
             <span>{siteTitle}</span>
@@ -83,7 +83,7 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
 
         <div className="py-3 lg:items-center lg:gap-x-2 lg:flex">
           <Icons.ShieldCheck className="icon" />
-          <span className="font-light">{dict.header?.cart.quality} :</span>
+          <span className="font-light">{dict.header?.cart.quality}</span>
         </div>
 
         <div className="lg:block lg:py-3 ">
@@ -92,7 +92,7 @@ const AddToCart = ({ second, product }: AddToCartProps) => {
 
         <div className="lg:flex lg:items-center lg:gap-x-1 lg:py-3">
           <Icons.Check className="icon" />
-          <span> {dict.header?.cart?.sold} :</span>
+          <span> {dict.header?.cart?.sold}:</span>
           <span className="">{formatNumber(product.sold)}</span>
         </div>
 

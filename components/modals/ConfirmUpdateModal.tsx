@@ -20,7 +20,7 @@ const ConfirmUpdateModal = ({ title, isLoading, isShow, onClose, onConfirm, onCa
     <Modal isShow={isShow} onClose={onClose} effect="ease-out">
       <Modal.Content onClose={onClose}>
         <Modal.Body>
-          <div className="px-3 py-6 space-y-4 text-center bg-white md:rounded-lg">
+          <div className="px-3 py-6 space-y-4 text-center bg-background md:rounded-lg">
             <p>
               {dict.admin?.category.confirmation}
               <span className="font-bold text-green-500">{title}</span>

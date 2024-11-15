@@ -29,14 +29,14 @@ export default function UserDropdown({ name }: UserDropdownProps) {
       >
         <Menu.Items className="w-56 dropdown__items">
           <Menu.Item>
-            <div className="transition-colors hover:bg-gray-100">
+            <div className="transition-colors hover:bg-gray-100 dark:hover:bg-gray-700">
               <Link
                 href="/profile"
-                className="px-7 py-4 flex justify-between items-center text-xs font-medium text-gray-700 flex-center gap-x-1 md:text-sm"
+                className="px-7 py-4 flex justify-between items-center text-xs font-medium text-gray-700 dark:text-gray-400 flex-center gap-x-1 md:text-sm"
               >
                 <Person className="w-6 h-6" />
-                <span className="text-gray-700 flex-auto ml-3">{name}</span>
-                <Icons.ArrowRight2 className="text-gray-700 icon" />
+                <span className="text-gray-700 dark:text-gray-400 flex-auto ml-3">{name}</span>
+                <Icons.ArrowRight2 className="text-gray-700 dark:text-gray-400 icon" />
               </Link>
             </div>
           </Menu.Item>

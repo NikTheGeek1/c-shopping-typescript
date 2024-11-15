@@ -74,7 +74,7 @@ const SingleProduct = async ({ params }: Props) => {
         />
         <div className="lg:col-span-4 ">
           {/* title */}
-          <h2 className="p-3 text-base font-semibold leading-8 tracking-wide text-black/80 ">
+          <h2 className="p-3 text-base font-semibold leading-8 tracking-wide text-black/80 dark:text-white/80 ">
             {product.title}
           </h2>
 

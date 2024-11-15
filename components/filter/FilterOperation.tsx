@@ -95,7 +95,7 @@ const FilterOperation = ({ mainMinPrice, mainMaxPrice, handleChangeRoute, onClos
           onClick={handleResetFilters}
           disabled={!canReset}
         >
-          删除过滤器
+          Clear Filters
         </button>
       </div>
 
@@ -104,20 +104,20 @@ const FilterOperation = ({ mainMinPrice, mainMaxPrice, handleChangeRoute, onClos
           name="inStock"
           checked={filters.inStock}
           onChange={handlefilter}
-          label="仅限库存商品"
+          label="In Stock"
         />
 
         <CustomCheckbox
           name="discount"
           checked={filters.discount}
           onChange={handlefilter}
-          label="仅限特价商品"
+          label="Discount Only"
         />
 
         <div className="py-4">
-          <span className="font-medium text-gray-700">价格范围</span>
+          <span className="font-medium text-gray-700">Price Range</span>
           <div className="flex items-center justify-between gap-x-1">
-            <span className="text-base">从</span>
+            <span className="text-base">From</span>
             <input
               type="number"
               className="w-3/4 px-1 text-xl text-left border-b border-gray-200 outline-none"
@@ -129,7 +129,7 @@ const FilterOperation = ({ mainMinPrice, mainMaxPrice, handleChangeRoute, onClos
             <span className="w-6 h-6">€</span>
           </div>
           <div className="flex items-center justify-between mt-2 mb-4 gap-x-1">
-            <span className="text-base">到</span>
+            <span className="text-base">To</span>
             <input
               type="number"
               className="w-3/4 px-1 text-xl text-left border-b border-gray-200 outline-none"
@@ -138,7 +138,6 @@ const FilterOperation = ({ mainMinPrice, mainMaxPrice, handleChangeRoute, onClos
               value={filters.maxPrice || 0}
               onChange={handlefilter}
             />
-
             <span className="w-6 h-6">€</span>
           </div>
         </div>

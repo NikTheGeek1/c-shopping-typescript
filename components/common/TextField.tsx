@@ -31,13 +31,13 @@ export default function TextField({ label, errors, name, type = 'text', control,
   return (
     <div>
       {label && (
-        <label className="block text-xs text-gray-700 lg:text-sm md:min-w-max mb-3" htmlFor={name}>
+        <label className="block text-xs text-gray-700 dark:text-gray-200 lg:text-sm md:min-w-max mb-3" htmlFor={name}>
           {label}
         </label>
       )}
       <input
         style={{ direction: `${direction === 'ltr' ? 'ltr' : 'unset'}` }}
-        className="block w-full px-3 py-1.5 text-base transition-colors border border-gray-200 rounded-md outline-none bg-zinc-50/30 lg:text-lg focus:border-blue-600"
+        className="block w-full px-3 py-1.5 text-base transition-colors border border-gray-200 dark:border-gray-700 rounded-md outline-none bg-zinc-50/30 lg:text-lg focus:border-blue-600"
         id={name}
         type={type}
         value={field?.value ?? ''}

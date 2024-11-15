@@ -66,20 +66,20 @@ const SearchModal = ({ isShow, onClose }: SearchModalProps) => {
     <Modal isShow={isShow} onClose={onClose} effect="bottom-to-top">
       <Modal.Content
         onClose={onClose}
-        className="flex flex-col h-screen py-3 pl-2 pr-4 bg-white lg:h-fit md:rounded-lg gap-y-3"
+        className="flex flex-col h-screen py-3 pl-2 pr-4 bg-background lg:h-fit md:rounded-lg gap-y-3"
       >
         <Modal.Header onClose={onClose}>
           {translation?.dict?.header?.search.modal.title}
         </Modal.Header>
         <Modal.Body>
-          <div className="flex flex-row my-3 rounded-md bg-zinc-200/80">
+          <div className="flex flex-row my-3 rounded-md bg-zinc-200/80 dark:bg-zinc-800/80">
             <div className="p-2">
               <Icons.Search className="icon  text-gray-500" />
             </div>
             <input
               type="text"
-              placeholder={translation?.dict?.header?.search.modal.title}
-              className="flex-grow p-1 text-left bg-transparent outline-none input focus:border-none"
+              placeholder={translation?.dict?.header?.search.modal.placeholder}
+              className="flex-grow p-1 text-left bg-transparent outline-none input focus:border-none border-none"
               value={search}
               onChange={handleChange}
             />

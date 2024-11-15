@@ -29,7 +29,7 @@ interface SimilarProductsSliderProps {
 const SimilarProductsSlider = ({ similarProducts }: SimilarProductsSliderProps) => {
   //? Render(s)
   return (
-    <section className="px-3 py-4 overflow-hidden lg:border lg:border-gray-100 lg:rounded-md">
+    <section className="px-3 py-4 overflow-hidden lg:border lg:border-gray-100 dark:lg:border-gray-900 lg:rounded-md">
       <h4 className="mb-3 lg:border-b-2 lg:border-red-500 w-24">{similarProducts.title}</h4>
       <Swiper
         navigation={true}
